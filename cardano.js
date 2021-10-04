@@ -2,7 +2,7 @@ const CardanocliJs = require("cardanocli-js");
 const os = require("os");
 const path = require("path");
 
-const dir = path.join(os.homedir(), "cardano-minting-engine/nodeJsApi");
+const dir = path.join(os.homedir(), "cryptoMuseumMintingServer");
 
 const shelleyPath = path.join(
   os.homedir(),
