@@ -1,14 +1,11 @@
 const express = require('express');
 const router = express.Router();
-//const balance = require('./get-balance')
 const cardano = require("./cardano")
 const metadataArray = require ("./metadatas")
 const list = require ("./listOfValues")
 const fs = require("fs");
 
-const secondWallet = cardano.wallet("cryptoMuseumFinal")
-
-const wallet = cardano.wallet("cryptoMuseum")
+const wallet = cardano.wallet("cryptoMuseumFORREAL")
 const sender = wallet;
 const mintScript = {
   keyHash: cardano.addressKeyHash(wallet.name),
@@ -16,7 +13,6 @@ const mintScript = {
 }
 const POLICY_ID = cardano.transactionPolicyid(mintScript);
 
-let localFee = 0;
 
 const quantitysArray = [
   4,
@@ -172,127 +168,6 @@ function mintAsset(_metadata, value, addressToSend) {
 
 }
 
-function sendAssetBack(receiver, asset, value) {
-
-
-  uxtoArray = cardano.queryUtxo(sender.paymentAddr)
-
-  console.log(value)
-
-  let txIn = uxtoArray.find(element => element.value.lovelace.toString() === value.toString() )
-
-  const txInfo = {
-    txIn: [txIn],
-    txOut: [
-      {
-        address: sender.paymentAddr,
-        value: {
-          lovelace: txIn.value.lovelace - cardano.toLovelace(2)
-        }
-      },
-      {
-        address: receiver,
-        value: {
-          lovelace: cardano.toLovelace(2),
-          [asset] : 1
-        }
-      }
-    ]
-  }
-
-
-  let str = JSON.stringify(txInfo, null, 4); // (Optional) beautiful indented output.
-  console.log(str); // Logs output to dev tools console.
-
-  const raw = cardano.transactionBuildRaw(txInfo)
-
-  const fee = cardano.transactionCalculateMinFee({
-    ...txInfo,
-    txBody: raw,
-    witnessCount: 1
-  })
-
-  localFee =  fee;
-
-  txInfo.txOut[0].value.lovelace -= fee
-
-  const tx = cardano.transactionBuildRaw({ ...txInfo, fee })
-
-  const txSigned = cardano.transactionSign({
-    txBody: tx,
-    signingKeys: [sender.payment.skey]
-  })
-
-  return txSigned
-
- // const txHash = cardano.transactionSubmit(txSigned)
-
- // console.log(txHash)
-}
-
-
-
-
-
-router.get('/', (req,res) => {
-  return res.status(200).json({"Message":"Working"});
-})
-
-router.get ('/test', (req,res) => {
-  return res.status(200).json({"message":"test working"});
-})
-
-router.post ('/test', async (req,res) => {
-
-    const receiver = "addr1qy8r232m544lpzm559x374mwr7fq72h7wlssa2wsk86d4nr69e7t4nvg7tvw64hweuzxwrpw756vlm8xdt9xm2rc99xsta3jq5"
-    const txInfo = {
-        txIn: cardano.queryUtxo(secondWallet.paymentAddr),
-        txOut: [
-            {
-                address: secondWallet.paymentAddr,
-                value: {
-                    lovelace: secondWallet.balance().value.lovelace - cardano.toLovelace(1.5)
-                }
-            },
-            {
-                address: receiver,
-                value: {
-                    lovelace: cardano.toLovelace(1.5),
-                    "065e9c59288aaa6bd64c839aae9c534965a4546a62321adb7c3f6efe.VitruvianMan" : 2
-                }
-            }
-        ]
-    }
-
-    console.log(txInfo);
-
-    const raw = cardano.transactionBuildRaw(txInfo)
-
-    const fee = cardano.transactionCalculateMinFee({
-                                                       ...txInfo,
-                                                       txBody: raw,
-                                                       witnessCount: 1
-                                                   })
-
-    txInfo.txOut[0].value.lovelace -= fee
-
-    const tx = cardano.transactionBuildRaw({ ...txInfo, fee })
-
-    const txSigned = cardano.transactionSign({
-                                                 txBody: tx,
-                                                 signingKeys: [secondWallet.payment.skey]
-                                             })
-
-    const txHash = cardano.transactionSubmit(txSigned)
-
-    console.log(txHash)
-
-
-    return res.status(200).json({"message":"working"});
-})
-
-
-
 
 router.post('/isItAvaibleToMint', (req,res) => {
   if (quantitysArray[req.body.number] <= 0) {
@@ -357,43 +232,9 @@ router.get('/video/:id', (req, res) => {
 
   res.writeHead(206, headers);
 
-  // create video read stream for this particular chunk
   const videoStream = fs.createReadStream(videoPath, { start, end });
 
-  // Stream the video chunk to the client
   videoStream.pipe(res)
-
-  /*
-  const { movieName } = req.params;
-   const movieFile = `./movies/${movieName}`;
-   fs.stat(movieFile, (err, stats) => {
-     if (err) {
-       console.log(err);
-       return res.status(404).end('<h1>Movie Not found</h1>');
-     }
-     // Variáveis necessárias para montar o chunk header corretamente
-     const { range } = req.headers;
-     const { size } = stats;
-     const start = Number((range || '').replace(/bytes=/, '').split('-')[0]);
-     const end = size - 1;
-     const chunkSize = (end - start) + 1;
-     // Definindo headers de chunk
-     res.set({
-       'Content-Range': `bytes ${start}-${end}/${size}`,
-       'Accept-Ranges': 'bytes',
-       'Content-Length': chunkSize,
-       'Content-Type': 'video/mp4'
-     });
-     // É importante usar status 206 - Partial Content para o streaming funcionar
-     res.status(206);
-     // Utilizando ReadStream do Node.js
-     // Ele vai ler um arquivo e enviá-lo em partes via stream.pipe()
-     const stream = fs.createReadStream(movieFile, { start, end });
-     stream.on('open', () => stream.pipe(res));
-   */
-
-
-
 
 })
 
