@@ -118,7 +118,7 @@ function mintAsset(_metadata, value, addressToSend) {
               {
                   address: sender.paymentAddr,
                   value: {
-                      lovelace: txIn.value.lovelace - (nicola + michel + cardano.toLovelace(2.5)) //cardano.toLovelace(2.5)
+                      lovelace: txIn.value.lovelace - (+nicola + +michel + +cardano.toLovelace(2.5)) //cardano.toLovelace(2.5)
                   }
               },
               {
