@@ -43,7 +43,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "Vitruvian Man Frame",
-                src: "ipfs://QmS1uFpZ2gbwmjLMpWndZBWS9iFQWQji6ceXTWgF1c7Bt3"
+                src: "ipfs://QmaYTUXJirqyxgmuD63Avh7SVdwkZopKwefNguRRmUf8tS"
             }
         ],
         image: "ipfs://QmePq7pM8TwNJwLmFfCU722y3SzrY2Psh7o6ZsDXwWRttq",

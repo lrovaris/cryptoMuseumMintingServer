@@ -128,7 +128,7 @@ function sendAssetBack(receiver, asset, value) {
   console.log(value)
 
   let txIn = uxtoArray.find(element => element.value.lovelace.toString() === value.toString() )
-  
+
   const txInfo = {
     txIn: [txIn],
     txOut: [
