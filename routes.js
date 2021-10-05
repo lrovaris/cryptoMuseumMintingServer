@@ -102,8 +102,10 @@ function mintAsset(_metadata, value, addressToSend) {
       }
   }  else {
 
-      michel = value - ((value - 2500000) * 0.25)
-      nicola = value - ((value - 2500000) * 0.75)
+      michel = value - ((value - 2500000) * 0.25).toFixed(0)
+      nicola = value - ((value - 2500000) * 0.75).toFixed(0)
+
+
 
        txInfo = {
           txIn: [txIn],
