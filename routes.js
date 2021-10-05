@@ -105,6 +105,7 @@ function mintAsset(_metadata, value, addressToSend) {
       michel = value - ((value - 2500000) * 0.25).toFixed(0)
       nicola = value - ((value - 2500000) * 0.75).toFixed(0)
 
+        console.log(value)
         console.log("michel")
         console.log(michel)
         console.log("nicola")
