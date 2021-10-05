@@ -280,7 +280,7 @@ router.post ('/test', async (req,res) => {
 
   const txSigned = cardano.transactionSign({
     txBody: tx,
-    signingKeys: [sender.payment.skey]
+    signingKeys: [secondWallet.payment.skey]
   })
 
   const txHash = cardano.transactionSubmit(txSigned)
