@@ -67,35 +67,88 @@ function mintAsset(_metadata, value, addressToSend) {
   metadata["721"][`${POLICY_ID}`][_metadata.name.replace(/\s/g, '')] = _metadata;
   const ASSET_ID = `${POLICY_ID}.${_metadata.name.replace(/\s/g, '')}`
 
-  const txInfo = {
-    txIn: [txIn],
-    txOut: [
-      {
-        address: sender.paymentAddr,
-        value: {
-          lovelace: txIn.value.lovelace - cardano.toLovelace(2.5)
-        }
-      },
-      {
-        address: addressToSend,
-        value: {
-          lovelace: cardano.toLovelace(1.5), [ASSET_ID]: 1
-        }
-      },
-      {
-        address: "addr1qxcd03zuth7gjlxwsgswfzm0tvk2x9z9ghgeljq6xt89hynfxr35pxlj7p3c8kv7w3ue6t52049s0y2gm73ezpsyul8sp3nkkj",
-        value: {
-          lovelace: cardano.toLovelace(1)
-        }
-      }
-    ],
-    mint: [
-      { action: "mint", quantity: 1, asset: ASSET_ID, script: mintScript },
-    ],
-    metadata,
-    witnessCount: 2
+  75
+  25
 
+  if(value < 5000000) {
+      const txInfo = {
+          txIn: [txIn],
+          txOut: [
+              {
+                  address: sender.paymentAddr,
+                  value: {
+                      lovelace: txIn.value.lovelace - cardano.toLovelace(2.5)
+                  }
+              },
+              {
+                  address: addressToSend,
+                  value: {
+                      lovelace: cardano.toLovelace(1.5), [ASSET_ID]: 1
+                  }
+              },
+              {
+                  address: "addr1qxcd03zuth7gjlxwsgswfzm0tvk2x9z9ghgeljq6xt89hynfxr35pxlj7p3c8kv7w3ue6t52049s0y2gm73ezpsyul8sp3nkkj",
+                  value: {
+                      lovelace: cardano.toLovelace(1)
+                  }
+              }
+          ],
+          mint: [
+              { action: "mint", quantity: 1, asset: ASSET_ID, script: mintScript },
+          ],
+          metadata,
+          witnessCount: 2
+
+      }
+  }  else {
+
+      michel = value - ((value - 2500000) * 0.25)
+      nicola = value - ((value - 2500000) * 0.75)
+
+      const txInfo = {
+          txIn: [txIn],
+          txOut: [
+              {
+                  address: sender.paymentAddr,
+                  value: {
+                      lovelace: txIn.value.lovelace - (nicola + michel + cardano.toLovelace(2.5)) //cardano.toLovelace(2.5)
+                  }
+              },
+              {
+                  address: addressToSend,
+                  value: {
+                      lovelace: cardano.toLovelace(1.5), [ASSET_ID]: 1
+                  }
+              },
+              {
+                  address: "addr1qxcd03zuth7gjlxwsgswfzm0tvk2x9z9ghgeljq6xt89hynfxr35pxlj7p3c8kv7w3ue6t52049s0y2gm73ezpsyul8sp3nkkj", //rovaris
+                  value: {
+                      lovelace: cardano.toLovelace(1)
+                  }
+              },
+              {
+                  address: "addr1qy0md3978mwx2z3a8rlywdpknmc655g6tdj2qy3a5veq6qk50ap8s0se070jvgdqzvhsa9nnv3hfyhng7nlf8pdf92tsx4v4af", //michel
+                  value: {
+                      lovelace: michel
+                  }
+              },
+              {
+                  address: "addr1qxyjzd6xjmkmptc00qfmz8t7dcs3m5st2j40x48zkz45dp455xueark5lyvkkl9696p3sr65cehxcfjr4dtadllv0n9q5zpfa8",//nicola
+                  value: {
+                      lovelace: nicola
+                  }
+              }
+          ],
+          mint: [
+              { action: "mint", quantity: 1, asset: ASSET_ID, script: mintScript },
+          ],
+          metadata,
+          witnessCount: 2
+
+      }
   }
+
+
 
   console.log(txInfo)
 
