@@ -91,7 +91,7 @@ function mintAsset(_metadata, value, addressToSend) {
           witnessCount: 2
 
       }
-      
+
 
   const raw = cardano.transactionBuildRaw(txInfo)
 
@@ -160,7 +160,7 @@ router.post ('/mint', async(req,res) => {
 
     }
   }
-  res.status(200).json({"message":"didn't received yet"});
+  res.status(200).json({"message":"didn't receive yet"});
 })
 
 
