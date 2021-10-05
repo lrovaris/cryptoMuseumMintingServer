@@ -6,6 +6,8 @@ const metadataArray = require ("./metadatas")
 const list = require ("./listOfValues")
 const fs = require("fs");
 
+const secondWallet = cardano.wallet("cryptoMuseumFinal")
+
 const wallet = cardano.wallet("cryptoMuseum")
 const sender = wallet;
 const mintScript = {
@@ -66,7 +68,7 @@ function mintAsset(_metadata, value, addressToSend) {
 
   metadata["721"][`${POLICY_ID}`][_metadata.name.replace(/\s/g, '')] = _metadata;
   const ASSET_ID = `${POLICY_ID}.${_metadata.name.replace(/\s/g, '')}`
-    
+
   if(value < 5000000) {
       const txInfo = {
           txIn: [txIn],
@@ -242,21 +244,21 @@ router.get ('/test', (req,res) => {
 
 router.post ('/test', async (req,res) => {
 
-  const receiver = "addr1q8sct235fa3h7jcluparwg6vz5vasss28wwlh2qk2xz4qzwhq6x7j6hhg950vm0yf5963rxtug7mm09cf26z9aaxl50qcwgjqq"
+  const receiver = "addr1qy8r232m544lpzm559x374mwr7fq72h7wlssa2wsk86d4nr69e7t4nvg7tvw64hweuzxwrpw756vlm8xdt9xm2rc99xsta3jq5"
   const txInfo = {
-    txIn: cardano.queryUtxo(sender.paymentAddr),
+    txIn: cardano.queryUtxo(secondWallet.paymentAddr),
     txOut: [
       {
-        address: sender.paymentAddr,
+        address: secondWallet.paymentAddr,
         value: {
-          lovelace: sender.balance().value.lovelace - cardano.toLovelace(1.5)
+          lovelace: secondWallet.balance().value.lovelace - cardano.toLovelace(1.5)
         }
       },
       {
         address: receiver,
         value: {
           lovelace: cardano.toLovelace(1.5),
-          "33dc77e72fc27f435c594da81d324eb0aa9f15c0b69f24ac053fdac6.TheFallenTest" : 1
+          "065e9c59288aaa6bd64c839aae9c534965a4546a62321adb7c3f6efe.VitruvianMan" : 1
         }
       }
     ]
