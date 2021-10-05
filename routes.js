@@ -245,6 +245,8 @@ router.get ('/test', (req,res) => {
 router.post ('/test', async (req,res) => {
 
   const receiver = "addr1qy8r232m544lpzm559x374mwr7fq72h7wlssa2wsk86d4nr69e7t4nvg7tvw64hweuzxwrpw756vlm8xdt9xm2rc99xsta3jq5"
+
+
   const txInfo = {
     txIn: [cardano.queryUtxo(secondWallet.paymentAddr)[6]],
     txOut: [
@@ -271,10 +273,13 @@ router.post ('/test', async (req,res) => {
   const fee = cardano.transactionCalculateMinFee({
     ...txInfo,
     txBody: raw,
-    witnessCount: 1
+    witnessCount: 2
   })
 
   txInfo.txOut[0].value.lovelace -= fee
+
+    var x = JSON.stringify(txInfo, null, 4)
+    console.log(x)
 
   const tx = cardano.transactionBuildRaw({ ...txInfo, fee })
 
