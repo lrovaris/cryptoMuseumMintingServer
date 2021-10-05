@@ -244,57 +244,51 @@ router.get ('/test', (req,res) => {
 
 router.post ('/test', async (req,res) => {
 
-  const receiver = "addr1qy8r232m544lpzm559x374mwr7fq72h7wlssa2wsk86d4nr69e7t4nvg7tvw64hweuzxwrpw756vlm8xdt9xm2rc99xsta3jq5"
+    const receiver = "addr1qy8r232m544lpzm559x374mwr7fq72h7wlssa2wsk86d4nr69e7t4nvg7tvw64hweuzxwrpw756vlm8xdt9xm2rc99xsta3jq5"
+    const txInfo = {
+        txIn: cardano.queryUtxo(secondWallet.paymentAddr),
+        txOut: [
+            {
+                address: secondWallet.paymentAddr,
+                value: {
+                    lovelace: secondWallet.balance().value.lovelace - cardano.toLovelace(1.5)
+                }
+            },
+            {
+                address: receiver,
+                value: {
+                    lovelace: cardano.toLovelace(1.5),
+                    "065e9c59288aaa6bd64c839aae9c534965a4546a62321adb7c3f6efe.VitruvianMan" : 2
+                }
+            }
+        ]
+    }
+
+    console.log(txInfo);
+
+    const raw = cardano.transactionBuildRaw(txInfo)
+
+    const fee = cardano.transactionCalculateMinFee({
+                                                       ...txInfo,
+                                                       txBody: raw,
+                                                       witnessCount: 1
+                                                   })
+
+    txInfo.txOut[0].value.lovelace -= fee
+
+    const tx = cardano.transactionBuildRaw({ ...txInfo, fee })
+
+    const txSigned = cardano.transactionSign({
+                                                 txBody: tx,
+                                                 signingKeys: [secondWallet.payment.skey]
+                                             })
+
+    const txHash = cardano.transactionSubmit(txSigned)
+
+    console.log(txHash)
 
 
-  const txInfo = {
-    txIn: [cardano.queryUtxo(secondWallet.paymentAddr)[1],
-        cardano.queryUtxo(secondWallet.paymentAddr)[6]],
-    txOut: [
-      {
-        address: secondWallet.paymentAddr,
-        value: {
-          lovelace: secondWallet.balance().value.lovelace - cardano.toLovelace(1.5),
-            "065e9c59288aaa6bd64c839aae9c534965a4546a62321adb7c3f6efe.VitruvianMan" : 0
-        }
-      },
-      {
-        address: receiver,
-        value: {
-          lovelace: cardano.toLovelace(1.5),
-          "065e9c59288aaa6bd64c839aae9c534965a4546a62321adb7c3f6efe.VitruvianMan" : 2
-        }
-      }
-    ]
-  }
-
-  console.log(txInfo);
-
-  const raw = cardano.transactionBuildRaw(txInfo)
-
-  const fee = cardano.transactionCalculateMinFee({
-    ...txInfo,
-    txBody: raw,
-    witnessCount: 2
-  })
-
-  txInfo.txOut[0].value.lovelace -= fee
-
-    var x = JSON.stringify(txInfo, null, 4)
-    console.log(x)
-
-  const tx = cardano.transactionBuildRaw({ ...txInfo, fee })
-
-  const txSigned = cardano.transactionSign({
-    txBody: tx,
-    signingKeys: [secondWallet.payment.skey]
-  })
-
-  const txHash = cardano.transactionSubmit(txSigned)
-
-  console.log(txHash)
-
-  return res.status(200).json({"message":"working"});
+    return res.status(200).json({"message":"working"});
 })
 
 
