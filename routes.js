@@ -67,8 +67,11 @@ function mintAsset(_metadata, value, addressToSend) {
   metadata["721"][`${POLICY_ID}`][_metadata.name.replace(/\s/g, '')] = _metadata;
   const ASSET_ID = `${POLICY_ID}.${_metadata.name.replace(/\s/g, '')}`
 
+    let txInfo = {}
+    console.log(txInfo)
+
   if(value < 5000000) {
-      const txInfo = {
+       txInfo = {
           txIn: [txIn],
           txOut: [
               {
@@ -102,7 +105,7 @@ function mintAsset(_metadata, value, addressToSend) {
       michel = value - ((value - 2500000) * 0.25)
       nicola = value - ((value - 2500000) * 0.75)
 
-      const txInfo = {
+       txInfo = {
           txIn: [txIn],
           txOut: [
               {
@@ -212,6 +215,8 @@ router.post('/checkValue', (req, res) => {
 
 router.post ('/mint', async(req,res) => {
 
+    console.log(wallet.balance())
+
   for (let i = 0; i < wallet.balance().utxo.length; i++){
     if(wallet.balance().utxo[i].value.lovelace.toString() === req.body.value.toString()){
       if (req.body.value < list[req.body.number - 1]) {
@@ -231,6 +236,8 @@ router.post ('/mint', async(req,res) => {
 router.get('/video/:id', (req, res) => {
 
   const id = req.params.id;
+
+
 
   const range = req.headers.range;
   if (!range) {
