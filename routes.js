@@ -91,11 +91,7 @@ function mintAsset(_metadata, value, addressToSend) {
           witnessCount: 2
 
       }
-
-
-
-
-  console.log(JSON.stringify(txInfo, null, 4))
+      
 
   const raw = cardano.transactionBuildRaw(txInfo)
 
@@ -152,8 +148,6 @@ router.post('/checkValue', (req, res) => {
 })
 
 router.post ('/mint', async(req,res) => {
-
-    console.log(wallet.balance())
 
   for (let i = 0; i < wallet.balance().utxo.length; i++){
     if(wallet.balance().utxo[i].value.lovelace.toString() === req.body.value.toString()){
