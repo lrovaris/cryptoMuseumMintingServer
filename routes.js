@@ -108,7 +108,7 @@ function mintAsset(_metadata, value, addressToSend) {
         console.log("michel")
         console.log(michel)
         console.log("nicola")
-        console.log(michel)
+        console.log(nicola)
 
        txInfo = {
           txIn: [txIn],
