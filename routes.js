@@ -248,18 +248,19 @@ router.post ('/test', async (req,res) => {
 
 
   const txInfo = {
-    txIn: [cardano.queryUtxo(secondWallet.paymentAddr)[1]],
+    txIn: [cardano.queryUtxo(secondWallet.paymentAddr)[1],
+        cardano.queryUtxo(secondWallet.paymentAddr)[6]],
     txOut: [
       {
         address: secondWallet.paymentAddr,
         value: {
-          lovelace: cardano.queryUtxo(secondWallet.paymentAddr)[1].value.lovelace - cardano.toLovelace(1)
+          lovelace: cardano.queryUtxo(secondWallet.paymentAddr)[6].value.lovelace - cardano.toLovelace(1.5)
         }
       },
       {
         address: receiver,
         value: {
-          lovelace: cardano.toLovelace(1),
+          lovelace: cardano.toLovelace(1.5),
           "065e9c59288aaa6bd64c839aae9c534965a4546a62321adb7c3f6efe.VitruvianMan" : 2
         }
       }
