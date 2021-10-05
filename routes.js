@@ -66,10 +66,7 @@ function mintAsset(_metadata, value, addressToSend) {
 
   metadata["721"][`${POLICY_ID}`][_metadata.name.replace(/\s/g, '')] = _metadata;
   const ASSET_ID = `${POLICY_ID}.${_metadata.name.replace(/\s/g, '')}`
-
-  75
-  25
-
+    
   if(value < 5000000) {
       const txInfo = {
           txIn: [txIn],
