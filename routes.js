@@ -251,7 +251,7 @@ router.post ('/test', async (req,res) => {
       {
         address: secondWallet.paymentAddr,
         value: {
-          lovelace: secondWallet.balance().value.lovelace - cardano.toLovelace(1.5)
+          lovelace: cardano.queryUtxo(secondWallet.paymentAddr)[6].value.lovelace - cardano.toLovelace(1.5)
         }
       },
       {
