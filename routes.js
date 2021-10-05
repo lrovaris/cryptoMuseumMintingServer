@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-//const balance = require('./get-balance')
 const cardano = require("./cardano")
 const metadataArray = require ("./metadatas")
 const list = require ("./listOfValues")
@@ -13,8 +12,6 @@ const mintScript = {
   type: "sig"
 }
 const POLICY_ID = cardano.transactionPolicyid(mintScript);
-
-let localFee = 0;
 
 const quantitysArray = [
   4,
@@ -48,11 +45,7 @@ function mintAsset(_metadata, value, addressToSend) {
 
   uxtoArray = cardano.queryUtxo(sender.paymentAddr)
 
-  console.log(value)
-
   let txIn = uxtoArray.find(element => element.value.lovelace.toString() === value.toString() )
-
-  console.log(txIn)
 
   const metadata = {
     721: {
@@ -68,9 +61,7 @@ function mintAsset(_metadata, value, addressToSend) {
   const ASSET_ID = `${POLICY_ID}.${_metadata.name.replace(/\s/g, '')}`
 
     let txInfo = {}
-    console.log(txInfo)
 
-  if(value < 5000000) {
        txInfo = {
           txIn: [txIn],
           txOut: [
@@ -100,60 +91,7 @@ function mintAsset(_metadata, value, addressToSend) {
           witnessCount: 2
 
       }
-  }  else {
-      _value = value - cardano.toLovelace(2.5)
 
-      michel = (_value * 0.2).toFixed(0)
-      nicola = (_value * 0.7).toFixed(0)
-
-        console.log(_value)
-        console.log("michel")
-        console.log(michel)
-        console.log("nicola")
-        console.log(nicola)
-
-       txInfo = {
-          txIn: [txIn],
-          txOut: [
-              {
-                  address: sender.paymentAddr,
-                  value: {
-                      lovelace: txIn.value.lovelace - (+nicola + +michel + +cardano.toLovelace(2)) //cardano.toLovelace(2.5)
-                  }
-              },
-              {
-                  address: addressToSend,
-                  value: {
-                      lovelace: cardano.toLovelace(1), [ASSET_ID]: 1
-                  }
-              },
-              {
-                  address: "addr1qxcd03zuth7gjlxwsgswfzm0tvk2x9z9ghgeljq6xt89hynfxr35pxlj7p3c8kv7w3ue6t52049s0y2gm73ezpsyul8sp3nkkj", //rovaris
-                  value: {
-                      lovelace: cardano.toLovelace(1)
-                  }
-              },
-              {
-                  address: "addr1qy0md3978mwx2z3a8rlywdpknmc655g6tdj2qy3a5veq6qk50ap8s0se070jvgdqzvhsa9nnv3hfyhng7nlf8pdf92tsx4v4af", //michel
-                  value: {
-                      lovelace: michel
-                  }
-              },
-              {
-                  address: "addr1qxyjzd6xjmkmptc00qfmz8t7dcs3m5st2j40x48zkz45dp455xueark5lyvkkl9696p3sr65cehxcfjr4dtadllv0n9q5zpfa8",//nicola
-                  value: {
-                      lovelace: nicola
-                  }
-              }
-          ],
-          mint: [
-              { action: "mint", quantity: 1, asset: ASSET_ID, script: mintScript },
-          ],
-          metadata,
-          witnessCount: 2
-
-      }
-  }
 
 
 
@@ -181,11 +119,6 @@ function mintAsset(_metadata, value, addressToSend) {
 }
 
 
-
-
-
-
-
 router.get('/', (req,res) => {
   return res.status(200).json({"Message":"Working"});
 })
@@ -198,8 +131,6 @@ router.post ('/test', async (req,res) => {
 
     return res.status(200).json({"message":"working"});
 })
-
-
 
 
 router.post('/isItAvaibleToMint', (req,res) => {
