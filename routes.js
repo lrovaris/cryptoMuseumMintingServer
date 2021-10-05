@@ -101,11 +101,12 @@ function mintAsset(_metadata, value, addressToSend) {
 
       }
   }  else {
+      _value = value - cardano.toLovelace(2.5)
 
-      michel = (value - ((value - 2500000) * 0.25).toFixed(0))
-      nicola = (value - ((value - 2500000) * 0.75).toFixed(0))
-
-        console.log(value)
+      michel = (_value * 0.25).toFixed(0)
+      nicola = (_value * 0.75).toFixed(0)
+     
+        console.log(_value)
         console.log("michel")
         console.log(michel)
         console.log("nicola")
