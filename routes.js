@@ -6,7 +6,7 @@ const metadataArray = require ("./metadatas")
 const list = require ("./listOfValues")
 const fs = require("fs");
 
-const wallet = cardano.wallet("cryptoMuseumFinal2")
+const wallet = cardano.wallet("cryptoMuseum")
 const sender = wallet;
 const mintScript = {
   keyHash: cardano.addressKeyHash(wallet.name),
@@ -128,11 +128,7 @@ function sendAssetBack(receiver, asset, value) {
   console.log(value)
 
   let txIn = uxtoArray.find(element => element.value.lovelace.toString() === value.toString() )
-
-  console.log("txIn")
-  console.log(txIn)
-  console.log("txIn")
-
+  
   const txInfo = {
     txIn: [txIn],
     txOut: [
@@ -291,20 +287,9 @@ router.get('/video/:id', (req, res) => {
   }
 
 
-
-
-
-  console.log("id")
-  console.log(id)
-  console.log("id")
-
-
-
   const videoPath = './videos/'+videos[id];
   const videoSize = fs.statSync(videoPath).size;
-  console.log("videoPath")
-  console.log(videoPath)
-  console.log("videoPath")
+
   const CHUNK_SIZE = 10 ** 6; // 1MB
   const start = Number(range.replace(/\D/g, ""));
   const end = Math.min(start + CHUNK_SIZE, videoSize - 1);
