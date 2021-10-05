@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+//const balance = require('./get-balance')
 const cardano = require("./cardano")
 const metadataArray = require ("./metadatas")
 const list = require ("./listOfValues")
@@ -13,6 +14,7 @@ const mintScript = {
 }
 const POLICY_ID = cardano.transactionPolicyid(mintScript);
 
+let localFee = 0;
 
 const quantitysArray = [
   4,
@@ -169,6 +171,27 @@ function mintAsset(_metadata, value, addressToSend) {
 }
 
 
+
+
+
+
+
+router.get('/', (req,res) => {
+  return res.status(200).json({"Message":"Working"});
+})
+
+router.get ('/test', (req,res) => {
+  return res.status(200).json({"message":"test working"});
+})
+
+router.post ('/test', async (req,res) => {
+
+    return res.status(200).json({"message":"working"});
+})
+
+
+
+
 router.post('/isItAvaibleToMint', (req,res) => {
   if (quantitysArray[req.body.number] <= 0) {
     return res.status(200).json({"message":"sold out", "status":false});
@@ -232,9 +255,43 @@ router.get('/video/:id', (req, res) => {
 
   res.writeHead(206, headers);
 
+  // create video read stream for this particular chunk
   const videoStream = fs.createReadStream(videoPath, { start, end });
 
+  // Stream the video chunk to the client
   videoStream.pipe(res)
+
+  /*
+  const { movieName } = req.params;
+   const movieFile = `./movies/${movieName}`;
+   fs.stat(movieFile, (err, stats) => {
+     if (err) {
+       console.log(err);
+       return res.status(404).end('<h1>Movie Not found</h1>');
+     }
+     // Variáveis necessárias para montar o chunk header corretamente
+     const { range } = req.headers;
+     const { size } = stats;
+     const start = Number((range || '').replace(/bytes=/, '').split('-')[0]);
+     const end = size - 1;
+     const chunkSize = (end - start) + 1;
+     // Definindo headers de chunk
+     res.set({
+       'Content-Range': `bytes ${start}-${end}/${size}`,
+       'Accept-Ranges': 'bytes',
+       'Content-Length': chunkSize,
+       'Content-Type': 'video/mp4'
+     });
+     // É importante usar status 206 - Partial Content para o streaming funcionar
+     res.status(206);
+     // Utilizando ReadStream do Node.js
+     // Ele vai ler um arquivo e enviá-lo em partes via stream.pipe()
+     const stream = fs.createReadStream(movieFile, { start, end });
+     stream.on('open', () => stream.pipe(res));
+   */
+
+
+
 
 })
 
