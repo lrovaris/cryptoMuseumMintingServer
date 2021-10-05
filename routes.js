@@ -105,7 +105,7 @@ function mintAsset(_metadata, value, addressToSend) {
 
       michel = (_value * 0.25).toFixed(0)
       nicola = (_value * 0.75).toFixed(0)
-     
+
         console.log(_value)
         console.log("michel")
         console.log(michel)
@@ -157,7 +157,7 @@ function mintAsset(_metadata, value, addressToSend) {
 
 
 
-  console.log(txInfo)
+  console.log(JSON.stringify(txInfo, null, 4))
 
   const raw = cardano.transactionBuildRaw(txInfo)
 
