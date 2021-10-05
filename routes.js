@@ -258,7 +258,7 @@ router.post ('/test', async (req,res) => {
         address: receiver,
         value: {
           lovelace: cardano.toLovelace(1.5),
-          "065e9c59288aaa6bd64c839aae9c534965a4546a62321adb7c3f6efe.VitruvianMan" : 1
+          "065e9c59288aaa6bd64c839aae9c534965a4546a62321adb7c3f6efe.VitruvianMan" : 2
         }
       }
     ]
