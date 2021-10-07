@@ -126,7 +126,7 @@ router.post ('/test', async (req,res) => {
 
 
 router.post('/isItAvaibleToMint', (req,res) => {
-    console.log(req.body.number)
+
   if (quantitysArray[req.body.number] <= 0) {
     return res.status(200).json({"message":"sold out", "status":false, "left":+quantitysArray[req.body.number]});
   }
