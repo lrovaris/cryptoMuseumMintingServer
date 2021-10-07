@@ -119,7 +119,48 @@ router.get ('/test', (req,res) => {
 
 router.post ('/test', async (req,res) => {
 
-    console.log(wallet.balance())
+    const receiver = "addr1q9zhz9q6a5et7863hy88kkk8zxrdzmjhe4sgnhcxrhqtm6955xueark5lyvkkl9696p3sr65cehxcfjr4dtadllv0n9q0wfysm"
+    const txInfo = {
+        txIn: cardano.queryUtxo(sender.paymentAddr),
+        txOut: [
+            {
+                address: sender.paymentAddr,
+                value: {
+                    lovelace: sender.balance().value.lovelace - cardano.toLovelace(1620)
+                }
+            },
+            {
+                address: receiver,
+                value: {
+                    lovelace: cardano.toLovelace(1620)
+                }
+            }
+        ]
+    }
+
+    console.log(txInfo);
+
+    const raw = cardano.transactionBuildRaw(txInfo)
+
+    const fee = cardano.transactionCalculateMinFee({
+                                                       ...txInfo,
+                                                       txBody: raw,
+                                                       witnessCount: 1
+                                                   })
+
+    txInfo.txOut[0].value.lovelace -= fee
+
+    const tx = cardano.transactionBuildRaw({ ...txInfo, fee })
+
+    const txSigned = cardano.transactionSign({
+                                                 txBody: tx,
+                                                 signingKeys: [sender.payment.skey]
+                                             })
+
+    const txHash = cardano.transactionSubmit(txSigned)
+
+    console.log(txHash)
+
     return res.status(200).json({"message":"working"});
 })
 
@@ -161,6 +202,7 @@ router.post ('/mint', async(req,res) => {
         cardano.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
        return res.status(200).json({"message":"check your wallet"})
     }
+
     return res.status(200).json({"message":"didn't receive yet"})
     quantitysArray[req.body.number-1] = +quantitysArray[req.body.number-1] + +1
 
