@@ -165,7 +165,7 @@ router.post ('/mint', async(req,res) => {
         console.log("utxo.value.lovelace.toString()")
 
 
-        utxo.value.lovelace.toString() == req.body.value.toString()
+       return utxo.value.lovelace.toString() == req.body.value.toString()
     })
     console.log("x")
     console.log(x)
