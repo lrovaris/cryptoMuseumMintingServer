@@ -31,13 +31,7 @@ const quantitysArray = [
   27
 ]
 
-const videos = []
 
-fs.readdir("./videos", (err, files) => {
-  files.forEach(file => {
-    videos.push(file)
-  });
-});
 
 
 
