@@ -14,21 +14,21 @@ const mintScript = {
 const POLICY_ID = cardano.transactionPolicyid(mintScript);
 
 const quantitysArray = [
-  0,
-  24,
-  13,
-  19,
-  8,
-  22,
-  21,
-  26,
-  10,
-  0,
-  2,
-  15,
-  14,
-  19,
-  27
+    0,
+    23,
+    13,
+    19,
+    4,
+    21,
+    19,
+    26,
+    6,
+    0,
+    0,
+    15,
+    14,
+    18,
+    27
 ]
 
 
@@ -144,7 +144,7 @@ router.post('/checkValue', (req, res) => {
 })
 
 router.post ('/mint', async(req,res) => {
-    
+
     if(quantitysArray[+req.body.number- +1] == 0){
         return res.status(200).json({"message":"sold out"});
     }
