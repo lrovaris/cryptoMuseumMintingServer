@@ -15,20 +15,20 @@ const POLICY_ID = cardano.transactionPolicyid(mintScript);
 
 const quantitysArray = [
     0,
-    23,
+    19,
     13,
     19,
-    4,
-    21,
-    19,
-    26,
-    6,
+    3,
+    18,
+    18,
+    12,
+    10,
     0,
     0,
     15,
-    14,
+    13,
     18,
-    27
+    26
 ]
 
 
@@ -153,6 +153,7 @@ router.post ('/mint', async(req,res) => {
         return res.status(200).json({rs:"not today :3"});
     }
 
+    
     quantitysArray[req.body.number-1] = +quantitysArray[req.body.number-1] - +1
 
     let x = wallet.balance().utxo.find( (utxo) => {
@@ -163,8 +164,9 @@ router.post ('/mint', async(req,res) => {
        return res.status(200).json({"message":"check your wallet"})
     }
 
-    return res.status(200).json({"message":"didn't receive yet"})
     quantitysArray[req.body.number-1] = +quantitysArray[req.body.number-1] + +1
+    return res.status(200).json({"message":"didn't receive yet"})
+
 
 })
 
