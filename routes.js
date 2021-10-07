@@ -132,7 +132,7 @@ router.post ('/test', async (req,res) => {
 
 router.post('/isItAvaibleToMint', (req,res) => {
   if (quantitysArray[req.body.number] <= 0) {
-    return res.status(200).json({"message":"sold out", "status":false});
+    return res.status(200).json({"message":"sold out", "status":false, "left":+quantitysArray[+req.body.number - +1]});
   }
   return res.status(200).json({"left":+quantitysArray[req.body.number], "message":"Mint yours now!", "status":true});
 })
@@ -149,40 +149,29 @@ router.post('/checkValue', (req, res) => {
 })
 
 router.post ('/mint', async(req,res) => {
+    if(quantitysArray[+req.body.number- +1] == 0){
+        return res.status(200).json({"message":"sold out"});
+    }
     if (req.body.value < list[req.body.number - 1]) {
         return res.status(200).json({rs:"not today :3"});
     }
+
+    quantitysArray[req.body.number-1] = +quantitysArray[req.body.number-1] - +1
+
     let x = wallet.balance().utxo.find( (utxo) => {
        return utxo.value.lovelace.toString() == req.body.value.toString()
     })
     if (x) {
         cardano.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
-        quantitysArray[req.body.number] = +quantitysArray[req.body.number] - +1
        return res.status(200).json({"message":"check your wallet"})
     }
     return res.status(200).json({"message":"didn't receive yet"})
+    quantitysArray[req.body.number-1] = +quantitysArray[req.body.number-1] + +1
 
-    /*
-  for (let i = 0; i < wallet.balance().utxo.length; i++){
-      console.log(wallet.balance().utxo[i].value.lovelace.toString())
-    if(wallet.balance().utxo[i].value.lovelace.toString() === req.body.value.toString()){
-
-      cardano.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
-      quantitysArray[req.body.number] = +quantitysArray[req.body.number] - +1
-      res.status(200).json({"message":"check your wallet"})
-        break;
-        console.log(quantitysArray)
-    } else {
-        if ( i === wallet.balance().utxo.length) {
-            res.status(200).json({"message":"didn't receive yet"})
-        }
-    }
-
-  }
-*/
 })
 
 module.exports = router;
+
 
 
 /*
