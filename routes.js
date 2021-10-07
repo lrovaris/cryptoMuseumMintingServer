@@ -161,10 +161,13 @@ router.post ('/mint', async(req,res) => {
       res.status(200).json({"message":"check your wallet"})
         console.log(quantitysArray)
     } else {
-        res.status(200).json({"message":"didn't receive yet"});
+        if ( i === wallet.balance().utxo.length) {
+            res.status(200).json({"message":"didn't receive yet"})
+        }
     }
 
   }
+
 })
 
 
