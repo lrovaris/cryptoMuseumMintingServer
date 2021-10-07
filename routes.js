@@ -14,21 +14,21 @@ const mintScript = {
 const POLICY_ID = cardano.transactionPolicyid(mintScript);
 
 const quantitysArray = [
-  4,
-  30,
-  15,
-  20,
-  9,
-  25,
-  25,
-  30,
+  0,
+  24,
+  13,
+  19,
+  8,
+  22,
+  21,
+  26,
   10,
+  0,
   2,
-  3,
   15,
-  15,
-  20,
-  30
+  14,
+  19,
+  27
 ]
 
 const videos = []
@@ -125,6 +125,7 @@ router.get ('/test', (req,res) => {
 
 router.post ('/test', async (req,res) => {
 
+    console.log(wallet.balance())
     return res.status(200).json({"message":"working"});
 })
 
@@ -157,10 +158,10 @@ router.post ('/mint', async(req,res) => {
       cardano.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
       quantitysArray[req.body.number] = +quantitysArray[req.body.number] - +1
       res.status(200).json({"message":"check your wallet"})
-
+        console.log(quantitysArray)
     }
+      res.status(200).json({"message":"didn't receive yet"});
   }
-  res.status(200).json({"message":"didn't receive yet"});
 })
 
 
