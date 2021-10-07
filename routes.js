@@ -149,13 +149,24 @@ router.post('/checkValue', (req, res) => {
 })
 
 router.post ('/mint', async(req,res) => {
+    if (req.body.value < list[req.body.number - 1]) {
+        return res.status(200).json({rs:"not today :3"});
+    }
 
+    let x = wallet.balance().utxo.find( value => value.toString() === req.body.value.toString())
+    if (x !== undefined) {
+        cardano.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
+        quantitysArray[req.body.number] = +quantitysArray[req.body.number] - +1
+        res.status(200).json({"message":"check your wallet"})
+    } else {
+            res.status(200).json({"message":"didn't receive yet"})
+        }
+
+    /*
   for (let i = 0; i < wallet.balance().utxo.length; i++){
       console.log(wallet.balance().utxo[i].value.lovelace.toString())
     if(wallet.balance().utxo[i].value.lovelace.toString() === req.body.value.toString()){
-      if (req.body.value < list[req.body.number - 1]) {
-        return res.status(200).json({rs:"not today :3"});
-      }
+
       cardano.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
       quantitysArray[req.body.number] = +quantitysArray[req.body.number] - +1
       res.status(200).json({"message":"check your wallet"})
@@ -168,7 +179,7 @@ router.post ('/mint', async(req,res) => {
     }
 
   }
-
+*/
 })
 
 
