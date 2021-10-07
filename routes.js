@@ -15,20 +15,20 @@ const POLICY_ID = cardano.transactionPolicyid(mintScript);
 
 const quantitysArray = [
     0,
-    19,
+    15,
     13,
     19,
-    1,
-    19,
-    18,
-    10,
-    10,
+    0,
+    17,
+    17,
+    8,
+    4,
     0,
     0,
     15,
-    13,
+    11,
     18,
-    26,
+    25
 ]
 
 
