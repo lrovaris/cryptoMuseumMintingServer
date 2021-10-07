@@ -18,17 +18,17 @@ const quantitysArray = [
     19,
     13,
     19,
-    3,
+    1,
+    19,
     18,
-    18,
-    12,
+    10,
     10,
     0,
     0,
     15,
     13,
     18,
-    26
+    26,
 ]
 
 
@@ -153,7 +153,7 @@ router.post ('/mint', async(req,res) => {
         return res.status(200).json({rs:"not today :3"});
     }
 
-    
+
     quantitysArray[req.body.number-1] = +quantitysArray[req.body.number-1] - +1
 
     let x = wallet.balance().utxo.find( (utxo) => {
