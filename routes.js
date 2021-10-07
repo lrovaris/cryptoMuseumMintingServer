@@ -144,10 +144,7 @@ router.post('/checkValue', (req, res) => {
 })
 
 router.post ('/mint', async(req,res) => {
-    console.log(req.body.number)
-
     
-
     if(quantitysArray[+req.body.number- +1] == 0){
         return res.status(200).json({"message":"sold out"});
     }
