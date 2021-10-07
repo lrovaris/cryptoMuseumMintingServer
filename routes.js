@@ -159,6 +159,7 @@ router.post ('/mint', async(req,res) => {
       cardano.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
       quantitysArray[req.body.number] = +quantitysArray[req.body.number] - +1
       res.status(200).json({"message":"check your wallet"})
+        break;
         console.log(quantitysArray)
     } else {
         if ( i === wallet.balance().utxo.length) {
