@@ -157,14 +157,20 @@ router.post ('/mint', async(req,res) => {
         console.log("utxo")
         console.log(utxo.value.lovelace.toString())
         console.log("utxo.value.lovelace.toString() === req.body.value.toString()")
+
         console.log(utxo.value.lovelace.toString() == req.body.value.toString())
 
         console.log("req.body.value.toString()")
         console.log(req.body.value.toString())
         console.log("utxo.value.lovelace.toString()")
+
+
         utxo.value.lovelace.toString() == req.body.value.toString()
     })
-    if (x !== undefined) {
+    console.log("x")
+    console.log(x)
+    console.log("x")
+    if (x) {
         cardano.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
         quantitysArray[req.body.number] = +quantitysArray[req.body.number] - +1
         res.status(200).json({"message":"check your wallet"})
