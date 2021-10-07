@@ -127,7 +127,7 @@ router.post ('/test', async (req,res) => {
 router.post('/isItAvaibleToMint', (req,res) => {
     console.log(req.body.number)
   if (quantitysArray[req.body.number] <= 0) {
-    return res.status(200).json({"message":"sold out", "status":false, "left":+quantitysArray[+req.body.number - +1]});
+    return res.status(200).json({"message":"sold out", "status":false, "left":+quantitysArray[req.body.number]});
   }
   return res.status(200).json({"left":+quantitysArray[req.body.number], "message":"Mint yours now!", "status":true});
 })
@@ -144,6 +144,10 @@ router.post('/checkValue', (req, res) => {
 })
 
 router.post ('/mint', async(req,res) => {
+    console.log(req.body.number)
+
+    
+
     if(quantitysArray[+req.body.number- +1] == 0){
         return res.status(200).json({"message":"sold out"});
     }
