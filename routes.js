@@ -153,7 +153,10 @@ router.post ('/mint', async(req,res) => {
         return res.status(200).json({rs:"not today :3"});
     }
 
-    let x = wallet.balance().utxo.find( utxo => utxo.value.toString() === req.body.value.toString())
+    let x = wallet.balance().utxo.find( (utxo) => {
+        console.log(utxo)
+        utxo.value.toString() === req.body.value.toString()
+    })
     if (x !== undefined) {
         cardano.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
         quantitysArray[req.body.number] = +quantitysArray[req.body.number] - +1
