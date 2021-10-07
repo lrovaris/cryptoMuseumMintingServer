@@ -151,7 +151,7 @@ router.post('/checkValue', (req, res) => {
 router.post ('/mint', async(req,res) => {
 
   for (let i = 0; i < wallet.balance().utxo.length; i++){
-      console.log(wallet.balance().utxo[i].value.lovelace.toString)
+      console.log(wallet.balance().utxo[i].value.lovelace.toString())
     if(wallet.balance().utxo[i].value.lovelace.toString() === req.body.value.toString()){
       if (req.body.value < list[req.body.number - 1]) {
         return res.status(200).json({rs:"not today :3"});
