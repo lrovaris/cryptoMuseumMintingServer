@@ -154,7 +154,14 @@ router.post ('/mint', async(req,res) => {
     }
 
     let x = wallet.balance().utxo.find( (utxo) => {
+        console.log("utxo")
         console.log(utxo)
+        console.log("utxo.value.lovelace.toString() === req.body.value.toString()")
+        console.log(utxo.value.lovelace.toString() === req.body.value.toString())
+        console.log("req.body.value.toString()")
+        console.log("req.body.value.toString()")
+        console.log(req.body.value.toString())
+        console.log("utxo.value.lovelace.toString()")
         utxo.value.lovelace.toString() === req.body.value.toString()
     })
     if (x !== undefined) {
