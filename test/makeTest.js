@@ -3,8 +3,8 @@ const { getFakeWalletById } = require("./utils");
 const { sendFakeAdas } = require("./sendFakeAdasFromFakeWallets");
 
 const getTestInformation = function () {
-	const clientId = procces.argv[3];
-	const transactionValue = procces.argv[4];
+	const clientId = process.argv[3];
+	const transactionValue = process.argv[4];
 	return { clientId, transactionValue };
 };
 
