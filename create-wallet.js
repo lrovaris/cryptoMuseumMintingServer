@@ -1,14 +1,14 @@
-const cardano = require('./cardano')
+const {cardanocliJs , getEnv} = require("./cardano")
 
 const createWallet = (account) => {
-  const payment = cardano.addressKeyGen(account);
-  const stake = cardano.stakeAddressKeyGen(account);
-  cardano.stakeAddressBuild(account);
-  cardano.addressBuild(account, {
+  const payment = cardanocliJs.addressKeyGen(account);
+  const stake = cardanocliJs.stakeAddressKeyGen(account);
+  cardanocliJs.stakeAddressBuild(account);
+  cardanocliJs.addressBuild(account, {
     paymentVkey: payment.vkey,
     stakeVkey: stake.vkey,
   });
-  return cardano.wallet(account);
+  return cardanocliJs.wallet(account);
 };
 
 createWallet("testNetWallet")
