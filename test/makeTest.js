@@ -1,4 +1,4 @@
-const { cardanocliJs } = require("./cardano");
+const { cardanocliJs } = require("../cardano");
 
 const getFakeWallets = function () {
 	let wallets = [];
@@ -13,3 +13,7 @@ const getFakeWallets = function () {
 const getFakeWalletById = function (id) {
 	return cardanocliJs.wallet(`fake-wallet-${index}`);
 };
+
+const testTransaction = function (clientId, transactionValue) {};
+
+//procces.argv;

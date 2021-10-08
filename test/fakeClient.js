@@ -1,4 +1,4 @@
-const { cardanocliJs } = require("./cardano");
+const { cardanocliJs } = require("../cardano");
 
 const createWallet = (account) => {
 	const payment = cardanocliJs.addressKeyGen(account);
