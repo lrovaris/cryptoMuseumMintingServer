@@ -11,7 +11,7 @@ const getFakeWallets = function () {
 };
 
 const getFakeWalletById = function (id) {
-	return cardanocliJs.wallet(`fake-wallet-${index}`);
+	return cardanocliJs.wallet(`fake-wallet-${id}`);
 };
 
 module.exports = { getFakeWallets, getFakeWalletById };
