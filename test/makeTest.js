@@ -14,6 +14,14 @@ const getFakeWalletById = function (id) {
 	return cardanocliJs.wallet(`fake-wallet-${index}`);
 };
 
-const testTransaction = function (clientId, transactionValue) {};
+const getTestInformation = function () {
+	const clientId = procces.argv[3];
+	const transactionValue = procces.argv[4];
+	return { clientId, transactionValue };
+};
 
-//procces.argv;
+const testTransaction = function () {
+	const { clientId, transactionValue } = getTestInformation();
+};
+
+module.exports = { getFakeWallets };

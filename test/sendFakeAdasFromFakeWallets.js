@@ -45,3 +45,5 @@ const sendFakeAdas = function (sender, transactionValue) {
 
 	console.log(txHash);
 };
+
+module.exports = { sendFakeAdas };
