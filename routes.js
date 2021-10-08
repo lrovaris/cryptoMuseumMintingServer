@@ -1,17 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const cardano = require("./cardano")
+const {cardanocliJs , getEnv} = require("./cardano")
 const metadataArray = require ("./metadatas")
 const list = require ("./listOfValues")
 const fs = require("fs");
 
-const wallet = cardano.wallet("cryptoMuseumFORREAL")
+let wallet;
+
+if(getEnv() === "testnet"){
+     wallet = cardanocliJs.wallet("testNetWallet")
+} else {
+     wallet = cardanocliJs.wallet("cryptoMuseumFORREAL")
+}
+
+
 const sender = wallet;
 const mintScript = {
-  keyHash: cardano.addressKeyHash(wallet.name),
+  keyHash: cardanocliJs.addressKeyHash(wallet.name),
   type: "sig"
 }
-const POLICY_ID = cardano.transactionPolicyid(mintScript);
+const POLICY_ID = cardanocliJs.transactionPolicyid(mintScript);
 
 const quantitysArray = [
     0,
@@ -37,7 +45,7 @@ const quantitysArray = [
 
 function mintAsset(_metadata, value, addressToSend) {
 
-  uxtoArray = cardano.queryUtxo(sender.paymentAddr)
+  uxtoArray = cardanocliJs.queryUtxo(sender.paymentAddr)
 
   let txIn = uxtoArray.find(element => element.value.lovelace.toString() === value.toString() )
 
@@ -62,19 +70,19 @@ function mintAsset(_metadata, value, addressToSend) {
               {
                   address: sender.paymentAddr,
                   value: {
-                      lovelace: txIn.value.lovelace - cardano.toLovelace(2.5)
+                      lovelace: txIn.value.lovelace - cardanocliJs.toLovelace(2.5)
                   }
               },
               {
                   address: addressToSend,
                   value: {
-                      lovelace: cardano.toLovelace(1.5), [ASSET_ID]: 1
+                      lovelace: cardanocliJs.toLovelace(1.5), [ASSET_ID]: 1
                   }
               },
               {
                   address: "addr1qxcd03zuth7gjlxwsgswfzm0tvk2x9z9ghgeljq6xt89hynfxr35pxlj7p3c8kv7w3ue6t52049s0y2gm73ezpsyul8sp3nkkj",
                   value: {
-                      lovelace: cardano.toLovelace(1)
+                      lovelace: cardanocliJs.toLovelace(1)
                   }
               }
           ],
@@ -87,9 +95,9 @@ function mintAsset(_metadata, value, addressToSend) {
       }
 
 
-  const raw = cardano.transactionBuildRaw(txInfo)
+  const raw = cardanocliJs.transactionBuildRaw(txInfo)
 
-  const fee = cardano.transactionCalculateMinFee({
+  const fee = cardanocliJs.transactionCalculateMinFee({
     ...txInfo,
     txBody: raw,
     witnessCount: 2
@@ -98,8 +106,8 @@ function mintAsset(_metadata, value, addressToSend) {
   txInfo.txOut[0].value.lovelace -= fee
 
 
-  const tx = cardano.transactionBuildRaw({ ...txInfo, fee })
-  const txSigned = cardano.transactionSign({
+  const tx = cardanocliJs.transactionBuildRaw({ ...txInfo, fee })
+  const txSigned = cardanocliJs.transactionSign({
     txBody: tx,
     signingKeys: [sender.payment.skey]
   })
@@ -153,20 +161,18 @@ router.post ('/mint', async(req,res) => {
         return res.status(200).json({rs:"not today :3"});
     }
 
-
     quantitysArray[req.body.number-1] = +quantitysArray[req.body.number-1] - +1
 
     let x = wallet.balance().utxo.find( (utxo) => {
        return utxo.value.lovelace.toString() == req.body.value.toString()
     })
     if (x) {
-        cardano.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
-       return res.status(200).json({"message":"check your wallet"})
-    }
+      let transaction = cardanocliJs.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
 
+        return res.status(200).json({"message":"check your wallet"})
+    }
     quantitysArray[req.body.number-1] = +quantitysArray[req.body.number-1] + +1
     return res.status(200).json({"message":"didn't receive yet"})
-
 
 })
 
@@ -177,18 +183,18 @@ module.exports = router;
 /*
 const receiver = "addr1q8sct235fa3h7jcluparwg6vz5vasss28wwlh2qk2xz4qzwhq6x7j6hhg950vm0yf5963rxtug7mm09cf26z9aaxl50qcwgjqq"
   const txInfo = {
-    txIn: cardano.queryUtxo(sender.paymentAddr),
+    txIn: cardanocliJs.queryUtxo(sender.paymentAddr),
     txOut: [
       {
         address: sender.paymentAddr,
         value: {
-          lovelace: sender.balance().value.lovelace - cardano.toLovelace(1.5)
+          lovelace: sender.balance().value.lovelace - cardanocliJs.toLovelace(1.5)
         }
       },
       {
         address: receiver,
         value: {
-          lovelace: cardano.toLovelace(1.5),
+          lovelace: cardanocliJs.toLovelace(1.5),
           "33dc77e72fc27f435c594da81d324eb0aa9f15c0b69f24ac053fdac6.TheFallenTest" : 1
         }
       }
@@ -197,9 +203,9 @@ const receiver = "addr1q8sct235fa3h7jcluparwg6vz5vasss28wwlh2qk2xz4qzwhq6x7j6hhg
 
   console.log(txInfo);
 
-  const raw = cardano.transactionBuildRaw(txInfo)
+  const raw = cardanocliJs.transactionBuildRaw(txInfo)
 
-  const fee = cardano.transactionCalculateMinFee({
+  const fee = cardanocliJs.transactionCalculateMinFee({
     ...txInfo,
     txBody: raw,
     witnessCount: 1
@@ -207,14 +213,14 @@ const receiver = "addr1q8sct235fa3h7jcluparwg6vz5vasss28wwlh2qk2xz4qzwhq6x7j6hhg
 
   txInfo.txOut[0].value.lovelace -= fee
 
-  const tx = cardano.transactionBuildRaw({ ...txInfo, fee })
+  const tx = cardanocliJs.transactionBuildRaw({ ...txInfo, fee })
 
-  const txSigned = cardano.transactionSign({
+  const txSigned = cardanocliJs.transactionSign({
     txBody: tx,
     signingKeys: [sender.payment.skey]
   })
 
-  const txHash = cardano.transactionSubmit(txSigned)
+  const txHash = cardanocliJs.transactionSubmit(txSigned)
 
   console.log(txHash)
 
@@ -224,7 +230,7 @@ const receiver = "addr1q8sct235fa3h7jcluparwg6vz5vasss28wwlh2qk2xz4qzwhq6x7j6hhg
 
 
 const mintScript = {
-  keyHash: cardano.addressKeyHash(wallet.name),
+  keyHash: cardanocliJs.addressKeyHash(wallet.name),
   type: "sig"
 }
 const POLICY_ID = "fb3bc09879b03b4e1566b8e8b4e448449d8d1ee18d6b4e03e5431ce1"
@@ -340,7 +346,7 @@ website: https://crypto-museum.io/
   }
 
   const txInfo = {
-    txIn: cardano.queryUtxo(sender.paymentAddr),
+    txIn: cardanocliJs.queryUtxo(sender.paymentAddr),
     txOut: [
       {
         address: sender.paymentAddr,
@@ -356,19 +362,19 @@ website: https://crypto-museum.io/
     witnessCount: 2
 
   }
-  const raw = cardano.transactionBuildRaw(txInfo)
-  const fee = cardano.transactionCalculateMinFee({
+  const raw = cardanocliJs.transactionBuildRaw(txInfo)
+  const fee = cardanocliJs.transactionCalculateMinFee({
     ...txInfo,
     txBody: raw,
     witnessCount: 3
   })
   txInfo.txOut[0].value.lovelace -= fee
-  const tx = cardano.transactionBuildRaw({ ...txInfo, fee })
-  const txSigned = cardano.transactionSign({
+  const tx = cardanocliJs.transactionBuildRaw({ ...txInfo, fee })
+  const txSigned = cardanocliJs.transactionSign({
     txBody: tx,
     signingKeys: [sender.payment.skey]
   })
 
-  const txHash = cardano.transactionSubmit(txSigned)
+  const txHash = cardanocliJs.transactionSubmit(txSigned)
 
 */
