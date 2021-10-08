@@ -26,7 +26,7 @@ const shelleyPath = path.join(
 
 const cardanocliJs = new CardanocliJs({
 //   era: "mary",
-  network: getEnv(),
+  network: (getEnv() == "testnet" ?  "testnet-magic" : "mainnet"),
   dir,
   shelleyGenesisPath: shelleyPath,
 });
