@@ -23,20 +23,20 @@ const POLICY_ID = cardanocliJs.transactionPolicyid(mintScript);
 
 const quantitysArray = [
     0,
-    15,
     13,
-    19,
-    0,
-    14,
+    10,
     17,
-    8,
-    1,
+    0,
+    7,
+    9,
+    2,
     0,
     0,
+    0,
+    13,
+    9,
     15,
-    11,
-    18,
-    25
+    23
 ]
 
 
