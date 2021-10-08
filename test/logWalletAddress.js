@@ -1,6 +1,4 @@
-const { cardanocliJs } = require("../cardano");
-
-const { getFakeWallets } = require("./makeTest");
+const { getFakeWallets } = require("./utils");
 
 const logWalletAddresses = function () {
 	const wallets = getFakeWallets();

@@ -1,18 +1,6 @@
-const { cardanocliJs } = require("../cardano");
+const { getFakeWalletById } = require("./utils");
 
-const getFakeWallets = function () {
-	let wallets = [];
-
-	for (let index = 0; index < 10; index++) {
-		wallets = [...wallets, cardanocliJs.wallet(`fake-wallet-${index}`)];
-	}
-
-	return wallets;
-};
-
-const getFakeWalletById = function (id) {
-	return cardanocliJs.wallet(`fake-wallet-${index}`);
-};
+const { sendFakeAdas } = require("./sendFakeAdasFromFakeWallets");
 
 const getTestInformation = function () {
 	const clientId = procces.argv[3];
@@ -22,6 +10,10 @@ const getTestInformation = function () {
 
 const testTransaction = function () {
 	const { clientId, transactionValue } = getTestInformation();
+
+	const wallet = getFakeWalletById(clientId);
+
+	sendFakeAdas(wallet, transactionValue);
 };
 
-module.exports = { getFakeWallets };
+testTransaction();
