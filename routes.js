@@ -122,13 +122,17 @@ router.get('/', (req,res) => {
 })
 
 router.get ('/test', (req,res) => {
-  return res.status(200).json({"message":"test working"});
+
+    console.log(cardanocliJs.transactionTxid(wallet.balance().utxo[0].txHash))
+
+    return res.status(200).json({"message":"test working"});
+
 })
 
 router.post ('/test', async (req,res) => {
 
     console.log(wallet.balance())
-    
+
     return res.status(200).json({"message":"working"});
 })
 
