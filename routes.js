@@ -125,9 +125,9 @@ router.get ('/test', (req,res) => {
 
     console.log(wallet.balance().utxo[0].txHash)
 
-    
 
-    console.log(cardanocliJs.addressInfo(wallet.balance().utxo[0].txHash))
+
+    console.log(cardanocliJs.addressInfo(cardanocliJs.addressKeyHash(wallet.balance().utxo[0].txHash)))
 
     return res.status(200).json({"message":"test working"});
 
