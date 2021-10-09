@@ -1,192 +1,101 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const {cardanocliJs , getEnv} = require("./cardano")
-const metadataArray = require ("./metadatas")
-const list = require ("./listOfValues")
-const fs = require("fs");
+const { cardanocliJs, getEnv } = require("./cardano");
+const metadataArray = require("./metadatas");
+const list = require("./listOfValues");
+
+const { mintAsset } = require("./mintAsset");
 
 let wallet;
 
-if(getEnv() === "testnet"){
-     wallet = cardanocliJs.wallet("testNetWallet")
+if (getEnv() === "testnet") {
+	wallet = cardanocliJs.wallet("testNetWallet");
 } else {
-     wallet = cardanocliJs.wallet("cryptoMuseumFORREAL")
+	wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
 }
 
+const quantitysArray = [0, 13, 10, 17, 0, 7, 9, 2, 0, 0, 0, 13, 9, 15, 23];
 
-const sender = wallet;
-const mintScript = {
-  keyHash: cardanocliJs.addressKeyHash(wallet.name),
-  type: "sig"
-}
-const POLICY_ID = cardanocliJs.transactionPolicyid(mintScript);
+router.get("/", (req, res) => {
+	return res.status(200).json({ Message: "Working" });
+});
 
-const quantitysArray = [
-    0,
-    13,
-    10,
-    17,
-    0,
-    7,
-    9,
-    2,
-    0,
-    0,
-    0,
-    13,
-    9,
-    15,
-    23
-]
+router.get("/test", (req, res) => {
+	console.log(wallet.balance().utxo[0].txHash);
 
+	console.log(
+		cardanocliJs.addressInfo(
+			cardanocliJs.addressKeyHash(wallet.balance().utxo[0].txHash)
+		)
+	);
 
+	return res.status(200).json({ message: "test working" });
+});
 
+router.post("/test", async (req, res) => {
+	console.log(wallet.balance());
 
+	return res.status(200).json({ message: "working" });
+});
 
-function mintAsset(_metadata, value, addressToSend) {
+router.post("/isItAvaibleToMint", (req, res) => {
+	if (quantitysArray[req.body.number] <= 0) {
+		return res.status(200).json({
+			message: "sold out",
+			status: false,
+			left: +quantitysArray[req.body.number],
+		});
+	}
+	return res.status(200).json({
+		left: +quantitysArray[req.body.number],
+		message: "Mint yours now!",
+		status: true,
+	});
+});
 
-  uxtoArray = cardanocliJs.queryUtxo(sender.paymentAddr)
+router.post("/checkValue", (req, res) => {
+	for (let j = 0; j < wallet.balance().utxo.length; j++) {
+		if (
+			wallet.balance().utxo[j].value.lovelace.toString() ===
+			req.body.value.toString()
+		) {
+			return res.status(200).json({ status: true });
+		}
+	}
+	return res.status(200).json({ status: false });
+});
 
-  let txIn = uxtoArray.find(element => element.value.lovelace.toString() === value.toString() )
+router.post("/mint", async (req, res) => {
+	if (quantitysArray[+req.body.number - +1] == 0) {
+		return res.status(200).json({ message: "sold out" });
+	}
+	if (req.body.value < list[req.body.number - 1]) {
+		return res.status(200).json({ rs: "not today :3" });
+	}
 
-  const metadata = {
-    721: {
-      [POLICY_ID]: {
-        [_metadata.name.replace(/\s/g, '')]: {
+	quantitysArray[req.body.number - 1] =
+		+quantitysArray[req.body.number - 1] - +1;
 
-        }
-      }
-    }
-  }
+	let x = wallet.balance().utxo.find((utxo) => {
+		return utxo.value.lovelace.toString() == req.body.value.toString();
+	});
+	if (x) {
+		let transaction = cardanocliJs.transactionSubmit(
+			mintAsset(
+				metadataArray[req.body.number - 1],
+				req.body.value,
+				req.body.receiver
+			)
+		);
 
-  metadata["721"][`${POLICY_ID}`][_metadata.name.replace(/\s/g, '')] = _metadata;
-  const ASSET_ID = `${POLICY_ID}.${_metadata.name.replace(/\s/g, '')}`
-
-    let txInfo = {}
-
-       txInfo = {
-          txIn: [txIn],
-          txOut: [
-              {
-                  address: sender.paymentAddr,
-                  value: {
-                      lovelace: txIn.value.lovelace - cardanocliJs.toLovelace(2.5)
-                  }
-              },
-              {
-                  address: addressToSend,
-                  value: {
-                      lovelace: cardanocliJs.toLovelace(1.5), [ASSET_ID]: 1
-                  }
-              },
-              {
-                  address: "addr1qxcd03zuth7gjlxwsgswfzm0tvk2x9z9ghgeljq6xt89hynfxr35pxlj7p3c8kv7w3ue6t52049s0y2gm73ezpsyul8sp3nkkj",
-                  value: {
-                      lovelace: cardanocliJs.toLovelace(1)
-                  }
-              }
-          ],
-          mint: [
-              { action: "mint", quantity: 1, asset: ASSET_ID, script: mintScript },
-          ],
-          metadata,
-          witnessCount: 2
-
-      }
-
-
-  const raw = cardanocliJs.transactionBuildRaw(txInfo)
-
-  const fee = cardanocliJs.transactionCalculateMinFee({
-    ...txInfo,
-    txBody: raw,
-    witnessCount: 2
-  })
-
-  txInfo.txOut[0].value.lovelace -= fee
-
-
-  const tx = cardanocliJs.transactionBuildRaw({ ...txInfo, fee })
-  const txSigned = cardanocliJs.transactionSign({
-    txBody: tx,
-    signingKeys: [sender.payment.skey]
-  })
-
-  return txSigned;
-
-}
-
-
-router.get('/', (req,res) => {
-  return res.status(200).json({"Message":"Working"});
-})
-
-router.get ('/test', (req,res) => {
-
-    console.log(wallet.balance().utxo[0].txHash)
-
-
-
-    console.log(cardanocliJs.addressInfo(cardanocliJs.addressKeyHash(wallet.balance().utxo[0].txHash)))
-
-    return res.status(200).json({"message":"test working"});
-
-})
-
-router.post ('/test', async (req,res) => {
-
-    console.log(wallet.balance())
-
-    return res.status(200).json({"message":"working"});
-})
-
-
-router.post('/isItAvaibleToMint', (req,res) => {
-
-  if (quantitysArray[req.body.number] <= 0) {
-    return res.status(200).json({"message":"sold out", "status":false, "left":+quantitysArray[req.body.number]});
-  }
-  return res.status(200).json({"left":+quantitysArray[req.body.number], "message":"Mint yours now!", "status":true});
-})
-
-router.post('/checkValue', (req, res) => {
-
-  for (let j = 0; j < wallet.balance().utxo.length; j++) {
-
-    if(wallet.balance().utxo[j].value.lovelace.toString() === req.body.value.toString()) {
-      return res.status(200).json({status:true});
-    }
-  }
-  return res.status(200).json({status:false});
-})
-
-router.post ('/mint', async(req,res) => {
-
-    if(quantitysArray[+req.body.number- +1] == 0){
-        return res.status(200).json({"message":"sold out"});
-    }
-    if (req.body.value < list[req.body.number - 1]) {
-        return res.status(200).json({rs:"not today :3"});
-    }
-
-    quantitysArray[req.body.number-1] = +quantitysArray[req.body.number-1] - +1
-
-    let x = wallet.balance().utxo.find( (utxo) => {
-       return utxo.value.lovelace.toString() == req.body.value.toString()
-    })
-    if (x) {
-      let transaction = cardanocliJs.transactionSubmit(mintAsset(metadataArray[req.body.number - 1], req.body.value, req.body.receiver))
-
-        return res.status(200).json({"message":"check your wallet"})
-    }
-    quantitysArray[req.body.number-1] = +quantitysArray[req.body.number-1] + +1
-    return res.status(200).json({"message":"didn't receive yet"})
-
-})
+		return res.status(200).json({ message: "check your wallet" });
+	}
+	quantitysArray[req.body.number - 1] =
+		+quantitysArray[req.body.number - 1] + +1;
+	return res.status(200).json({ message: "didn't receive yet" });
+});
 
 module.exports = router;
-
-
 
 /*
 const receiver = "addr1q8sct235fa3h7jcluparwg6vz5vasss28wwlh2qk2xz4qzwhq6x7j6hhg950vm0yf5963rxtug7mm09cf26z9aaxl50qcwgjqq"
