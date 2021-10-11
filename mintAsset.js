@@ -86,11 +86,11 @@ const prodTxOut = function (addressToSend, ASSET_ID, value) {
 };
 
 const testTxOut = function (addressToSend, ASSET_ID, value) {
-	const carteiraUm = getFakeWalletById(1);
+	const carteiraUm = getFakeWalletById(1).paymentAddr;
 
-	const carteiraDois = getFakeWalletById(2);
+	const carteiraDois = getFakeWalletById(2).paymentAddr;
 
-	const carteiraTres = getFakeWalletById(3);
+	const carteiraTres = getFakeWalletById(3).paymentAddr;
 
 	let valorAtual = value;
 
