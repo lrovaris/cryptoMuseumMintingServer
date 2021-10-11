@@ -111,16 +111,16 @@ const testTxOut = function (addressToSend, ASSET_ID, value) {
 	let txOutArray = [
 		{
 			address: carteiraTres,
-			value: { lovelace: valorTres },
+			value: { lovelace: +valorTres.toFixed(0) },
 		},
 		{
 			address: carteiraDois,
-			value: { lovelace: valorDois },
+			value: { lovelace: +valorDois.toFixed(0) },
 		},
 
 		{
 			address: carteiraUm,
-			value: { lovelace: valorUm },
+			value: { lovelace: +valorUm.toFixed(0) },
 		},
 
 		{
