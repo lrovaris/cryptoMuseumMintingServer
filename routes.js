@@ -23,17 +23,58 @@ router.get("/", (req, res) => {
 router.get("/test", (req, res) => {
 	console.log(wallet.balance().utxo[0].txHash);
 
-	console.log(
-		cardanocliJs.addressInfo(
-			cardanocliJs.addressKeyHash(wallet.balance().utxo[0].txHash)
-		)
-	);
+	const receiver = "addr_test1qrcheft7r9c549hfqj5q6ch7jntm4dzsxuj6ymyt6avejacf9s9jkcvgmlju0qxppat6ezcevcjxalxfjk0uslz3uh8sqkzh6t"
+
+	let sender = cardanocliJs.wallet("testNetWallet");
+
+	const txInfo = {
+		txIn: cardanocliJs.queryUtxo(sender.paymentAddr),
+		txOut: [
+			{
+				address: sender.paymentAddr,
+				value: {
+					lovelace: sender.balance().value.lovelace - cardanocliJs.toLovelace(10)
+				}
+			},
+			{
+				address: receiver,
+				value: {
+					lovelace: cardanocliJs.toLovelace(10)
+				}
+			}
+		]
+	}
+
+	console.log(txInfo);
+
+	const raw = cardanocliJs.transactionBuildRaw(txInfo)
+
+	const fee = cardanocliJs.transactionCalculateMinFee({
+															...txInfo,
+															txBody: raw,
+															witnessCount: 1
+														})
+
+	txInfo.txOut[0].value.lovelace -= fee
+
+	const tx = cardanocliJs.transactionBuildRaw({ ...txInfo, fee })
+
+	const txSigned = cardanocliJs.transactionSign({
+													  txBody: tx,
+													  signingKeys: [sender.payment.skey]
+												  })
+
+	const txHash = cardanocliJs.transactionSubmit(txSigned)
+
+	console.log(txHash)
 
 	return res.status(200).json({ message: "test working" });
 });
 
 router.post("/test", async (req, res) => {
 	console.log(wallet.balance());
+
+
 
 	return res.status(200).json({ message: "working" });
 });
@@ -98,7 +139,7 @@ router.post("/mint", async (req, res) => {
 module.exports = router;
 
 /*
-const receiver = "addr1q8sct235fa3h7jcluparwg6vz5vasss28wwlh2qk2xz4qzwhq6x7j6hhg950vm0yf5963rxtug7mm09cf26z9aaxl50qcwgjqq"
+const receiver = "addr_test1qrcheft7r9c549hfqj5q6ch7jntm4dzsxuj6ymyt6avejacf9s9jkcvgmlju0qxppat6ezcevcjxalxfjk0uslz3uh8sqkzh6t"
   const txInfo = {
     txIn: cardanocliJs.queryUtxo(sender.paymentAddr),
     txOut: [
