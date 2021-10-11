@@ -1,5 +1,7 @@
 const { cardanocliJs, getEnv } = require("./cardano");
 
+const { getFakeWalletById } = require("./test/utils");
+
 let wallet;
 
 if (getEnv() === "testnet") {
@@ -27,6 +29,7 @@ const carteiraRovaris =
 
 const createTxOut = function (addressToSend, ASSET_ID, value) {
 	if (getEnv() === "testnet") {
+		return testTxOut(addressToSend, ASSET_ID, value);
 	}
 
 	if (getEnv() === "mainnet") {
@@ -68,6 +71,56 @@ const prodTxOut = function (addressToSend, ASSET_ID, value) {
 		{
 			address: carteiraRovaris,
 			value: { lovelace: valorRovaris },
+		},
+
+		{
+			address: addressToSend,
+			value: {
+				lovelace: valorCliente,
+				[ASSET_ID]: 1,
+			},
+		},
+	];
+
+	return txOutArray;
+};
+
+const testTxOut = function (addressToSend, ASSET_ID, value) {
+	const carteiraUm = getFakeWalletById(1);
+
+	const carteiraDois = getFakeWalletById(2);
+
+	const carteiraTres = getFakeWalletById(3);
+
+	let valorAtual = value;
+
+	const valorUm = cardanocliJs.toLovelace(1);
+
+	valorAtual -= valorUm;
+
+	const valorCliente = cardanocliJs.toLovelace(1.5);
+
+	valorAtual -= valorCliente;
+
+	const valorDois = 0.25 * valorAtual;
+
+	valorAtual -= valorDois;
+
+	const valorTres = valorAtual;
+
+	let txOutArray = [
+		{
+			address: carteiraTres,
+			value: { lovelace: valorTres },
+		},
+		{
+			address: carteiraDois,
+			value: { lovelace: valorDois },
+		},
+
+		{
+			address: carteiraUm,
+			value: { lovelace: valorUm },
 		},
 
 		{
