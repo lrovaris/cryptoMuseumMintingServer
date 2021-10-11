@@ -21,17 +21,15 @@ router.get("/", (req, res) => {
 });
 
 router.get("/test", (req, res) => {
+
 	console.log(wallet.balance().utxo[0].txHash);
-
-
 
 	return res.status(200).json({ message: "test working" });
 });
 
 router.post("/test", async (req, res) => {
+
 	console.log(JSON.stringify(wallet.balance(), null,4));
-
-
 
 	return res.status(200).json({ message: "working" });
 });
