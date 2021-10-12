@@ -28,41 +28,7 @@ router.get("/test", (req, res) => {
 
 	console.log(wallet.balance().utxo[0].txHash);
 
-	const receiver = "addr_test1qzmv5cufkwnycavj6s9f465c5hr5ew248pjwt4x49kvlapqpcup9jp0rhv5gj2frq8ywa36kh36qukgaantlzqx0l33qm2jyvx"
-	const txInfo = {
-		txIn: cardanocliJs.queryUtxo(wallet.paymentAddr),
-		txOut: [
-			{
-				address: receiver,
-				value: {
-					lovelace: wallet.balance().value.lovelace
-				}
-			}
-		]
-	}
 
-	console.log(txInfo);
-
-	const raw = cardanocliJs.transactionBuildRaw(txInfo)
-
-	const fee = cardanocliJs.transactionCalculateMinFee({
-															...txInfo,
-															txBody: raw,
-															witnessCount: 1
-														})
-
-	txInfo.txOut[0].value.lovelace -= fee
-
-	const tx = cardanocliJs.transactionBuildRaw({ ...txInfo, fee })
-
-	const txSigned = cardanocliJs.transactionSign({
-													  txBody: tx,
-													  signingKeys: [wallet.payment.skey]
-												  })
-
-	const txHash = cardanocliJs.transactionSubmit(txSigned)
-
-	console.log(txHash)
 
 
 	return res.status(200).json({ message: "test working" });
@@ -330,5 +296,41 @@ website: https://crypto-museum.io/
   })
 
   const txHash = cardanocliJs.transactionSubmit(txSigned)
+
+	const receiver = "addr_test1qzmv5cufkwnycavj6s9f465c5hr5ew248pjwt4x49kvlapqpcup9jp0rhv5gj2frq8ywa36kh36qukgaantlzqx0l33qm2jyvx"
+	const txInfo = {
+		txIn: cardanocliJs.queryUtxo(wallet.paymentAddr),
+		txOut: [
+			{
+				address: receiver,
+				value: {
+					lovelace: wallet.balance().value.lovelace
+				}
+			}
+		]
+	}
+
+	console.log(txInfo);
+
+	const raw = cardanocliJs.transactionBuildRaw(txInfo)
+
+	const fee = cardanocliJs.transactionCalculateMinFee({
+															...txInfo,
+															txBody: raw,
+															witnessCount: 1
+														})
+
+	txInfo.txOut[0].value.lovelace -= fee
+
+	const tx = cardanocliJs.transactionBuildRaw({ ...txInfo, fee })
+
+	const txSigned = cardanocliJs.transactionSign({
+													  txBody: tx,
+													  signingKeys: [wallet.payment.skey]
+												  })
+
+	const txHash = cardanocliJs.transactionSubmit(txSigned)
+
+	console.log(txHash)
 
 */
