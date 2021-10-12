@@ -1,6 +1,6 @@
 const https = require("https");
 
-const { cardanocliJs, getEnv } = require("./cardano");
+const { cardanocliJs, getEnv } = require("../cardano");
 
 let wallet;
 
