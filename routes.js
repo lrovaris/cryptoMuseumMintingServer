@@ -35,7 +35,7 @@ router.get("/test", (req, res) => {
 			{
 				address: receiver,
 				value: {
-					lovelace: receiver.balance().value.lovelace
+					lovelace: wallet.balance().value.lovelace
 				}
 			}
 		]
