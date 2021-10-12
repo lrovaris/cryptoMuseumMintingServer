@@ -1,16 +1,16 @@
-//const { getEnv } = require("../cardano");
 const https = require("https");
 
-function getEnv() {
-	const env = process.argv[2];
-	if (env === "prod") {
-		return "mainnet";
-	} else if (env === "test") {
-		return "testnet";
-	} else {
-		throw "Ambiente não definido";
-	}
+const { cardanocliJs, getEnv } = require("./cardano");
+
+let wallet;
+
+if (getEnv() === "testnet") {
+	wallet = cardanocliJs.wallet("testNetWallet");
+} else {
+	wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
 }
+
+let utxos = {};
 
 const getBaseUrl = function () {
 	return `https://cardano-${getEnv()}.blockfrost.io/api/v0/txs/`;
@@ -56,4 +56,80 @@ const getAddressByTransactionId = function (transactionId, callback) {
 	);
 };
 
-module.exports = { getAddressByTransactionId };
+const refundHandler = function (req, res) {
+	const currentUtxos = wallet.balance().utxo;
+
+	let refunds = [];
+
+	for (let i = 0; i < currentUtxos.length; i++) {
+		const utxo = currentUtxos[i];
+
+		utxo.txHash;
+
+		if (utxos[utxo.txHash] === true) {
+			const address = getAddressByTransactionId(utxo.txHash);
+
+			const refundValue = utxo.value.lovelace;
+
+			refunds = [
+				...refunds,
+				{ address: address, value: refundValue, txHash: utxo.txHash },
+			];
+
+			makeRefund(address, refundValue, utxo);
+
+			utxos[utxo.txHash] = false;
+
+			continue;
+		} else {
+			utxos[utxo.txHash] = true;
+
+			continue;
+		}
+	}
+
+	console.table(refunds);
+
+	res
+		.status(200)
+		.json({ message: "refund array updated", data: JSON.stringify(refunds) });
+};
+
+const makeRefund = function (receiver, refundValue, utxo) {
+	const sender = wallet;
+
+	const txInfo = {
+		txIn: [utxo],
+		txOut: [
+			{
+				address: receiver,
+				value: {
+					lovelace: refundValue,
+				},
+			},
+		],
+	};
+
+	const raw = cardanocliJs.transactionBuildRaw(txInfo);
+
+	const fee = cardanocliJs.transactionCalculateMinFee({
+		...txInfo,
+		txBody: raw,
+		witnessCount: 1,
+	});
+
+	txInfo.txOut[0].value.lovelace -= fee;
+
+	const tx = cardanocliJs.transactionBuildRaw({ ...txInfo, fee });
+
+	const txSigned = cardanocliJs.transactionSign({
+		txBody: tx,
+		signingKeys: [sender.payment.skey],
+	});
+
+	const txHash = cardanocliJs.transactionSubmit(txSigned);
+
+	console.log(txHash);
+};
+
+module.exports = { getAddressByTransactionId, refundHandler };

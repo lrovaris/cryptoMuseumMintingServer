@@ -6,6 +6,8 @@ const list = require("./listOfValues");
 
 const { mintAsset } = require("./mintAsset");
 
+const { refundHandler } = require("./refund/refund");
+
 let wallet;
 
 if (getEnv() === "testnet") {
@@ -19,6 +21,8 @@ const quantitysArray = [0, 13, 10, 17, 0, 7, 9, 2, 0, 0, 0, 13, 9, 15, 23];
 router.get("/", (req, res) => {
 	return res.status(200).json({ Message: "Working" });
 });
+
+router.get("/refund", refundHandler);
 
 router.get("/test", (req, res) => {
 	console.log(wallet.balance().utxo[0].txHash);
