@@ -67,24 +67,25 @@ const refundHandler = function (req, res) {
 		utxo.txHash;
 
 		if (utxos[utxo.txHash] === true) {
-			const address = getAddressByTransactionId(utxo.txHash);
 
-			const refundValue = utxo.value.lovelace;
 
-			refunds = [
-				...refunds,
-				{ address: address, value: refundValue, txHash: utxo.txHash },
-			];
+			 getAddressByTransactionId(utxo.txHash, (address) => {
 
-			makeRefund(address, refundValue, utxo);
+				 const refundValue = utxo.value.lovelace;
 
-			utxos[utxo.txHash] = false;
+				 refunds = [
+					 ...refunds,
+					 { address: address, value: refundValue, txHash: utxo.txHash },
+				 ];
 
-			continue;
+				 makeRefund(address, refundValue, utxo);
+
+				 utxos[utxo.txHash] = false;
+
+			});
+
 		} else {
 			utxos[utxo.txHash] = true;
-
-			continue;
 		}
 	}
 
