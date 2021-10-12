@@ -30,12 +30,12 @@ router.get("/test", (req, res) => {
 
 	const receiver = "addr_test1qzmv5cufkwnycavj6s9f465c5hr5ew248pjwt4x49kvlapqpcup9jp0rhv5gj2frq8ywa36kh36qukgaantlzqx0l33qm2jyvx"
 	const txInfo = {
-		txIn: cardanocliJs.queryUtxo(sender.paymentAddr),
+		txIn: cardanocliJs.queryUtxo(wallet.paymentAddr),
 		txOut: [
 			{
 				address: receiver,
 				value: {
-					lovelace: sender.balance().value.lovelace
+					lovelace: receiver.balance().value.lovelace
 				}
 			}
 		]
