@@ -12,6 +12,8 @@ if (getEnv() === "testnet") {
 
 let utxos = {};
 
+let refunds = [];
+
 const getBaseUrl = function () {
 	return `https://cardano-${getEnv()}.blockfrost.io/api/v0/txs/`;
 };
@@ -51,10 +53,8 @@ const getAddressByTransactionId = function (transactionId, callback) {
 
 				jsonResponse = JSON.parse(response);
 
-				console.log(response)
-
 				var _response = jsonResponse.outputs.find( output => {
-					console.log(output.address)
+
 				return	output.address !== wallet.paymentAddr
 
 				})
@@ -68,7 +68,7 @@ const getAddressByTransactionId = function (transactionId, callback) {
 const refundHandler = function (req, res) {
 	const currentUtxos = wallet.balance().utxo;
 
-	let refunds = [];
+
 
 	for (let i = 0; i < currentUtxos.length; i++) {
 		const utxo = currentUtxos[i];
@@ -91,6 +91,8 @@ const refundHandler = function (req, res) {
 
 				 utxos[utxo.txHash] = false;
 
+				 console.table(refunds)
+
 			});
 
 		} else {
@@ -98,7 +100,7 @@ const refundHandler = function (req, res) {
 		}
 	}
 
-	console.table(refunds);
+
 
 	res
 		.status(200)
@@ -139,7 +141,6 @@ const makeRefund = function (receiver, refundValue, utxo) {
 
 	const txHash = cardanocliJs.transactionSubmit(txSigned);
 
-	console.log(txHash);
 };
 
 module.exports = { getAddressByTransactionId, refundHandler };
