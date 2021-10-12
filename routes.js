@@ -16,7 +16,23 @@ if (getEnv() === "testnet") {
 	wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
 }
 
-const quantitysArray = [0, 13, 10, 17, 0, 7, 9, 2, 0, 0, 0, 13, 9, 15, 23];
+const quantitysArray = [
+	0,
+	7,
+	9,
+	17,
+	0,
+	6,
+	6,
+	0,
+	0,
+	0,
+	0,
+	13,
+	7,
+	14,
+	19,
+];
 
 router.get("/", (req, res) => {
 	return res.status(200).json({ Message: "Working" });
@@ -27,9 +43,6 @@ router.get("/refund", refundHandler);
 router.get("/test", (req, res) => {
 
 	console.log(wallet.balance().utxo[0].txHash);
-
-
-
 
 	return res.status(200).json({ message: "test working" });
 });
