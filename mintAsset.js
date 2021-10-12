@@ -1,4 +1,6 @@
-const { cardanocliJs, getEnv } = require("./cardano");
+const { cardanocliJs } = require("./cardano");
+
+const { getEnv } = require("./getEnv");
 
 const { getFakeWalletById } = require("./test/utils");
 
@@ -38,8 +40,6 @@ const createTxOut = function (addressToSend, ASSET_ID, value) {
 
 	throw "aaaaaaaaaaa";
 };
-
-//const testTxOut = function () {};
 
 const prodTxOut = function (addressToSend, ASSET_ID, value) {
 	let valorAtual = value;

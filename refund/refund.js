@@ -1,5 +1,7 @@
 const https = require("https");
 
+const { getEnv } = require("../getEnv");
+
 const { cardanocliJs, getEnv } = require("../cardano");
 
 let wallet;
@@ -29,7 +31,7 @@ const getProjectId = function () {
 		return "ZEAnHjNNMQZkVYCnbanoywmNJx3UDHBz";
 	}
 
-	throw "wtf, nunca deveria chegar aqui";
+	throw "Ambiente não definido";
 };
 
 const getAddressByTransactionId = function (transactionId, callback) {
@@ -50,14 +52,11 @@ const getAddressByTransactionId = function (transactionId, callback) {
 			});
 
 			res.on("end", function () {
-
 				jsonResponse = JSON.parse(response);
 
-				var _response = jsonResponse.outputs.find( output => {
-
-				return	output.address !== wallet.paymentAddr
-
-				})
+				var _response = jsonResponse.outputs.find((output) => {
+					return output.address !== wallet.paymentAddr;
+				});
 
 				callback(_response.address);
 			});
@@ -68,39 +67,30 @@ const getAddressByTransactionId = function (transactionId, callback) {
 const refundHandler = function (req, res) {
 	const currentUtxos = wallet.balance().utxo;
 
-
-
 	for (let i = 0; i < currentUtxos.length; i++) {
 		const utxo = currentUtxos[i];
 
 		utxo.txHash;
 
 		if (utxos[utxo.txHash] === true) {
+			getAddressByTransactionId(utxo.txHash, (address) => {
+				const refundValue = utxo.value.lovelace;
 
+				refunds = [
+					...refunds,
+					{ address: address, value: refundValue, txHash: utxo.txHash },
+				];
 
-			 getAddressByTransactionId(utxo.txHash, (address) => {
+				makeRefund(address, refundValue, utxo);
 
-				 const refundValue = utxo.value.lovelace;
+				utxos[utxo.txHash] = false;
 
-				 refunds = [
-					 ...refunds,
-					 { address: address, value: refundValue, txHash: utxo.txHash },
-				 ];
-
-				 makeRefund(address, refundValue, utxo);
-
-				 utxos[utxo.txHash] = false;
-
-				 console.table(refunds)
-
+				console.table(refunds);
 			});
-
 		} else {
 			utxos[utxo.txHash] = true;
 		}
 	}
-
-
 
 	res
 		.status(200)
@@ -140,7 +130,6 @@ const makeRefund = function (receiver, refundValue, utxo) {
 	});
 
 	const txHash = cardanocliJs.transactionSubmit(txSigned);
-
 };
 
 module.exports = { getAddressByTransactionId, refundHandler };

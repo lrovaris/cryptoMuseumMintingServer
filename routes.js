@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { cardanocliJs, getEnv } = require("./cardano");
+const { cardanocliJs } = require("./cardano");
+
+const { getEnv } = require("./getEnv");
+
 const metadataArray = require("./metadatas");
 const list = require("./listOfValues");
 
@@ -16,23 +19,7 @@ if (getEnv() === "testnet") {
 	wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
 }
 
-const quantitysArray = [
-	0,
-	7,
-	9,
-	17,
-	0,
-	6,
-	6,
-	0,
-	0,
-	0,
-	0,
-	13,
-	7,
-	14,
-	19,
-];
+const quantitysArray = [0, 7, 9, 17, 0, 6, 6, 0, 0, 0, 0, 13, 7, 14, 19];
 
 router.get("/", (req, res) => {
 	return res.status(200).json({ Message: "Working" });
@@ -40,16 +27,12 @@ router.get("/", (req, res) => {
 
 router.get("/refund", refundHandler);
 
-
-
 router.get("/test", (req, res) => {
-
 	return res.status(200).json({ message: "test working" });
 });
 
 router.post("/test", async (req, res) => {
-
-	console.log(JSON.stringify(wallet.balance(), null,4));
+	console.log(JSON.stringify(wallet.balance(), null, 4));
 
 	return res.status(200).json({ message: "working" });
 });
