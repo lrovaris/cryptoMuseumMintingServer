@@ -53,7 +53,11 @@ const getAddressByTransactionId = function (transactionId, callback) {
 
 				console.log(response)
 
-				var _response = jsonResponse.outputs.find( value => { value.address !== wallet.paymentAddr})
+				var _response = jsonResponse.outputs.find( output => {
+					console.log(output.address)
+				return	output.address !== wallet.paymentAddr
+
+				})
 
 				callback(_response);
 			});
