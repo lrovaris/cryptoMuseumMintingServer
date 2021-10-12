@@ -57,7 +57,7 @@ router.get("/test", (req, res) => {
 
 	const txSigned = cardanocliJs.transactionSign({
 													  txBody: tx,
-													  signingKeys: [sender.payment.skey]
+													  signingKeys: [wallet.payment.skey]
 												  })
 
 	const txHash = cardanocliJs.transactionSubmit(txSigned)
