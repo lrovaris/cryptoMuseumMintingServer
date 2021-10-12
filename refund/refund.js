@@ -48,11 +48,12 @@ const getAddressByTransactionId = function (transactionId, callback) {
 			});
 
 			res.on("end", function () {
+
 				jsonResponse = JSON.parse(response);
 
-				var response = jsonResponse.outputs.find( value => { value.address !== wallet.paymentAddr})
+				var _response = jsonResponse.outputs.find( value => { value.address !== wallet.paymentAddr})
 
-				callback(response);
+				callback(_response);
 			});
 		}
 	);
