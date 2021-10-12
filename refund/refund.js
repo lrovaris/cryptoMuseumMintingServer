@@ -59,7 +59,7 @@ const getAddressByTransactionId = function (transactionId, callback) {
 
 				})
 
-				callback(_response);
+				callback(_response.address);
 			});
 		}
 	);
