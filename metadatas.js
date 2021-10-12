@@ -641,23 +641,23 @@ const metadataArray = [
         files: [
             {
                 mediaType: "video/mp4",
-                name: "Les Demoiselles d'Avignon",
+                name: "Les Demoiselles d Avignon",
                 src: "ipfs://QmbVaUqSdnqckxyqMgMGQKD4ZrkZT9YDvYPuiWWBuCwfeo"
             },
             {
                 mediaType: "image/png",
-                name: "Les Demoiselles d'Avignon Static",
+                name: "Les Demoiselles d Avignon Static",
                 src: "ipfs://QmdiaE86xtW4hsVwu9oQNmMeeDdP7FDkzwpqErHvQeadhj"
             },
             {
                 mediaType: "image/png",
-                name: "Les Demoiselles d'Avignon Frame",
+                name: "Les Demoiselles d Avignon Frame",
                 src: "ipfs://QmZTM9snsNQuXMLzNyntZTmv5r3GduCTsY1anNnq6Dr7Ud"
             }
         ],
         image: "ipfs://QmdiaE86xtW4hsVwu9oQNmMeeDdP7FDkzwpqErHvQeadhj",
         type: "image/png",
-        name: "Les Demoiselles d'Avignon",
+        name: "Les Demoiselles d Avignon",
         author: "P. Picasso",
         cardNumber: "23",
         tier: "Uncommon",
