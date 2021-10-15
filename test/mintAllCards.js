@@ -26,17 +26,32 @@ function mintAllCards() {
 }
 
 let i = 0
+let oldQuery = {}
+let newQuery = {}
 
 const verifyTransaction = function () {
+
+        oldQuery = newQuery
+        console.log("oldQuery")
+        console.log(oldQuery)
+        newQuery = cardanocliJs.queryUtxo(wallet.paymentAddr)
+        console.log("newQuery")
+        console.log(newQuery)
+
+        if (newQuery === oldQuery) {
+                setTimeout(verifyTransaction, 30000)
+        }
 
         sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 10)
 
         isTransactionValid = i >= 49;
+
         i++
         if (isTransactionValid) {
                 return;
         } else {
                 setTimeout(verifyTransaction, 65000);
+
                 return;
         }
 };
