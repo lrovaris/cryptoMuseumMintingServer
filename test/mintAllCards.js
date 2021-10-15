@@ -39,7 +39,7 @@ const verifyTransaction = function () {
 
         if (newQuery !== oldQuery) {
                 console.log("a")
-                mintAsset(metadataArray[h], 10000000, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
+                mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
         }
 
 
