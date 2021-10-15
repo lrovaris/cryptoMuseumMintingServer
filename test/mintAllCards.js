@@ -30,21 +30,11 @@ let newQuery = {}
 
 const verifyTransaction = function () {
 
-        console.log(wallet.balance())   
-   
-        oldQuery = newQuery
-        console.log("oldQuery")
-        console.log(oldQuery)
-        newQuery = hash(cardanocliJs.queryUtxo(wallet.paymentAddr))
-        console.log("newQuery")
-        console.log(newQuery)
-
-//        if (newQuery !== oldQuery) {
-  //              console.log("a")
-                
-      //  }
+ 
 
          mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
+         return
+   
         isTransactionValid = i >= 50;
 
         i++
