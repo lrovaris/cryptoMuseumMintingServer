@@ -32,7 +32,7 @@ let newQuery = {}
 
 const verifyTransaction = function () {
 
-        oldQuery = hash(newQuery)
+        oldQuery = newQuery
         console.log("oldQuery")
         console.log(oldQuery)
         newQuery = hash(cardanocliJs.queryUtxo(wallet.paymentAddr))
@@ -44,7 +44,7 @@ const verifyTransaction = function () {
                 sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 10)
         }
 
-        
+
         isTransactionValid = i >= 49;
 
         i++
