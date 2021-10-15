@@ -9,16 +9,17 @@ let wallet = cardanocliJs.wallet("testNetWallet");
 
 
 let i = 0
-
+let transaction
 
 const verifyTransaction = function () {
 
  
 
 
-         let transaction =   cardanocliJs.transactionSubmit(mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-5").paymentAddr))
+         transaction = cardanocliJs.transactionSubmit(mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-5").paymentAddr))
          
-   
+         console.log(transaction)  
+ 
         isTransactionValid = i >= 50;
 
         i++
