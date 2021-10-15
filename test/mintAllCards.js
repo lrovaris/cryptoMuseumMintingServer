@@ -17,7 +17,7 @@ const verifyTransaction = function () {
 
 
          let transaction =   cardanocliJs.transactionSubmit(mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-5").paymentAddr))
-         return
+         
    
         isTransactionValid = i >= 50;
 
