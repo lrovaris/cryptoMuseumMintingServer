@@ -4,25 +4,25 @@ let x =
     files: [
         {
             mediaType: "video/mp4",
-            name: "La Danse",
-            src: "ipfs://QmdbPp7qKimMKw2aWJ2ryrzc8TiTnDAh2kmrHMMemyhbSg"
+            name: "Horse Frightened by a Thunderstorm",
+            src: "ipfs://QmNQpYm2vP5e8vtQoUAkduAGfA3a8vfrVFmWzx8U8reJ3s"
         },
         {
             mediaType: "image/png",
-            name: "La Danse Static",
-            src: "ipfs://QmcX3ofe8vEWP13cpXDcDuN7Njsbs8vzYH33syzXtUoAhr"
+            name: "Horse Frightened by a Thunderstorm Static",
+            src: "ipfs://Qme2dVemXbvzNqwkUREeXx7bjkzKTkKwcJ1gzdVL8qwoWW"
         },
         {
             mediaType: "image/png",
-            name: "La Danse Frame",
-            src: "ipfs://Qmb9oFVhnF7dBVj6Z9fQn1XaHbpVkjBRGAb5y3BxA2tTrP"
+            name: "Horse Frightened by a Thunderstorm Frame",
+            src: "ipfs://QmZRQ71Tq3uXur867UdHxhAUVgCFqKiaVnNorgzrpGYkxa"
         }
     ],
-        image: "ipfs://QmcX3ofe8vEWP13cpXDcDuN7Njsbs8vzYH33syzXtUoAhr",
+        image: "ipfs://Qme2dVemXbvzNqwkUREeXx7bjkzKTkKwcJ1gzdVL8qwoWW",
     type: "image/png",
-    name: "La Danse",
-    author: "H. Matisse",
-    cardNumber: "29",
+    name: "Horse Frightened by a Thunderstorm",
+    author: "E. Delacroix",
+    cardNumber: "49",
     tier: "Masterpiece",
     collection: "First Collection",
     twitter: "https://twitter.com/CryptoMuseumNFT",

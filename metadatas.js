@@ -478,7 +478,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "La Belle Ferroniere Frame",
-                src: "ipfs://QmTDCj9Kt4CdwAy9qe2HLYtpEktVRTo8BXSvEWDhKqXVhQ"
+                src: "ipfs://QmRMZCjnnJPeqCfMJhCeZGHC8nY313xtfekEVAXNAsogWs"
             }
         ],
         image: "ipfs://Qmcm7nYzS3oSWXGmc29GsAQ9aqBJZXrqyyRcyrs5ZAniUJ",
@@ -507,7 +507,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "Girl With A Pearl Earring Frame",
-                src: "ipfs://QmZjNFKnRgwaKg2BchPBE6hi2oWjjzj5wAFtzWLxtmZC5o"
+                src: "ipfs://QmezbvLff7CVK2jurGaZikauWb9g1Pc6Jt6Kr3WDKDEReA"
             }
         ],
         image: "ipfs://QmYwUn83kgg4YvjGMbHH9fCF1kXdSCSRJgy9ApWwwbCG6g",
@@ -536,7 +536,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "The Son Of Man Frame",
-                src: "ipfs://QmdEQmWttfGA4YQVF7dqiowi3bk884VU5cmFx9NPNaN631"
+                src: "ipfs://QmaqazpZyBrVbFWH9pqCxVCCZopJSFCkNVeWXxn7bRM7Yo"
             }
         ],
         image: "ipfs://QmRDstT6xy7g7wrDzFfUdaZGQ3hjndsieEHeqnL5SWSMvd",
@@ -565,7 +565,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "The Creation of Adam Frame",
-                src: "ipfs://QmSubVMnj3TWNwKuar54LQkfgM8SF7j3GBCHiocAGXvTcz"
+                src: "ipfs://QmZ648jiNfg9UroaJi6RUgpm53TvJihP3vrUfso5xzUXUu"
             }
         ],
         image: "ipfs://QmRDstT6xy7g7wrDzFfUdaZGQ3hjndsieEHeqnL5SWSMvd",
@@ -594,7 +594,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "Woman With A Parassol Frame",
-                src: "ipfs://QmU9E4ro6wvnM4j2mScfNGu7q858gy4J9RssJ6zJ8GgPq9"
+                src: "ipfs://QmVbUixGkUfRi59dHvNVoGFHvpNSiSQpjpUNyR12A8ET2S"
             }
         ],
         image: "ipfs://QmeZ6sx7a4wn5XPSXyNhAGfWuuiPFdhuqCyPPTwYvpQGM9",
@@ -623,7 +623,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "The Scream Frame",
-                src: "ipfs://QmUHm19yLGC26wMLCSZfVsRm6DWnXSZaDQtNPPEZfXQziy"
+                src: "ipfs://QmeCUzU9pmVfzFdaexVCjYRSoV53xMc7FDETKy1evD1vbZ"
             }
         ],
         image: "ipfs://QmRAE7DybaWnQ2GmYzsudYZYrxr4HxoX1iaQ8xM9oiVXeU",
@@ -652,7 +652,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "Les Demoiselles d Avignon Frame",
-                src: "ipfs://QmZTM9snsNQuXMLzNyntZTmv5r3GduCTsY1anNnq6Dr7Ud"
+                src: "ipfs://QmbTTBsVLExhGMxE1nKrBLCMz7id6MfGspL4QfRQzeoQM7"
             }
         ],
         image: "ipfs://QmdiaE86xtW4hsVwu9oQNmMeeDdP7FDkzwpqErHvQeadhj",
@@ -681,7 +681,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "Arranjement in Grey and Black Frame",
-                src: "ipfs://QmUwEAtqZyBznU6Ge9iLD7Tk48LdieK3LzYwmu3C1GpQJg"
+                src: "ipfs://QmSGBCAcpvfkfLMo1Tj66tiEvYVbvnU1p2Yyq5sPRnSERm"
             }
         ],
         image: "ipfs://QmTQnJVXf3TnaJ3PhnNNhEzWAjQkUa5A4YQHtVEKJ4nh8P",
@@ -710,7 +710,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "Liberty Leading The People Frame",
-                src: "ipfs://QmVsiArQQH4sr2sAibWKaZfbuQRPJPbcnfw9hRXexCH7Pn"
+                src: "ipfs://QmX5PoL7bkhwRguaCBedFSRWn1jr7kS1yNZHLV2R71Hak9"
             }
         ],
         image: "ipfs://QmZPRCkEuVGLEASatAKNf33sK38jzAWbtbW51gSG2YQBi4",
@@ -739,7 +739,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "Storm On The Sea of Galilee Frame",
-                src: "ipfs://QmQx1wbowFHCppwmNseAPdcytxdzyDMdV5LpZcRskCJDA2"
+                src: "ipfs://QmTGiL5acnRMbhaaxoGj9CgchR7ufF5sAEq5gzB9cFUqAg"
             }
         ],
         image: "ipfs://QmZ6GLA6zRPPypYXXn4Cr22dt939hzcs2yBr4pLLK4jye7",
@@ -768,7 +768,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "Olympia Frame",
-                src: "ipfs://QmcsbjPcS7ijysbBQ92J12N4JPQd1ZuzbGmdnH1VbnXJXR"
+                src: "ipfs://QmVLXyi9WFGvm17hP2JKxQc1BbdYGdUeqkaRbjCWPvVHVG"
             }
         ],
         image: "ipfs://QmTmMZxNosqPgxmyQwLahrbdzmL8Ci4bW1QcAxwpJhc9jS",
@@ -797,7 +797,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "The Swing Frame",
-                src: "ipfs://QmX6gqZzDqaHNJ9ybJ49xaG1NfntCbNPxheUwGb5q88sCE"
+                src: "ipfs://QmVqkGbARti32BqGBXcDy5wHa6rdMJvYvZsXUD6iYLR3UA"
             }
         ],
         image: "ipfs://QmWUb2n3DBNhubspN4CQd81oUVibJYDadMNdPyMcj27xwP",
@@ -826,7 +826,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "La Danse Frame",
-                src: "ipfs://Qmb9oFVhnF7dBVj6Z9fQn1XaHbpVkjBRGAb5y3BxA2tTrP"
+                src: "ipfs://QmfTB2QpuyDyAMAtJWZHuZKtRKFwwQKB35xdbUgSZ2pZ5X"
             }
         ],
         image: "ipfs://QmcX3ofe8vEWP13cpXDcDuN7Njsbs8vzYH33syzXtUoAhr",
@@ -834,6 +834,586 @@ const metadataArray = [
         name: "La Danse",
         author: "H. Matisse",
         cardNumber: "29",
+        tier: "Masterpiece",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Napoleon Crossing the Alps",
+                src: "ipfs://QmTCdDHcdxDXaiVes7w1DjM8s4fBcbioqKf5exnmvPhGpo"
+            },
+            {
+                mediaType: "image/png",
+                name: "Napoleon Crossing the Alps Static",
+                src: "ipfs://QmVYcQumzZc2dnuFArY2whn7uCLscfRTpcA4zs6JHfjqnS"
+            },
+            {
+                mediaType: "image/png",
+                name: "Napoleon Crossing the Alps Frame",
+                src: "ipfs://QmQj1HJNhXt2PYHMHAFC4aihJasPDmxdrhtraohdsw8HFN"
+            }
+        ],
+        image: "ipfs://QmVYcQumzZc2dnuFArY2whn7uCLscfRTpcA4zs6JHfjqnS",
+        type: "image/png",
+        name: "Napoleon Crossing the Alps",
+        author: "J. L. David",
+        cardNumber: "30",
+        tier: "Unique",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "The Grande Odalisque",
+                src: "ipfs://QmWktHzu18dEfyRJGxS8XNRU3vuvVsffY2Wo745DV2YqM7"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Grande Odalisque Static",
+                src: "ipfs://QmVLNLoQfNx9fi8EGVurDgNdjmRYAM8QFq9SEefb4zTGm9"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Grande Odalisque Frame",
+                src: "ipfs://Qmc92AQvXEhPvzgcbann94ebyS7puJHkhQ31T95pQgRbp1"
+            }
+        ],
+        image: "ipfs://QmVLNLoQfNx9fi8EGVurDgNdjmRYAM8QFq9SEefb4zTGm9",
+        type: "image/png",
+        name: "The Grande Odalisque",
+        author: "J. D. Ingres",
+        cardNumber: "31",
+        tier: "common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "The Two Fridas",
+                src: "ipfs://QmcwaDra54bML11PZCDnu3LoVyWdSLXe4wDqeeeSRrnAvo"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Two Fridas Static",
+                src: "ipfs://QmYAvCRF2nRScRYAhkBpbtEDHjVm5eQgrrQKjFT8W8JNBE"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Two Fridas Frame",
+                src: "ipfs://QmUuzLmdUMmU9QbUFAkgiXDF2qpRURTmyw9nfGnF6PL9qH"
+            }
+        ],
+        image: "ipfs://QmYAvCRF2nRScRYAhkBpbtEDHjVm5eQgrrQKjFT8W8JNBE",
+        type: "image/png",
+        name: "The Two Fridas",
+        author: "F. Kahlo",
+        cardNumber: "32",
+        tier: "common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "The Treachery of Images",
+                src: "ipfs://QmT3oME1FKJABaQcaEAh9dNH391omWKjmkQQPebRohCZjb"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Treachery of Images Static",
+                src: "ipfs://QmbnyaaQvZXfHyCHe8k3engixwqubqEdin39NgdTdb1ZmB"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Treachery of Images Frame",
+                src: "ipfs://QmRev3kwKYuvwN4gdAS2571tbLBeUuLzucUmRjgBB4tLje"
+            }
+        ],
+        image: "ipfs://QmbnyaaQvZXfHyCHe8k3engixwqubqEdin39NgdTdb1ZmB",
+        type: "image/png",
+        name: "The Treachery of Images",
+        author: "R. Magritte",
+        cardNumber: "33",
+        tier: "Masterpiece",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "The Raft of Medusa",
+                src: "ipfs://Qme8h3SyhFLLHo7p1M7hohhf4woewR96GBnM5Mfr7AvwCE"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Raft of Medusa Static",
+                src: "ipfs://QmckfL4PMPkHKGdWBVxjDRRe3shuqvw2kFVHhZDSTCcQqe"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Raft of Medusa Frame",
+                src: "ipfs://QmReDKN3756atqosqvNVwvHuPT7pQ58iZGrzftfSNSaBnz"
+            }
+        ],
+        image: "ipfs://QmckfL4PMPkHKGdWBVxjDRRe3shuqvw2kFVHhZDSTCcQqe",
+        type: "image/png",
+        name: "The Raft of Medusa",
+        author: "T. Géricault",
+        cardNumber: "34",
+        tier: "Common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Marilyns",
+                src: "ipfs://Qmcg17rX5TZVRfjkJUSvPNk4o1NrphCpM2XoQoGiGcqoBw"
+            },
+            {
+                mediaType: "image/png",
+                name: "Marilyns Static",
+                src: "ipfs://QmPkhZ4QuHE9TWbQHSNnxx1dKwoxrZFkC3JQfwMxTeaeCV"
+            },
+            {
+                mediaType: "image/png",
+                name: "Marilyns Frame",
+                src: "ipfs://QmZgMRLAZpfkNxZ25aXSKQVSmNhJNopeVmskHzveUsxfcv"
+            }
+        ],
+        image: "ipfs://QmPkhZ4QuHE9TWbQHSNnxx1dKwoxrZFkC3JQfwMxTeaeCV",
+        type: "image/png",
+        name: "Marilyns",
+        author: "Andy Warhol",
+        cardNumber: "35",
+        tier: "Unique",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Saturn Devouring His Son",
+                src: "ipfs://QmNjjagpMHQd2ehe4vDi1A2CiSBKYECRvp6mb5mxMTQ9VL"
+            },
+            {
+                mediaType: "image/png",
+                name: "Saturn Devouring His Son Static",
+                src: "ipfs://QmW2G4fdPd1kD2QqiGtuBBzDDeFCbXQpSKDCQwZBvHtX56"
+            },
+            {
+                mediaType: "image/png",
+                name: "Saturn Devouring His Son Frame",
+                src: "ipfs://QmPCbbQmZKpQCdDBsoZ539RvsXm1dxztjWHYmKXz6uEHQo"
+            }
+        ],
+        image: "ipfs://QmW2G4fdPd1kD2QqiGtuBBzDDeFCbXQpSKDCQwZBvHtX56",
+        type: "image/png",
+        name: "Saturn Devouring His Son",
+        author: "F. Goya",
+        cardNumber: "36",
+        tier: "Common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "The Accolade",
+                src: "ipfs://QmQEeJSfVpUc2ymgiwRQvkQ4cV4ornh8cqBp3qxjAt79Pn"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Accolade Static",
+                src: "ipfs://QmNnkoWzTm3JYjVBRqC8Sk5cBA6Rx4dCgPB6uX5bJjkQoZ"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Accolade Frame",
+                src: "ipfs://QmRp4Scr7yZfL1VDUcLmjJ1Apf3EpguPgNten88XcxZeHg"
+            }
+        ],
+        image: "ipfs://QmNnkoWzTm3JYjVBRqC8Sk5cBA6Rx4dCgPB6uX5bJjkQoZ",
+        type: "image/png",
+        name: "The Accolade",
+        author: "E. Leighton",
+        cardNumber: "37",
+        tier: "Common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "L Amour et Psyché, Enfants",
+                src: "ipfs://QmbxMQj5ajay9wtfA9Gj7G1ZiXMQJuQPrUZpdaYg8pLHP2"
+            },
+            {
+                mediaType: "image/png",
+                name: "L Amour et Psyché, Enfants Static",
+                src: "ipfs://QmU25SQjRjmdZNBKSb7ErKkrNHh8wJoY9EXQtEff6XQ1kh"
+            },
+            {
+                mediaType: "image/png",
+                name: "L Amour et Psyché, Enfants Frame",
+                src: "ipfs://QmPK9asKo2mBxxtsNx6SwBpqFHpVHSqvo1uWK4tKu88cAP"
+            }
+        ],
+        image: "ipfs://QmU25SQjRjmdZNBKSb7ErKkrNHh8wJoY9EXQtEff6XQ1kh",
+        type: "image/png",
+        name: "L Amour et Psyché, Enfants",
+        author: "W. A. Bouguereau",
+        cardNumber: "38",
+        tier: "Common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Abaporu",
+                src: "ipfs://Qmcy4n2yGsEeSsFKEfWpVPHko9iP4JJGDZCgSM3Tcy9ctH"
+            },
+            {
+                mediaType: "image/png",
+                name: "Abaporu Static",
+                src: "ipfs://Qmeh9kA6T55y6n8cQ44NQtDgRqbqg7KMuaQVLRhmQCVWuY"
+            },
+            {
+                mediaType: "image/png",
+                name: "Abaporu Frame",
+                src: "ipfs://QmVKaQKrhUqoReaEyatcijHh89ZBWb97a3CVwPSFTY4uJB"
+            }
+        ],
+        image: "ipfs://Qmeh9kA6T55y6n8cQ44NQtDgRqbqg7KMuaQVLRhmQCVWuY",
+        type: "image/png",
+        name: "Abaporu",
+        author: "T. Amaral",
+        cardNumber: "39",
+        tier: "Masterpiece",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Wanderer Above the Sea of Fog",
+                src: "ipfs://QmdQiDE179Ccg7G1Pm9R9WqYPraDeveRRzvr8JYHJuRS7Y"
+            },
+            {
+                mediaType: "image/png",
+                name: "Wanderer Above the Sea of Fog Static",
+                src: "ipfs://Qmcc6ok9PsFQqNkvfyWKsBsKU7LZj27m8dWrDcjWzZz5Zw"
+            },
+            {
+                mediaType: "image/png",
+                name: "Wanderer Above the Sea of Fog Frame",
+                src: "ipfs://QmPKdBMjic6MXQYJPCqs8NHTmNEkM8JAmw95Nc5jqeN7hj"
+            }
+        ],
+        image: "ipfs://Qmcc6ok9PsFQqNkvfyWKsBsKU7LZj27m8dWrDcjWzZz5Zw",
+        type: "image/png",
+        name: "Wanderer Above the Sea of Fog",
+        author: "C. D. Friedrich",
+        cardNumber: "40",
+        tier: "Uncommon",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "The Night Watch",
+                src: "ipfs://QmbVso5hgwy6vk9eX7EMNkVBUweNzdchzkYHxkk7gsN4Dh"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Night Watch Static",
+                src: "ipfs://QmbD6Lp27gAGoWbYoiNHuyRRkB27oBCUo6xkYWk87u7NYv"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Night Watch Frame",
+                src: "ipfs://QmTVmAKv1JqGNsWAPoHmaVoVtaYneKgV753HUAptTYasFH"
+            }
+        ],
+        image: "ipfs://Qmcc6ok9PsFQqNkvfyWKsBsKU7LZj27m8dWrDcjWzZz5Zw",
+        type: "image/png",
+        name: "The Night Watch",
+        author: "Rembrandt",
+        cardNumber: "41",
+        tier: "Uncommon",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Automat",
+                src: "ipfs://QmXyQbh2yvPnhyPpxh3w3H6ixpCNh39Jt7eECc1AHEGZKb"
+            },
+            {
+                mediaType: "image/png",
+                name: "Automat Static",
+                src: "ipfs://QmP4oPZZnCT1gy3KqvtvxzgHQV91tJ7G2r9ZCH5sMhc6Nb"
+            },
+            {
+                mediaType: "image/png",
+                name: "Automat Frame",
+                src: "ipfs://QmWuDp5n1An5SVm4BLkeL5XAaxhoo3hXqj4XUCsCUq63wG"
+            }
+        ],
+        image: "ipfs://QmP4oPZZnCT1gy3KqvtvxzgHQV91tJ7G2r9ZCH5sMhc6Nb",
+        type: "image/png",
+        name: "Automat",
+        author: "E. Hopper",
+        cardNumber: "42",
+        tier: "Uncommon",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Impression, Sunrise",
+                src: "ipfs://QmV3EiEw5bS6MrmcQnxCFJCSwc5YtC4YL6NVu9TAmaYsJv"
+            },
+            {
+                mediaType: "image/png",
+                name: "Impression, Sunrise Static",
+                src: "ipfs://QmbqnBXJYY3NGs9NncPDXUJYvGVNSsfPkkcwr73tGv5jLi"
+            },
+            {
+                mediaType: "image/png",
+                name: "Impression, Sunrise Frame",
+                src: "ipfs://QmZAmkTYwKBcaYC7dKbvyTs7eyefmVWsTAnEAzNn8zxPLZ"
+            }
+        ],
+        image: "ipfs://QmbqnBXJYY3NGs9NncPDXUJYvGVNSsfPkkcwr73tGv5jLi",
+        type: "image/png",
+        name: "Impression, Sunrise",
+        author: "Claude Monet",
+        cardNumber: "43",
+        tier: "Common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "The Kiss",
+                src: "ipfs://QmcJWbg5Jr88TJJYH53Li6fG2h7gKf394nTgTPJStT5VnW"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Kiss Static",
+                src: "ipfs://QmQXgQq3nBwknRnBfzRAhmVgTAsXLMnxo9J3MXeypLdcXC"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Kiss Frame",
+                src: "ipfs://QmRenWi1AS7fLb46ji7YBMvbHdNWixh2dd3WCJNMeFFcVx"
+            }
+        ],
+        image: "ipfs://QmQXgQq3nBwknRnBfzRAhmVgTAsXLMnxo9J3MXeypLdcXC",
+        type: "image/png",
+        name: "The Kiss",
+        author: "G. Klimt",
+        cardNumber: "44",
+        tier: "Common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Golconda",
+                src: "ipfs://QmeAWyvfuY59RBcGpTvuWe6z3gXfJdTAY6SnU3AuM1dstH"
+            },
+            {
+                mediaType: "image/png",
+                name: "Golconda Static",
+                src: "ipfs://QmbXRsfSuNU9yTe9dTCxByuy4BgNSzGBHJX6J7wa5DCfxL"
+            },
+            {
+                mediaType: "image/png",
+                name: "Golconda Frame",
+                src: "ipfs://QmXRUGCfLyJBrJnHxasm4aWawMtBSySz4WM6c11vghPgVv"
+            }
+        ],
+        image: "ipfs://QmQXgQq3nBwknRnBfzRAhmVgTAsXLMnxo9J3MXeypLdcXC",
+        type: "image/png",
+        name: "Golconda",
+        author: "R. Magritte",
+        cardNumber: "45",
+        tier: "Common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Morning on the Seine near Giverny",
+                src: "ipfs://QmUWeEdHakmuTDpvTrXUAJ11iZQponnCU5EchDbrpJJ9qE"
+            },
+            {
+                mediaType: "image/png",
+                name: "Morning on the Seine near Giverny Static",
+                src: "ipfs://QmehjdHniQNumuLmH23FtZRuif3axx7yPFwzaYBi1mspcT"
+            },
+            {
+                mediaType: "image/png",
+                name: "Morning on the Seine near Giverny Frame",
+                src: "ipfs://QmbZZ23LT9BWMv7wEezGaTyX1bBsxzDVrZmU8QwvFB9W62"
+            }
+        ],
+        image: "ipfs://QmehjdHniQNumuLmH23FtZRuif3axx7yPFwzaYBi1mspcT",
+        type: "image/png",
+        name: "Morning on the Seine near Giverny",
+        author: "C. Monet",
+        cardNumber: "46",
+        tier: "Common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "The Death of Marat",
+                src: "ipfs://QmceSdYFkJFjAsqv7mSeGf13CjZGNdNVMg4EbKeY47y42u"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Death of Maraty Static",
+                src: "ipfs://QmfCJuERcKoazrtDgRwyBPo2PyMGi4qQTTCRnPqSJLtsVY"
+            },
+            {
+                mediaType: "image/png",
+                name: "The Death of Marat Frame",
+                src: "ipfs://QmUpnTJHewA9Yik5LwWVq6meDic8hVimHwmRedsgsognWk"
+            }
+        ],
+        image: "ipfs://QmfCJuERcKoazrtDgRwyBPo2PyMGi4qQTTCRnPqSJLtsVY",
+        type: "image/png",
+        name: "The Death of Marat",
+        author: "J. L. David",
+        cardNumber: "47",
+        tier: "Common",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Sunflowers",
+                src: "ipfs://QmNxNNRpJ2ykgv8tLturZPxL1poGAudhsP3qusSiEmkx1Y"
+            },
+            {
+                mediaType: "image/png",
+                name: "Sunflowers Static",
+                src: "ipfs://QmZn1vb5HdygjAGVNbbwAhmnhSZ6cUGXLW85DaxoVSTqJ6"
+            },
+            {
+                mediaType: "image/png",
+                name: "Sunflowers Frame",
+                src: "ipfs://QmTr9sFuBBZFNDdTaXx9aYNqy4tKTNVU1ZfW5WQKkLNZHC"
+            }
+        ],
+        image: "ipfs://QmfCJuERcKoazrtDgRwyBPo2PyMGi4qQTTCRnPqSJLtsVY",
+        type: "image/png",
+        name: "Sunflowers",
+        author: "Van Gogh",
+        cardNumber: "48",
+        tier: "Magnum Opus",
+        collection: "First Collection",
+        twitter: "https://twitter.com/CryptoMuseumNFT",
+        discord: "https://discord.com/invite/pA5dMgr4UY",
+        website: "https://crypto-museum.io/"
+    },
+    {
+        files: [
+            {
+                mediaType: "video/mp4",
+                name: "Horse Frightened by a Thunderstorm",
+                src: "ipfs://QmNQpYm2vP5e8vtQoUAkduAGfA3a8vfrVFmWzx8U8reJ3s"
+            },
+            {
+                mediaType: "image/png",
+                name: "Horse Frightened by a Thunderstorm Static",
+                src: "ipfs://Qme2dVemXbvzNqwkUREeXx7bjkzKTkKwcJ1gzdVL8qwoWW"
+            },
+            {
+                mediaType: "image/png",
+                name: "Horse Frightened by a Thunderstorm Frame",
+                src: "ipfs://QmZRQ71Tq3uXur867UdHxhAUVgCFqKiaVnNorgzrpGYkxa"
+            }
+        ],
+        image: "ipfs://Qme2dVemXbvzNqwkUREeXx7bjkzKTkKwcJ1gzdVL8qwoWW",
+        type: "image/png",
+        name: "Horse Frightened by a Thunderstorm",
+        author: "E. Delacroix",
+        cardNumber: "49",
         tier: "Masterpiece",
         collection: "First Collection",
         twitter: "https://twitter.com/CryptoMuseumNFT",
