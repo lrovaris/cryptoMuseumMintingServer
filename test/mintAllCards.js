@@ -8,7 +8,7 @@ let wallet = cardanocliJs.wallet("testNetWallet");
 
 
 
-let i = 50
+let i = 49
 let transaction
 let oldQuery = {}
 let newQuery = {}
