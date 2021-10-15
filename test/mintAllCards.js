@@ -25,4 +25,21 @@ function mintAllCards() {
 
 }
 
-module.exports = mintAllCards();
+let i = 0
+
+const verifyTransaction = function () {
+
+        sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 10)
+
+        isTransactionValid = i >= 49;
+        i++
+        if (isTransactionValid) {
+                return;
+        } else {
+                setTimeout(verifyTransaction, 65000);
+                return;
+        }
+};
+
+
+module.exports = verifyTransaction();
