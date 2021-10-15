@@ -39,7 +39,8 @@ const verifyTransaction = function () {
         console.log("newQuery")
         console.log(newQuery)
 
-        if (newQuery === oldQuery) {
+        if (newQuery !== oldQuery) {
+                console.log("a")
                 setTimeout(verifyTransaction, 10000)
         }
 
