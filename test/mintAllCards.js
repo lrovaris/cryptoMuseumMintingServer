@@ -7,7 +7,7 @@ let wallet = cardanocliJs.wallet("testNetWallet");
 
 
 
-let i = 49
+let i = 1
 let transaction
 let oldQuery = {}
 let newQuery = {}
@@ -28,13 +28,13 @@ const verifyTransaction = function () {
         }
 
 
-        isTransactionValid = i >= 50;
+        isTransactionValid = i >= 120;
 
         i++
         if (isTransactionValid) {
                 return;
         } else {
-                setTimeout(verifyTransaction, 60000);
+                setTimeout(verifyTransaction, 10000);
 
                 return;
         }
