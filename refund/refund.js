@@ -1,6 +1,7 @@
 const https = require("https");
 
-const { getEnv } = require("../getEnv");
+//Rovaris: comentei pq tava dando erro :thinking:
+//const { getEnv } = require("../getEnv");
 
 const { cardanocliJs, getEnv } = require("../cardano");
 
