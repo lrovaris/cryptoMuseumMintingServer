@@ -26,7 +26,7 @@ const verifyTransaction = function () {
 
         if (newQuery !== oldQuery) {
            console.log("sendou")
-           sendFakeAdas(getFakeWalletById(3).paymentAddr, (+5 + +Math.random()))
+           sendFakeAdas(getFakeWalletById(3), (+5 + +Math.random()))
            console.log("txhash: "+transaction)
         }
 
