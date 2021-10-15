@@ -41,11 +41,10 @@ const verifyTransaction = function () {
 
         if (newQuery !== oldQuery) {
                 console.log("a")
-                setTimeout(verifyTransaction, 10000)
+                sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 10)
         }
 
-        sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 10)
-
+        
         isTransactionValid = i >= 49;
 
         i++
