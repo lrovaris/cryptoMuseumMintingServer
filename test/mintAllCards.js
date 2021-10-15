@@ -30,6 +30,8 @@ let newQuery = {}
 
 const verifyTransaction = function () {
 
+        console.log(wallet.balance())   
+   
         oldQuery = newQuery
         console.log("oldQuery")
         console.log(oldQuery)
