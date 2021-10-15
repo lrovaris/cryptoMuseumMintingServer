@@ -7,15 +7,23 @@ let wallet = cardanocliJs.wallet("testNetWallet");
 
 function mintAllCards() {
     for (let i = 0; i < 175; i++){
-        sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 5)
+        setTimeout( () => {
+            sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 5)
+        },60000)
     }
 
     for (let h = 0; h < 50; h++){
-        mintAsset(metadataArray[h], 5, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
+        setTimeout( () => {
+            mintAsset(metadataArray[h], 5, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
+        },60000)
+
     }
 
     for (let i = 0; i < 30; i++){
-        sendFakeAdas(2, 5)
+        setTimeout( () => {
+            sendFakeAdas(2, 5)
+        },60000)
+
     }
 
 }
