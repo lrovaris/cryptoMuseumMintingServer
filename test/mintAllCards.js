@@ -12,12 +12,13 @@ function mintAllCards() {
 
 
         setTimeout( () => {
-                mintAsset(metadataArray[0], 5, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
+                mintAsset(metadataArray[0], 10, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
+                sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 10)
         }, 60000)
 
 
 
-        sendFakeAdas(2, 5)
+
 
 
 }
