@@ -8,7 +8,7 @@ let wallet = cardanocliJs.wallet("testNetWallet");
 
 
 
-let i = 36
+let i = 38
 let transaction
 let oldQuery = {}
 let newQuery = {}
@@ -19,11 +19,13 @@ const verifyTransaction = function () {
        newQuery = hash(cardanocliJs.queryUtxo(wallet.paymentAddr))
        console.log(newQuery)  
        console.log(oldQuery)  
- 
+
+        console.log(i)
+
         if (newQuery !== oldQuery) {
-           console.log("a")
+           console.log("mintou")
            transaction = cardanocliJs.transactionSubmit(mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-5").paymentAddr))
-           console.log(transaction)  
+           console.log("txhash: "+transaction)
         }
 
 
