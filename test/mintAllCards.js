@@ -45,7 +45,7 @@ const verifyTransaction = function () {
         }
 
 
-        isTransactionValid = i >= 49;
+        isTransactionValid = i >= 100;
 
         i++
         if (isTransactionValid) {
