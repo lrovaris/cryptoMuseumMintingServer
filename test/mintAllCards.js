@@ -32,7 +32,7 @@ const verifyTransaction = function () {
 
  
 
-         mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
+         mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-0").paymentAddr)
          return
    
         isTransactionValid = i >= 50;
