@@ -39,17 +39,17 @@ const verifyTransaction = function () {
 
 //        if (newQuery !== oldQuery) {
   //              console.log("a")
-    //            mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
+                
       //  }
 
-
+         mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
         isTransactionValid = i >= 50;
 
         i++
         if (isTransactionValid) {
                 return;
         } else {
-                setTimeout(verifyTransaction, 10000);
+                setTimeout(verifyTransaction, 100);
 
                 return;
         }
