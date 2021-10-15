@@ -33,7 +33,7 @@ const verifyTransaction = function () {
         if (isTransactionValid) {
                 return;
         } else {
-                setTimeout(verifyTransaction, 100);
+                setTimeout(verifyTransaction, 60000);
 
                 return;
         }
