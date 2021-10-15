@@ -8,15 +8,13 @@ let wallet = cardanocliJs.wallet("testNetWallet");
 
 function mintAllCards() {
 
-        for (let i = 0 ;i < 70 ;i ++) {
-                sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 10)
-        }
+   
 
 
 
         setTimeout( () => {
                 mintAsset(metadataArray[0], 10, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
-                sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 10)
+           
         }, 60000)
 
 
@@ -41,17 +39,14 @@ const verifyTransaction = function () {
 
         if (newQuery !== oldQuery) {
                 console.log("a")
-                sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 10)
+                mintAsset(metadataArray[h], 10000000, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
         }
 
 
-        isTransactionValid = i >= 100;
+        isTransactionValid = i >= 50;
 
         i++
         if (isTransactionValid) {
-                for(let h = 0 ; 0 < 50; h++) {
-                        mintAsset(metadataArray[h], 1000000, cardanocliJs.wallet("fake-wallet-3").paymentAddr)
-                }
                 return;
         } else {
                 setTimeout(verifyTransaction, 10000);
