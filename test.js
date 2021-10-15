@@ -4,26 +4,26 @@ let x =
     files: [
         {
             mediaType: "video/mp4",
-            name: "Horse Frightened by a Thunderstorm",
-            src: "ipfs://QmNQpYm2vP5e8vtQoUAkduAGfA3a8vfrVFmWzx8U8reJ3s"
+            name: "Guernica",
+            src: "ipfs://QmcwJHbkbw5LsWam4cTBfBupZmTgzqBrUWsFSnhHqjXMC2"
         },
         {
             mediaType: "image/png",
-            name: "Horse Frightened by a Thunderstorm Static",
-            src: "ipfs://Qme2dVemXbvzNqwkUREeXx7bjkzKTkKwcJ1gzdVL8qwoWW"
+            name: "Guernica Static",
+            src: "ipfs://QmWeUwprUQ5ugENGYM5BcYbGErZjkZcCdfndxdJSnVuxTL"
         },
         {
             mediaType: "image/png",
-            name: "Horse Frightened by a Thunderstorm Frame",
-            src: "ipfs://QmZRQ71Tq3uXur867UdHxhAUVgCFqKiaVnNorgzrpGYkxa"
+            name: "Guernica Frame",
+            src: "ipfs://QmZttuGq2aAS9EYUL3C5qyfKCvk8LGAhCP4XgCmQC5NVhT"
         }
     ],
-        image: "ipfs://Qme2dVemXbvzNqwkUREeXx7bjkzKTkKwcJ1gzdVL8qwoWW",
+        image: "ipfs://QmWeUwprUQ5ugENGYM5BcYbGErZjkZcCdfndxdJSnVuxTL",
     type: "image/png",
-    name: "Horse Frightened by a Thunderstorm",
-    author: "E. Delacroix",
-    cardNumber: "49",
-    tier: "Masterpiece",
+    name: "Guernica",
+    author: "P. Picasso",
+    cardNumber: "50",
+    tier: "Uncommon",
     collection: "First Collection",
     twitter: "https://twitter.com/CryptoMuseumNFT",
     discord: "https://discord.com/invite/pA5dMgr4UY",
