@@ -14,6 +14,9 @@ let newQuery = {}
 
 const verifyTransaction = function () {
 
+    console.log(getFakeWalletById(3).paymentAddr)
+    console.log(cardanocliJs.queryUtxo(getFakeWalletById(3).paymentAddr))
+
        oldQuery = newQuery
        newQuery = hash(cardanocliJs.queryUtxo(getFakeWalletById(3).paymentAddr))
        console.log(newQuery)  
