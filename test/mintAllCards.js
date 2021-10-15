@@ -6,9 +6,8 @@ const { metadataArray } = require("../metadatas");
 let wallet = cardanocliJs.wallet("testNetWallet");
 
 function mintAllCards() {
-    console.log(cardanocliJs.wallet("fake-wallet-0").paymentAddr)
     for (let i = 0; i < 175; i++){
-        sendFakeAdas(cardanocliJs.wallet("fake-wallet-0").paymentAddr, 5)
+        sendFakeAdas(cardanocliJs.wallet("fake-wallet-0"), 5)
     }
 
     for (let h = 0; h < 50; h++){
