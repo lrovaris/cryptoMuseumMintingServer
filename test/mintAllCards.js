@@ -17,7 +17,8 @@ const verifyTransaction = function () {
 
        oldQuery = newQuery
        newQuery = hash(cardanocliJs.queryUtxo(wallet.paymentAddr))
- 
+       console.log(newQuery)  
+       console.log(oldQuery)  
  
         if (newQuery !== oldQuery) {
            console.log("a")
