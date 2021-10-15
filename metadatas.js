@@ -1076,23 +1076,23 @@ const metadataArray = [
         files: [
             {
                 mediaType: "video/mp4",
-                name: "L Amour et Psyché, Enfants",
+                name: "L Amour et Psyche Enfants",
                 src: "ipfs://QmbxMQj5ajay9wtfA9Gj7G1ZiXMQJuQPrUZpdaYg8pLHP2"
             },
             {
                 mediaType: "image/png",
-                name: "L Amour et Psyché, Enfants Static",
+                name: "L Amour et Psyche Enfants Static",
                 src: "ipfs://QmU25SQjRjmdZNBKSb7ErKkrNHh8wJoY9EXQtEff6XQ1kh"
             },
             {
                 mediaType: "image/png",
-                name: "L Amour et Psyché, Enfants Frame",
+                name: "L Amour et Psyche Enfants Frame",
                 src: "ipfs://QmPK9asKo2mBxxtsNx6SwBpqFHpVHSqvo1uWK4tKu88cAP"
             }
         ],
         image: "ipfs://QmU25SQjRjmdZNBKSb7ErKkrNHh8wJoY9EXQtEff6XQ1kh",
         type: "image/png",
-        name: "L Amour et Psyché, Enfants",
+        name: "L Amour et Psyche Enfants",
         author: "W. A. Bouguereau",
         cardNumber: "38",
         tier: "Common",
