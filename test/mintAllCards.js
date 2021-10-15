@@ -25,12 +25,13 @@ const verifyTransaction = function () {
            console.log("sendou")
            sendFakeAdas(getFakeWalletById(3), (5))
            console.log("txhash: "+transaction)
+            i++
         }
 
 
         isTransactionValid = i >= 120;
 
-        i++
+
         if (isTransactionValid) {
                 return;
         } else {
