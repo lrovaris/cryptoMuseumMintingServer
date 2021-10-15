@@ -1,8 +1,7 @@
 const { cardanocliJs, getEnv } = require("../cardano");
-const { mintAsset } = require ("../mintAsset")
 const { sendFakeAdas } = require("./sendFakeAdasFromFakeWallets");
-const  metadataArray  = require("../metadatas");
 const hash = require('object-hash');
+const { getFakeWalletById } = require("./test/utils");
 
 let wallet = cardanocliJs.wallet("testNetWallet");
 
@@ -16,15 +15,15 @@ let newQuery = {}
 const verifyTransaction = function () {
 
        oldQuery = newQuery
-       newQuery = hash(cardanocliJs.queryUtxo(wallet.paymentAddr))
+       newQuery = hash(cardanocliJs.queryUtxo(getFakeWalletById(3).paymentAddr))
        console.log(newQuery)  
        console.log(oldQuery)  
 
         console.log(i)
 
         if (newQuery !== oldQuery) {
-           console.log("mintou")
-           transaction = cardanocliJs.transactionSubmit(mintAsset(metadataArray[i], 10000000, cardanocliJs.wallet("fake-wallet-5").paymentAddr))
+           console.log("sendou")
+           sendFakeAdas(getFakeWalletById(3).paymentAddr, (+5 + +Math.random()))
            console.log("txhash: "+transaction)
         }
 
