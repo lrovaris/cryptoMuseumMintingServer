@@ -1,7 +1,7 @@
 const { cardanocliJs, getEnv } = require("../cardano");
 const { mintAsset } = require ("../mintAsset")
 const { sendFakeAdas } = require("./sendFakeAdasFromFakeWallets");
-const { metadataArray } = require("../metadatas");
+const  metadataArray  = require("../metadatas");
 
 let wallet = cardanocliJs.wallet("testNetWallet");
 
