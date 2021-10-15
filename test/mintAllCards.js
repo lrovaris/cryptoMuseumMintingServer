@@ -2,6 +2,7 @@ const { cardanocliJs, getEnv } = require("../cardano");
 const { mintAsset } = require ("../mintAsset")
 const { sendFakeAdas } = require("./sendFakeAdasFromFakeWallets");
 const  metadataArray  = require("../metadatas");
+const hash = require('object-hash');
 
 let wallet = cardanocliJs.wallet("testNetWallet");
 
@@ -31,10 +32,10 @@ let newQuery = {}
 
 const verifyTransaction = function () {
 
-        oldQuery = newQuery
+        oldQuery = hash(newQuery)
         console.log("oldQuery")
         console.log(oldQuery)
-        newQuery = cardanocliJs.queryUtxo(wallet.paymentAddr)
+        newQuery = hash(cardanocliJs.queryUtxo(wallet.paymentAddr))
         console.log("newQuery")
         console.log(newQuery)
 
