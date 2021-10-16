@@ -84,45 +84,7 @@ router.get("/test", (req, res) => {
 
 router.post("/test", async (req, res) => {
 	console.log(JSON.stringify(wallet.balance(), null, 4));
-
-	const receiver = "addr1q9zhz9q6a5et7863hy88kkk8zxrdzmjhe4sgnhcxrhqtm6955xueark5lyvkkl9696p3sr65cehxcfjr4dtadllv0n9q0wfysm"
-	const txInfo = {
-		txIn: cardanocliJs.queryUtxo(wallet.paymentAddr),
-		txOut: [
-			{
-				address: receiver,
-				value: {
-					lovelace: wallet.balance().value.lovelace,
-					"6654c3dca29414a1404479fe989fae1794623d2c4733ca8891645c7f.Nighthawks" : 1
-				}
-			}
-		]
-	}
-
-	console.log(txInfo);
-
-	const raw = cardanocliJs.transactionBuildRaw(txInfo)
-
-	const fee = cardanocliJs.transactionCalculateMinFee({
-															...txInfo,
-															txBody: raw,
-															witnessCount: 1
-														})
-
-	txInfo.txOut[0].value.lovelace -= fee
-
-	const tx = cardanocliJs.transactionBuildRaw({ ...txInfo, fee })
-
-	const txSigned = cardanocliJs.transactionSign({
-													  txBody: tx,
-													  signingKeys: [wallet.payment.skey]
-												  })
-
-	const txHash = cardanocliJs.transactionSubmit(txSigned)
-
-	console.log(txHash)
-
-
+	
 	return res.status(200).json({ message: "working" });
 });
 
