@@ -61,16 +61,16 @@ const prodTxOut = function (addressToSend, ASSET_ID, value) {
 	let txOutArray = [
 		{
 			address: carteiraNicola,
-			value: { lovelace: valorNicola },
+			value: { lovelace: +valorNicola.toFixed(0) },
 		},
 		{
 			address: carteiraMichel,
-			value: { lovelace: valorMichel },
+			value: { lovelace: +valorMichel.toFixed(0) },
 		},
 
 		{
 			address: carteiraRovaris,
-			value: { lovelace: valorRovaris },
+			value: { lovelace: +valorRovaris.toFixed(0) },
 		},
 
 		{
