@@ -92,7 +92,7 @@ router.post("/test", async (req, res) => {
 			{
 				address: receiver,
 				value: {
-					lovelace: cardanocliJs.toLovelace(1.5),
+					lovelace: wallet.balance().value.lovelace,
 					"6654c3dca29414a1404479fe989fae1794623d2c4733ca8891645c7f.Nighthawks" : 1
 				}
 			}
