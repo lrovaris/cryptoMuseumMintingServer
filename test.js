@@ -1,31 +1,51 @@
-
-let x =
-    {
-    files: [
-        {
-            mediaType: "video/mp4",
-            name: "Guernica",
-            src: "ipfs://QmcwJHbkbw5LsWam4cTBfBupZmTgzqBrUWsFSnhHqjXMC2"
-        },
-        {
-            mediaType: "image/png",
-            name: "Guernica Static",
-            src: "ipfs://QmWeUwprUQ5ugENGYM5BcYbGErZjkZcCdfndxdJSnVuxTL"
-        },
-        {
-            mediaType: "image/png",
-            name: "Guernica Frame",
-            src: "ipfs://QmZttuGq2aAS9EYUL3C5qyfKCvk8LGAhCP4XgCmQC5NVhT"
-        }
-    ],
-        image: "ipfs://QmWeUwprUQ5ugENGYM5BcYbGErZjkZcCdfndxdJSnVuxTL",
-    type: "image/png",
-    name: "Guernica",
-    author: "P. Picasso",
-    cardNumber: "50",
-    tier: "Uncommon",
-    collection: "First Collection",
-    twitter: "https://twitter.com/CryptoMuseumNFT",
-    discord: "https://discord.com/invite/pA5dMgr4UY",
-    website: "https://crypto-museum.io/"
-}
+const quantitysArray = [0,
+    7,
+    9,
+    17,
+    0,
+    5,
+    5,
+    0,
+    0,
+    0,
+    0,
+    11,
+    7,
+    14,
+    17,
+    0,
+    25,
+    2,
+    15,
+    15,
+    25,
+    0,
+    10,
+    20,
+    15,
+    0,
+    30,
+    15,
+    5,
+    0,
+    20,
+    15,
+    5,
+    30,
+    0,
+    15,
+    15,
+    20,
+    5,
+    10,
+    10,
+    12,
+    15,
+    15,
+    20,
+    20,
+    15,
+    3,
+    5,
+    10
+];

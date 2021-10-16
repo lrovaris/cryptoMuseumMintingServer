@@ -19,8 +19,7 @@ if (getEnv() === "testnet") {
 	wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
 }
 
-const quantitysArray = [
-	0,
+const quantitysArray = [0,
 	7,
 	9,
 	17,
@@ -45,7 +44,7 @@ const quantitysArray = [
 	10,
 	20,
 	15,
-	1,
+	0,
 	30,
 	15,
 	5,
