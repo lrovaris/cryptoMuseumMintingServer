@@ -52,7 +52,7 @@ const prodTxOut = function (addressToSend, ASSET_ID, value) {
 
 	valorAtual -= valorCliente;
 
-	const valorMichel = 0.25 * valorAtual;
+	const valorMichel = Math.floor(0.25 * valorAtual);
 
 	valorAtual -= valorMichel;
 
@@ -61,16 +61,16 @@ const prodTxOut = function (addressToSend, ASSET_ID, value) {
 	let txOutArray = [
 		{
 			address: carteiraNicola,
-			value: { lovelace: +valorNicola.toFixed(0) },
+			value: { lovelace: valorNicola },
 		},
 		{
 			address: carteiraMichel,
-			value: { lovelace: +valorMichel.toFixed(0) },
+			value: { lovelace: valorMichel },
 		},
 
 		{
 			address: carteiraRovaris,
-			value: { lovelace: +valorRovaris.toFixed(0) },
+			value: { lovelace: valorRovaris },
 		},
 
 		{
@@ -102,7 +102,7 @@ const testTxOut = function (addressToSend, ASSET_ID, value) {
 
 	valorAtual -= valorCliente;
 
-	const valorDois = 0.25 * valorAtual;
+	const valorDois = Math.floor(0.25 * valorAtual);
 
 	valorAtual -= valorDois;
 
@@ -111,16 +111,16 @@ const testTxOut = function (addressToSend, ASSET_ID, value) {
 	let txOutArray = [
 		{
 			address: carteiraTres,
-			value: { lovelace: +valorTres.toFixed(0) },
+			value: { lovelace: valorTres },
 		},
 		{
 			address: carteiraDois,
-			value: { lovelace: +valorDois.toFixed(0) },
+			value: { lovelace: valorDois },
 		},
 
 		{
 			address: carteiraUm,
-			value: { lovelace: +valorUm.toFixed(0) },
+			value: { lovelace: valorUm },
 		},
 
 		{
