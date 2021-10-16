@@ -455,7 +455,7 @@ const metadataArray = [
         image: "ipfs://Qmcm7nYzS3oSWXGmc29GsAQ9aqBJZXrqyyRcyrs5ZAniUJ",
         type: "image/png",
         name: "The Great Wave of Kanagawa",
-        author: "E. Hopper",
+        author: "K. Hokusai",
         cardNumber: "16",
         tier: "magnum opus",
         collection: "First Collection",
@@ -481,7 +481,7 @@ const metadataArray = [
                 src: "ipfs://QmRMZCjnnJPeqCfMJhCeZGHC8nY313xtfekEVAXNAsogWs"
             }
         ],
-        image: "ipfs://Qmcm7nYzS3oSWXGmc29GsAQ9aqBJZXrqyyRcyrs5ZAniUJ",
+        image: "ipfs://QmZ3fB9wYoU2kebauXzhB3WZPJhUfDLLWRQeSKLygWe3zk",
         type: "image/png",
         name: "La Belle Ferroniere",
         author: "L. Da Vinci",
@@ -568,7 +568,7 @@ const metadataArray = [
                 src: "ipfs://QmZ648jiNfg9UroaJi6RUgpm53TvJihP3vrUfso5xzUXUu"
             }
         ],
-        image: "ipfs://QmRDstT6xy7g7wrDzFfUdaZGQ3hjndsieEHeqnL5SWSMvd",
+        image: "ipfs://QmardHmwtTnSAC8u4GBr7c5DKAvvfh4676GTA5Tjr6dJUC",
         type: "image/png",
         name: "The Creation of Adam",
         author: "Michelangelo",

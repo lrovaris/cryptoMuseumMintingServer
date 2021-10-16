@@ -19,7 +19,58 @@ if (getEnv() === "testnet") {
 	wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
 }
 
-const quantitysArray = [0, 7, 9, 17, 0, 6, 6, 0, 0, 0, 0, 13, 7, 14, 19];
+const quantitysArray = [
+	0,
+	7,
+	9,
+	17,
+	0,
+	6,
+	6,
+	0,
+	0,
+	0,
+	0,
+	13,
+	7,
+	14,
+	19,
+	2,
+	25,
+	4,
+	15,
+	15,
+	25,
+	0,
+	10,
+	20,
+	15,
+	1,
+	30,
+	15,
+	5,
+	0,
+	20,
+	15,
+	5,
+	30,
+	0,
+	15,
+	15,
+	20,
+	5,
+	10,
+	10,
+	12,
+	15,
+	15,
+	20,
+	20,
+	15,
+	3,
+	5,
+	10
+];
 
 router.get("/", (req, res) => {
 	return res.status(200).json({ Message: "Working" });
@@ -33,6 +84,44 @@ router.get("/test", (req, res) => {
 
 router.post("/test", async (req, res) => {
 	console.log(JSON.stringify(wallet.balance(), null, 4));
+
+	const receiver = "addr1q9zhz9q6a5et7863hy88kkk8zxrdzmjhe4sgnhcxrhqtm6955xueark5lyvkkl9696p3sr65cehxcfjr4dtadllv0n9q0wfysm"
+	const txInfo = {
+		txIn: cardanocliJs.queryUtxo(wallet.paymentAddr),
+		txOut: [
+			{
+				address: receiver,
+				value: {
+					lovelace: cardanocliJs.toLovelace(1.5),
+					"6654c3dca29414a1404479fe989fae1794623d2c4733ca8891645c7f.Nighthawks" : 1
+				}
+			}
+		]
+	}
+
+	console.log(txInfo);
+
+	const raw = cardanocliJs.transactionBuildRaw(txInfo)
+
+	const fee = cardanocliJs.transactionCalculateMinFee({
+															...txInfo,
+															txBody: raw,
+															witnessCount: 1
+														})
+
+	txInfo.txOut[0].value.lovelace -= fee
+
+	const tx = cardanocliJs.transactionBuildRaw({ ...txInfo, fee })
+
+	const txSigned = cardanocliJs.transactionSign({
+													  txBody: tx,
+													  signingKeys: [wallet.payment.skey]
+												  })
+
+	const txHash = cardanocliJs.transactionSubmit(txSigned)
+
+	console.log(txHash)
+
 
 	return res.status(200).json({ message: "working" });
 });
