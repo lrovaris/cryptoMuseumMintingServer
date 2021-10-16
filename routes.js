@@ -25,16 +25,16 @@ const quantitysArray = [
 	9,
 	17,
 	0,
-	6,
-	6,
+	5,
+	5,
 	0,
 	0,
 	0,
 	0,
-	13,
+	11,
 	7,
 	14,
-	19,
+	17,
 	2,
 	25,
 	4,
@@ -84,7 +84,7 @@ router.get("/test", (req, res) => {
 
 router.post("/test", async (req, res) => {
 	console.log(JSON.stringify(wallet.balance(), null, 4));
-	
+
 	return res.status(200).json({ message: "working" });
 });
 

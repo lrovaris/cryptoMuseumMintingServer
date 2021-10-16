@@ -647,7 +647,7 @@ const metadataArray = [
             {
                 mediaType: "image/png",
                 name: "Les Demoiselles d Avignon Static",
-                src: "ipfs://QmdiaE86xtW4hsVwu9oQNmMeeDdP7FDkzwpqErHvQeadhj"
+                src: "ipfs://QmcFJ2HgKjNzPewgtomZdyH8N9rXgDj8XhfECT2WUr2JLu"
             },
             {
                 mediaType: "image/png",
@@ -655,7 +655,7 @@ const metadataArray = [
                 src: "ipfs://QmbTTBsVLExhGMxE1nKrBLCMz7id6MfGspL4QfRQzeoQM7"
             }
         ],
-        image: "ipfs://QmdiaE86xtW4hsVwu9oQNmMeeDdP7FDkzwpqErHvQeadhj",
+        image: "ipfs://QmcFJ2HgKjNzPewgtomZdyH8N9rXgDj8XhfECT2WUr2JLu",
         type: "image/png",
         name: "Les Demoiselles d Avignon",
         author: "P. Picasso",
@@ -670,23 +670,23 @@ const metadataArray = [
         files: [
             {
                 mediaType: "video/mp4",
-                name: "Arranjement in Grey and Black",
+                name: "Arrangement in Grey and Black",
                 src: "ipfs://QmXA6mjtDKfUN4Bj6s9U4nUqyGPuEPY4PBo71WAQFyo4E8"
             },
             {
                 mediaType: "image/png",
-                name: "Arranjement in Grey and Black Static",
-                src: "ipfs://QmTQnJVXf3TnaJ3PhnNNhEzWAjQkUa5A4YQHtVEKJ4nh8P"
+                name: "Arrangement in Grey and Black Static",
+                src: "ipfs://QmYW3EGw46R155gFxmWQutaiCznA9Lozue99EJggds6tQ7"
             },
             {
                 mediaType: "image/png",
-                name: "Arranjement in Grey and Black Frame",
+                name: "Arrangement in Grey and Black Frame",
                 src: "ipfs://QmSGBCAcpvfkfLMo1Tj66tiEvYVbvnU1p2Yyq5sPRnSERm"
             }
         ],
-        image: "ipfs://QmTQnJVXf3TnaJ3PhnNNhEzWAjQkUa5A4YQHtVEKJ4nh8P",
+        image: "ipfs://QmYW3EGw46R155gFxmWQutaiCznA9Lozue99EJggds6tQ7",
         type: "image/png",
-        name: "Arranjement in Grey and Black",
+        name: "Arrangement in Grey and Black",
         author: "J. Whistler",
         cardNumber: "24",
         tier: "Common",
@@ -1177,7 +1177,7 @@ const metadataArray = [
                 src: "ipfs://QmTVmAKv1JqGNsWAPoHmaVoVtaYneKgV753HUAptTYasFH"
             }
         ],
-        image: "ipfs://Qmcc6ok9PsFQqNkvfyWKsBsKU7LZj27m8dWrDcjWzZz5Zw",
+        image: "ipfs://QmbD6Lp27gAGoWbYoiNHuyRRkB27oBCUo6xkYWk87u7NYv",
         type: "image/png",
         name: "The Night Watch",
         author: "Rembrandt",
@@ -1238,7 +1238,7 @@ const metadataArray = [
         image: "ipfs://QmbqnBXJYY3NGs9NncPDXUJYvGVNSsfPkkcwr73tGv5jLi",
         type: "image/png",
         name: "Impression, Sunrise",
-        author: "Claude Monet",
+        author: "C. Monet",
         cardNumber: "43",
         tier: "Common",
         collection: "First Collection",
@@ -1293,7 +1293,7 @@ const metadataArray = [
                 src: "ipfs://QmXRUGCfLyJBrJnHxasm4aWawMtBSySz4WM6c11vghPgVv"
             }
         ],
-        image: "ipfs://QmQXgQq3nBwknRnBfzRAhmVgTAsXLMnxo9J3MXeypLdcXC",
+        image: "ipfs://QmbXRsfSuNU9yTe9dTCxByuy4BgNSzGBHJX6J7wa5DCfxL",
         type: "image/png",
         name: "Golconda",
         author: "R. Magritte",
@@ -1380,7 +1380,7 @@ const metadataArray = [
                 src: "ipfs://QmTr9sFuBBZFNDdTaXx9aYNqy4tKTNVU1ZfW5WQKkLNZHC"
             }
         ],
-        image: "ipfs://QmfCJuERcKoazrtDgRwyBPo2PyMGi4qQTTCRnPqSJLtsVY",
+        image: "ipfs://QmZn1vb5HdygjAGVNbbwAhmnhSZ6cUGXLW85DaxoVSTqJ6",
         type: "image/png",
         name: "Sunflowers",
         author: "Van Gogh",
