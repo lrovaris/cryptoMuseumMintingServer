@@ -67,7 +67,7 @@ const quantitysArray = [
 	19,
 	20,
 	15,
-	2,
+	1,
 	3,
 	6,
 ];
