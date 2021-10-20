@@ -1,14 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const { cardanocliJs } = require("./cardano");
-
 const { getEnv } = require("./getEnv");
-
 const metadataArray = require("./metadatas");
-const list = require("./listOfValues");
-
 const { mintAsset } = require("./mintAsset");
-
+const list = require("./listOfValues");
 const { refundHandler } = require("./refund/refund");
 
 let wallet;
