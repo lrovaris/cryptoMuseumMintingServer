@@ -52,7 +52,7 @@ const prodTxOut = function (addressToSend, ASSET_ID, value) {
 
 	valorAtual -= valorCliente;
 
-	const valorMichel = Math.floor(0.25 * valorAtual);
+	const valorMichel = Math.floor(0.4 * valorAtual);
 
 	valorAtual -= valorMichel;
 
