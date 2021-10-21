@@ -11,7 +11,7 @@ if (getEnv() === "testnet") {
     wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
 }
 
-const sender = cardanocliJs.wallet('cryptoMuseum')
+const sender = cardanocliJs.wallet('cryptoMuseumTest')
 
 
 const sendFakeAdas = function () {
