@@ -25,7 +25,7 @@ const sendFakeAdas = function () {
                 address: sender.paymentAddr,
                 value: {
                     lovelace:
-                        cardanocliJs.toLovelace(2),
+                        cardanocliJs.toLovelace(3),
                         'fd9cafe6c9885725bd3bcb16d89b86ed422b19ef63719679501b337c.Nighthawks': 1,
                         'f3e5931b3f6bc0abef3be20f4dd8c8d81f60a530b053918d0c4e4c2a.nicoDesigner': 1,
                         '33dc77e72fc27f435c594da81d324eb0aa9f15c0b69f24ac053fdac6.TheFallenTest': 1,
@@ -40,7 +40,7 @@ const sendFakeAdas = function () {
             {
                 address: receiver,
                 value: {
-                    lovelace: sender.balance().value.lovelace - cardanocliJs.toLovelace(2),
+                    lovelace: sender.balance().value.lovelace - cardanocliJs.toLovelace(3),
                 },
             },
         ],
