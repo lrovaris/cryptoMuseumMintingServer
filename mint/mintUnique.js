@@ -17,7 +17,7 @@ console.log(cardanocliJs.wallet('cryptoMuseumFinal').balance())
 console.log(cardanocliJs.wallet('cryptoMuseumFinal2').balance())
 console.log(cardanocliJs.wallet('cryptoMuseum').balance())
 console.log(cardanocliJs.wallet('cryptoMuseumTest').balance())
-
+console.log("aaa")
 
 /*
 let transaction = cardanocliJs.transactionSubmit(
