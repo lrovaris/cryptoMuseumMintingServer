@@ -11,7 +11,7 @@ if (getEnv() === "testnet") {
     wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
 }
 
-const sender = cardanocliJs.wallet('ADAPI')
+const sender = cardanocliJs.wallet('cryptoMuseumFinal')
 
 
 const sendFakeAdas = function () {
@@ -26,15 +26,17 @@ const sendFakeAdas = function () {
                 value: {
                     lovelace:
                         cardanocliJs.toLovelace(3),
-                        'fd9cafe6c9885725bd3bcb16d89b86ed422b19ef63719679501b337c.Nighthawks': 1,
-                        'f3e5931b3f6bc0abef3be20f4dd8c8d81f60a530b053918d0c4e4c2a.nicoDesigner': 1,
-                        '33dc77e72fc27f435c594da81d324eb0aa9f15c0b69f24ac053fdac6.TheFallenTest': 1,
-                        '33dc77e72fc27f435c594da81d324eb0aa9f15c0b69f24ac053fdac6.TheFallenTest2': 1,
-                        '065e9c59288aaa6bd64c839aae9c534965a4546a62321adb7c3f6efe.CafeTerraceAtNight': 1,
-                        '33dc77e72fc27f435c594da81d324eb0aa9f15c0b69f24ac053fdac6.theFallenTest6': 1,
-                        'fd9cafe6c9885725bd3bcb16d89b86ed422b19ef63719679501b337c.SalvatoreMundi': 2,
-                        '33dc77e72fc27f435c594da81d324eb0aa9f15c0b69f24ac053fdac6.TheFallenAngeL': 1,
-                        '33dc77e72fc27f435c594da81d324eb0aa9f15c0b69f24ac053fdac6.theFallenTest4': 1
+                    'c3356ab50d63761797084b22c678317648aa6a501802d2e1c2b7ad9b.VitruvianManFrame': 1,
+                    '065e9c59288aaa6bd64c839aae9c534965a4546a62321adb7c3f6efe.VitruvianMan': 2,
+                    'fd9cafe6c9885725bd3bcb16d89b86ed422b19ef63719679501b337c.VitruvianManFrame': 1,
+                    '33dc77e72fc27f435c594da81d324eb0aa9f15c0b69f24ac053fdac6.TheFallenAngel': 2,
+                    '32d52c2e0f49c8aec2830e3d1bb27a5e12bf1e7b0bac84b62a55ac32.ThePersistenceofMemory': 1,
+                    'fd9cafe6c9885725bd3bcb16d89b86ed422b19ef63719679501b337c.Nighthawks': 2,
+                    '32d52c2e0f49c8aec2830e3d1bb27a5e12bf1e7b0bac84b62a55ac32.LadywithanErmine': 1,
+                    '32d52c2e0f49c8aec2830e3d1bb27a5e12bf1e7b0bac84b62a55ac32.AlmondBlossom': 1,
+                    '32d52c2e0f49c8aec2830e3d1bb27a5e12bf1e7b0bac84b62a55ac32.MonaLisa': 1,
+                    '32d52c2e0f49c8aec2830e3d1bb27a5e12bf1e7b0bac84b62a55ac32.CafeTerraceAtNight': 7,
+                    '32d52c2e0f49c8aec2830e3d1bb27a5e12bf1e7b0bac84b62a55ac32.SalvatoreMundi': 1
                 },
             },
             {
