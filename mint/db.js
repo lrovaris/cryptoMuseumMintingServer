@@ -30,7 +30,7 @@ async function update_collection(collection_id, cardNumber) {
 
     let updatedCollection
 
-    let allCollections = await controller.get_collections();
+    let allCollections = await db_conn.collection("collections").find({}).toArray();
 
     let thisCollection = allCollections.find(_collection_id => collection_id === _collection_id)
 
@@ -44,14 +44,14 @@ async function update_collection(collection_id, cardNumber) {
             w: "majority",
             upsert: false
         });
+        console.log(`Modificados ${updatedCollection.result.nModified} elementos`);
+
+        await get_collection();
+
+        return updatedCollection.ops[0];
 
     }
-
-    console.log(`Modificados ${updatedCollection.result.nModified} elementos`);
-
-    await get_collection();
-
-    return updatedCollection.ops[0];
+    
 }
 
 
