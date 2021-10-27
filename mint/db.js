@@ -1,6 +1,7 @@
 const ObjectId = require('mongodb').ObjectId;
 const db_utils = require('../db.js');
 const cache = require('../memoryCache');
+const controller = require('./controller')
 
 async function get_collection() {
     let db_conn = await db_utils.get_db();
@@ -29,7 +30,7 @@ async function update_collection(collection_id, cardNumber) {
 
     let updatedCollection
 
-    let allCollections = await get_collection();
+    let allCollections = await controller.get_collections();
 
     let thisCollection = allCollections.find(_collection_id => collection_id === _collection_id)
 
