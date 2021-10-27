@@ -55,17 +55,16 @@ async function update_collection(collection_id, cardNumber) {
 
         if (thisCollection) {
 
-            thisCollection.quantity[cardNumber - 1] = -1;
+            thisCollection.quantity[cardNumber - 1] -= 1;
 
             updatedCollection = await db_conn.collection("collections").replaceOne({_id: new ObjectId(collection_id)}, thisCollection, {
                 w: "majority",
                 upsert: false
             });
-            console.log(`Modificados ${updatedCollection.result.nModified} elementos`);
 
             await get_collection();
 
-            return updatedCollection.ops[0];
+            console.log('a')
 
         }
     }, 0)
