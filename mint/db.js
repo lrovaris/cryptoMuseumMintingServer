@@ -33,6 +33,8 @@ async function update_collection(collection_id, cardNumber) {
 
     let thisCollection = allCollections.find(_collection_id => collection_id === _collection_id)
 
+    console.log(thisCollection)
+
     if (thisCollection) {
 
         thisCollection.quantity[cardNumber - 1] = -1;
