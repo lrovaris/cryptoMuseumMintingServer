@@ -34,7 +34,7 @@ async function update_collection(collection_id, cardNumber) {
     let allCollections = await db_conn.collection("collections").find({}).toArray();
 
     setTimeout( async ()=> {
-        thisCollection = allCollections.find(_collection_id => collection_id._id == ObjectId(_collection_id))
+        thisCollection = allCollections.find(_collection_id => collection_id._id == new ObjectId(_collection_id))
 
         console.log(thisCollection)
 
@@ -55,7 +55,7 @@ async function update_collection(collection_id, cardNumber) {
             return updatedCollection.ops[0];
 
         }
-    }, 5000)
+    }, 0)
 
 }
 
