@@ -27,6 +27,11 @@ async function register_collection(quantityArray) {
 async function update_collection(collection_id, cardNumber) {
 
     let db_conn = await db_utils.get_db();
+    let collection_name
+
+    if (collection_id === '617972583e99e3f0656c6455') {
+        collection_name = 'Halloween 2021'
+    }
 
     let updatedCollection
     let thisCollection
@@ -34,12 +39,8 @@ async function update_collection(collection_id, cardNumber) {
     let allCollections = await db_conn.collection("collections").find({}).toArray();
 
     setTimeout( async ()=> {
-        thisCollection = allCollections.find(_collection_id => collection_id._id == new ObjectId(_collection_id))
-
-        console.log(thisCollection)
-
-        console.log(allCollections)
-
+        thisCollection = allCollections.find(_collection_id => collection_id.name === collection_name)
+        
         if (thisCollection) {
 
             thisCollection.quantity[cardNumber - 1] = -1;
