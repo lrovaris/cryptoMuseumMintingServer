@@ -41,7 +41,7 @@ async function update_collection(collection_id, cardNumber) {
     setTimeout( async ()=> {
         thisCollection = allCollections.find(_collection_id =>
         {
-            console.log(_collection_id.name.toString())
+            console.log(collection_name.toString())
           return  collection_id.name.toString() === collection_name.toString()
         })
 
