@@ -11,4 +11,4 @@ const createWallet = (account) => {
 	return cardanocliJs.wallet(account);
 };
 
-createWallet("testNetWallet");
+createWallet("cryptoMuseumHalloween");

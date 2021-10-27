@@ -3,16 +3,21 @@ const router = express.Router();
 const { cardanocliJs } = require("./cardano");
 const { getEnv } = require("./getEnv");
 const metadataArray = require("./metadatas");
+const halloweenMetadataArray = require ('./metadata/halloweenMetadata')
 const { mintAsset } = require("./mintAsset");
 const list = require("./listOfValues");
 const { refundHandler } = require("./refund/refund");
+const { mintHalloween } = require('./mint/mintHalloween')
+
 
 let wallet;
+let halloweenWallet;
 
 if (getEnv() === "testnet") {
 	wallet = cardanocliJs.wallet("testNetWallet");
 } else {
 	wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
+	halloweenWallet = cardanocliJs.wallet("cryptoMuseumHalloween");
 }
 
 const quantitysArray = [
@@ -138,6 +143,30 @@ router.post("/mint", async (req, res) => {
 	}
 	quantitysArray[req.body.number - 1] =
 		+quantitysArray[req.body.number - 1] + +1;
+	return res.status(200).json({ message: "didn't receive yet" });
+});
+
+router.post("/mint/halloween", async (req, res) => {
+
+	if (req.body.value < list[req.body.number - 1]) {
+		return res.status(200).json({ rs: "not today :3" });
+	}
+
+	let x = halloweenWallet.balance().utxo.find((utxo) => {
+		return utxo.value.lovelace.toString() == req.body.value.toString();
+	});
+	if (x) {
+		let transaction = cardanocliJs.transactionSubmit(
+			mintHalloween(
+				halloweenMetadataArray[req.body.number - 1],
+				req.body.value,
+				req.body.receiver
+			)
+		);
+
+		return res.status(200).json({ message: "check your wallet" });
+	}
+
 	return res.status(200).json({ message: "didn't receive yet" });
 });
 
