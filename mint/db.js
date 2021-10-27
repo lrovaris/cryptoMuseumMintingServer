@@ -39,19 +39,7 @@ async function update_collection(collection_id, cardNumber) {
     let allCollections = await db_conn.collection("collections").find({}).toArray();
 
     setTimeout( async ()=> {
-        thisCollection = allCollections.find(_collection_id =>
-        {
-            console.log(_collection_id.name ," ", collection_name)
-          return  _collection_id.name === collection_name
-        })
-
-        console.log(collection_id)
-
-        console.log(collection_name)
-
-        console.log(thisCollection)
-
-        console.log(allCollections)
+        thisCollection = allCollections.find(_collection_id => _collection_id.name === collection_name)
 
         if (thisCollection) {
 
@@ -63,8 +51,6 @@ async function update_collection(collection_id, cardNumber) {
             });
 
             await get_collection();
-
-            console.log('a')
 
         }
     }, 0)
