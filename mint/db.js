@@ -35,7 +35,7 @@ async function update_collection(collection_id, cardNumber) {
 
     if (thisCollection) {
 
-        thisCollection.quantityArray[cardNumber - 1] = -1;
+        thisCollection.quantity[cardNumber - 1] = -1;
 
         updatedCollection = await db_conn.collection("collections").replaceOne({_id: new ObjectId(collection_id)}, thisCollection, {
             w: "majority",

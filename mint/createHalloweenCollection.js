@@ -19,7 +19,7 @@ let halloweenCollectionObject = {
 }
 
 async function teste() {
-  await db.register_collection(halloweenCollectionObject)
+  await db.update_collection('617972583e99e3f0656c6455', 1)
 }
 
 teste();

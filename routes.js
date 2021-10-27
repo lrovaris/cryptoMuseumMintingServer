@@ -6,9 +6,13 @@ const metadataArray = require("./metadatas");
 const halloweenMetadataArray = require ('./metadata/halloweenMetadata')
 const { mintAsset } = require("./mintAsset");
 const list = require("./listOfValues");
+const halloweenList = require('./halloweenValues')
 const { refundHandler } = require("./refund/refund");
 const { mintHalloween } = require('./mint/mintHalloween')
 
+
+let lastQueryHash = ''
+let halloween_id = '617972583e99e3f0656c6455'
 
 let wallet;
 let halloweenWallet;
