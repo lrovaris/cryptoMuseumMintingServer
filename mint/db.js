@@ -29,28 +29,28 @@ async function update_collection(collection_id, cardNumber) {
     let db_conn = await db_utils.get_db();
 
     let updatedCollection
+    let thisCollection
 
     let allCollections = await db_conn.collection("collections").find({}).toArray();
 
-    let thisCollection = allCollections.find(_collection_id => collection_id === _collection_id)
+    setTimeout( async ()=> {
+        thisCollection = allCollections.find(_collection_id => collection_id === _collection_id)
+        if (thisCollection) {
 
-    console.log(thisCollection)
+            thisCollection.quantity[cardNumber - 1] = -1;
 
-    if (thisCollection) {
+            updatedCollection = await db_conn.collection("collections").replaceOne({_id: new ObjectId(collection_id)}, thisCollection, {
+                w: "majority",
+                upsert: false
+            });
+            console.log(`Modificados ${updatedCollection.result.nModified} elementos`);
 
-        thisCollection.quantity[cardNumber - 1] = -1;
+            await get_collection();
 
-        updatedCollection = await db_conn.collection("collections").replaceOne({_id: new ObjectId(collection_id)}, thisCollection, {
-            w: "majority",
-            upsert: false
-        });
-        console.log(`Modificados ${updatedCollection.result.nModified} elementos`);
+            return updatedCollection.ops[0];
 
-        await get_collection();
-
-        return updatedCollection.ops[0];
-
-    }
+        }
+    }, 5000)
     
 }
 
