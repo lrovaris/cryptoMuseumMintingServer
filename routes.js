@@ -200,6 +200,7 @@ router.post("/mint/halloween", async (req, res) => {
 
 			halloweenQuantitysArray = await controller.get_halloweenQuantitys()
 			await controller.updateHalloweeenQuantity(req.body.number)
+			currentUtxoHash = hash(halloweenWallet.balance().utxo)
 			return res.status(200).json({ message: "check your wallet" });
 		}
 
