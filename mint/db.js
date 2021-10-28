@@ -14,8 +14,13 @@ async function get_collection() {
 }
 
 async function get_halloweenQuantityArray() {
+
+    console.log('rs')
+
     let thisCollection
+
     let db_conn = await db_utils.get_db();
+
     let allCollections = await db_conn.collection("collections").find({}).toArray();
     setTimeout( ()=> {
         thisCollection = allCollections.find(_collection_id => _collection_id.name === 'Halloween 2021')

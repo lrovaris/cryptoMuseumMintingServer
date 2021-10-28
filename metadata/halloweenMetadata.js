@@ -23,7 +23,7 @@ let halloweenMetadata = [
         author: "Peter Kurten",
         cardNumber: "1",
         tier: "Psycho",
-        collection: "Halloween 2021",
+        collection: "CryptoMuseums Halloween 2021",
         twitter: "https://twitter.com/CryptoMuseumNFT",
         discord: "https://discord.com/invite/pA5dMgr4UY",
         website: "https://crypto-museum.io/"
@@ -52,7 +52,7 @@ let halloweenMetadata = [
         author: "Charles Manson",
         cardNumber: "2",
         tier: "Psycho",
-        collection: "Halloween 2021",
+        collection: "CryptoMuseums Halloween 2021",
         twitter: "https://twitter.com/CryptoMuseumNFT",
         discord: "https://discord.com/invite/pA5dMgr4UY",
         website: "https://crypto-museum.io/"
@@ -81,7 +81,7 @@ let halloweenMetadata = [
         author: "Killer Clown",
         cardNumber: "3",
         tier: "Psycho",
-        collection: "Halloween 2021",
+        collection: "CryptoMuseums Halloween 2021",
         twitter: "https://twitter.com/CryptoMuseumNFT",
         discord: "https://discord.com/invite/pA5dMgr4UY",
         website: "https://crypto-museum.io/"
@@ -110,7 +110,7 @@ let halloweenMetadata = [
         author: "Ted Bundy",
         cardNumber: "4",
         tier: "Psycho",
-        collection: "Halloween 2021",
+        collection: "CryptoMuseums Halloween 2021",
         twitter: "https://twitter.com/CryptoMuseumNFT",
         discord: "https://discord.com/invite/pA5dMgr4UY",
         website: "https://crypto-museum.io/"
@@ -136,10 +136,10 @@ let halloweenMetadata = [
         image: "ipfs://QmVaskBkur9fu2dRBZW6mFexoMihWivBudKTE65BQKsTEY",
         type: "image/png",
         name: "The Head Of Bluebird",
-        author: "Ted Bundy",
+        author: "Henri Desire Landru",
         cardNumber: "5",
         tier: "Psycho",
-        collection: "Halloween 2021",
+        collection: "CryptoMuseums Halloween 2021",
         twitter: "https://twitter.com/CryptoMuseumNFT",
         discord: "https://discord.com/invite/pA5dMgr4UY",
         website: "https://crypto-museum.io/"
@@ -168,7 +168,7 @@ let halloweenMetadata = [
         author: "Al Capone",
         cardNumber: "6",
         tier: "Psycho",
-        collection: "Halloween 2021",
+        collection: "CryptoMuseums Halloween 2021",
         twitter: "https://twitter.com/CryptoMuseumNFT",
         discord: "https://discord.com/invite/pA5dMgr4UY",
         website: "https://crypto-museum.io/"
@@ -197,7 +197,7 @@ let halloweenMetadata = [
         author: "Jack The Ripper",
         cardNumber: "7",
         tier: "Ripper",
-        collection: "Halloween 2021",
+        collection: "CryptoMuseums Halloween 2021",
         twitter: "https://twitter.com/CryptoMuseumNFT",
         discord: "https://discord.com/invite/pA5dMgr4UY",
         website: "https://crypto-museum.io/"
@@ -226,7 +226,7 @@ let halloweenMetadata = [
         author: "Blackout Ripper",
         cardNumber: "8",
         tier: "Ripper",
-        collection: "Halloween 2021",
+        collection: "CryptoMuseums Halloween 2021",
         twitter: "https://twitter.com/CryptoMuseumNFT",
         discord: "https://discord.com/invite/pA5dMgr4UY",
         website: "https://crypto-museum.io/"
@@ -255,7 +255,7 @@ let halloweenMetadata = [
         author: "Peter Sutcliffe",
         cardNumber: "9",
         tier: "Ripper",
-        collection: "Halloween 2021",
+        collection: "CryptoMuseums Halloween 2021",
         twitter: "https://twitter.com/CryptoMuseumNFT",
         discord: "https://discord.com/invite/pA5dMgr4UY",
         website: "https://crypto-museum.io/"
@@ -284,7 +284,7 @@ let halloweenMetadata = [
         author: "Annabelle",
         cardNumber: "10",
         tier: "Supernatural",
-        collection: "Halloween 2021",
+        collection: "CryptoMuseums Halloween 2021",
         twitter: "https://twitter.com/CryptoMuseumNFT",
         discord: "https://discord.com/invite/pA5dMgr4UY",
         website: "https://crypto-museum.io/"
