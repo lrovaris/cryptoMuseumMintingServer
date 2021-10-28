@@ -2,6 +2,7 @@ const { getEnv } = require("../getEnv");
 const { cardanocliJs } = require("../cardano");
 const metadataArray = require("../metadatas");
 const { mintAsset } = require("../mintAsset");
+const { sendFakeAda } = require('../test/sendFakeAdasFromFakeWallets')
 
 let wallet;
 
@@ -11,6 +12,11 @@ if (getEnv() === "testnet") {
     wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
 }
 
+
+sendFakeAda('fake-wallet-0', 10)
+
+/*
+
 let transaction = cardanocliJs.transactionSubmit(
     mintAsset(
         metadataArray[34],
@@ -19,8 +25,6 @@ let transaction = cardanocliJs.transactionSubmit(
     )
 );
 
-
-/*
 console.log(cardanocliJs.wallet('ADAPI').balance())
 console.log(cardanocliJs.wallet('cryptoMuseumFinal').balance())
 console.log(cardanocliJs.wallet('cryptoMuseumFinal2').balance())
