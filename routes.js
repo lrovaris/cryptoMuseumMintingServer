@@ -165,6 +165,11 @@ router.post("/mint/halloween", async (req, res) => {
 
 	setTimeout( async ()=> {
 		console.log(halloweenQuantitysArray)
+
+		if(!halloweenQuantitysArray) {
+			return res.status(200).json({ message: "no data in cache, try again" });
+		}
+
 		if (halloweenQuantitysArray[+req.body.number - +1] == 0) {
 			return res.status(200).json({ message: "sold out" });
 		}
