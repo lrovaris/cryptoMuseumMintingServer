@@ -16,7 +16,7 @@ const  controller  = require('./mint/controller')
 let lastQueryHash = ''
 let halloween_id = '617972583e99e3f0656c6455'
 
-let halloweenQuantitysArray = controller.get_halloweenQuantitys()
+let halloweenQuantitysArray
 
 let wallet;
 let halloweenWallet;
@@ -156,39 +156,45 @@ router.post("/mint", async (req, res) => {
 });
 
 router.post("/mint/halloween", async (req, res) => {
-	if (halloweenQuantitysArray[+req.body.number - +1] == 0) {
-		return res.status(200).json({ message: "sold out" });
-	}
-	let currentUtxoHash = hash(halloweenWallet.balance().utxo)
 
-	if (req.body.value < halloweenList[req.body.number - 1]) {
-		return res.status(200).json({ rs: "not today :3" });
-	}
+	halloweenQuantitysArray = await controller.get_halloweenQuantitys()
 
-	if (currentUtxoHash === lastQueryHash) {
-		return res.status(200).json({ message: "you're hungry" });
-	}
+	setTimeout( async ()=> {
+		console.log(halloweenQuantitysArray)
+		if (halloweenQuantitysArray[+req.body.number - +1] == 0) {
+			return res.status(200).json({ message: "sold out" });
+		}
+		let currentUtxoHash = hash(halloweenWallet.balance().utxo)
 
-	lastQueryHash = currentUtxoHash
+		if (req.body.value < halloweenList[req.body.number - 1]) {
+			return res.status(200).json({ rs: "not today :3" });
+		}
 
-	let x = halloweenWallet.balance().utxo.find((utxo) => {
-		return utxo.value.lovelace.toString() == req.body.value.toString();
-	});
-	if (x) {
-		let transaction = cardanocliJs.transactionSubmit(
-			mintHalloween(
-				halloweenMetadataArray[req.body.number - 1],
-				req.body.value,
-				req.body.receiver
-			)
-		);
+		if (currentUtxoHash === lastQueryHash) {
+			return res.status(200).json({ message: "you're hungry" });
+		}
 
-		halloweenQuantitysArray = await controller.get_halloweenQuantitys()
-		await controller.updateHalloweeenQuantity(req.body.number)
-		return res.status(200).json({ message: "check your wallet" });
-	}
+		lastQueryHash = currentUtxoHash
 
-	return res.status(200).json({ message: "didn't receive yet" });
+		let x = halloweenWallet.balance().utxo.find((utxo) => {
+			return utxo.value.lovelace.toString() == req.body.value.toString();
+		});
+		if (x) {
+			let transaction = cardanocliJs.transactionSubmit(
+				mintHalloween(
+					halloweenMetadataArray[req.body.number - 1],
+					req.body.value,
+					req.body.receiver
+				)
+			);
+
+			halloweenQuantitysArray = await controller.get_halloweenQuantitys()
+			await controller.updateHalloweeenQuantity(req.body.number)
+			return res.status(200).json({ message: "check your wallet" });
+		}
+
+		return res.status(200).json({ message: "didn't receive yet" });
+	},0)
 });
 
 module.exports = router;
