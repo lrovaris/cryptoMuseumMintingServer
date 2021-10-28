@@ -26,6 +26,7 @@ async function register_collection(quantityArray) {
 
 async function update_collection(collection_id, cardNumber) {
 
+    console.log('mandei dar update')
     let db_conn = await db_utils.get_db();
     let collection_name
 
@@ -52,6 +53,7 @@ async function update_collection(collection_id, cardNumber) {
 
             await get_collection();
 
+            console.log('chegou no update resultado é esse: ', JSON.stringify(updatedCollection,null,2))
         }
     }, 0)
 

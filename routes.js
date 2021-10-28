@@ -178,7 +178,7 @@ router.post("/mint/halloween", async (req, res) => {
 			)
 		);
 
-		await halloweenDbTest.update_collection('', req.body.number)
+		await halloweenDbTest.update_collection('617972583e99e3f0656c6455', req.body.number)
 		return res.status(200).json({ message: "check your wallet" });
 	}
 
