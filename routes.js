@@ -9,7 +9,7 @@ const list = require("./listOfValues");
 const halloweenList = require('./halloweenValues')
 const { refundHandler } = require("./refund/refund");
 const { mintHalloween } = require('./mint/mintHalloween')
-const { hash } = require("object-hash")
+const  hash = require('object-hash');
 const  halloweenDbTest = require('./mint/db.js')
 
 let lastQueryHash = ''
