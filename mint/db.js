@@ -66,7 +66,7 @@ async function update_collection(collection_id, cardNumber) {
                 upsert: false
             });
 
-            await get_collection();
+            await get_halloweenQuantityArray();
 
             console.log('chegou no update resultado é esse: ', JSON.stringify(updatedCollection,null,2))
         }
