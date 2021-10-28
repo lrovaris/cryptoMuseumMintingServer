@@ -2,7 +2,8 @@ const { getEnv } = require("../getEnv");
 const { cardanocliJs } = require("../cardano");
 const metadataArray = require("../metadatas");
 const { mintAsset } = require("../mintAsset");
-const { sendFakeAda } = require('../test/sendFakeAdasFromFakeWallets')
+const { sendFakeAda }  = require('../test/sendFakeAdasFromFakeWallets.js')
+const {sendFakeAdas} = require("../test/sendFakeAdasFromFakeWallets");
 
 let wallet;
 
@@ -13,7 +14,7 @@ if (getEnv() === "testnet") {
 }
 
 
-sendFakeAda('fake-wallet-0', 10)
+sendFakeAdas('fake-wallet-0', 10)
 
 /*
 
