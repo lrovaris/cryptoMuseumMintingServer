@@ -157,6 +157,8 @@ router.post("/mint", async (req, res) => {
 
 router.post("/mint/halloween", async (req, res) => {
 
+	let currentUtxoHash = hash(halloweenWallet.balance().utxo)
+
 	try {
 		halloweenQuantitysArray = await controller.get_halloweenQuantitys()
 	} catch (err) {
@@ -164,7 +166,6 @@ router.post("/mint/halloween", async (req, res) => {
 	}
 
 	setTimeout( async ()=> {
-		console.log(halloweenQuantitysArray)
 
 		if(!halloweenQuantitysArray) {
 			return res.status(200).json({ message: "no data in cache, try again" });
@@ -173,7 +174,7 @@ router.post("/mint/halloween", async (req, res) => {
 		if (halloweenQuantitysArray[+req.body.number - +1] == 0) {
 			return res.status(200).json({ message: "sold out" });
 		}
-		let currentUtxoHash = hash(halloweenWallet.balance().utxo)
+
 
 		if (req.body.value < halloweenList[req.body.number - 1]) {
 			return res.status(200).json({ rs: "not today :3" });
