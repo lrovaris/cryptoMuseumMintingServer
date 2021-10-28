@@ -157,7 +157,11 @@ router.post("/mint", async (req, res) => {
 
 router.post("/mint/halloween", async (req, res) => {
 
-	halloweenQuantitysArray = await controller.get_halloweenQuantitys()
+	try {
+		halloweenQuantitysArray = await controller.get_halloweenQuantitys()
+	} catch (err) {
+		console.log(err)
+	}
 
 	setTimeout( async ()=> {
 		console.log(halloweenQuantitysArray)

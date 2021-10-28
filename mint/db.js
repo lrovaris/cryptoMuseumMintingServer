@@ -1,7 +1,6 @@
 const ObjectId = require('mongodb').ObjectId;
 const db_utils = require('../db.js');
 const cache = require('../memoryCache');
-const controller = require('./controller')
 
 async function get_collection() {
     let db_conn = await db_utils.get_db();

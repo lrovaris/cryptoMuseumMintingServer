@@ -6,7 +6,6 @@ async function get_collections() {
 }
 
 async function get_halloweenQuantitys() {
-    await  console.log(db.update_collection('', 1))
     return cache.get('halloweenArray') || await db.get_halloweenQuantityArray();
 }
 
