@@ -13,6 +13,17 @@ async function get_collection() {
     return db_entries;
 }
 
+async function get_halloweenQuantityArray() {
+    let thisCollection
+    let db_conn = await db_utils.get_db();
+    let allCollections = await db_conn.collection("collections").find({}).toArray();
+    setTimeout( ()=> {
+        thisCollection = allCollections.find(_collection_id => _collection_id.name === 'Halloween 2021')
+        cache.set("halloweenArray", thisCollection.quantity);
+        return thisCollection.quantity
+    },0)
+}
+
 async function register_collection(quantityArray) {
     let db_conn = await db_utils.get_db();
 
@@ -60,4 +71,4 @@ async function update_collection(collection_id, cardNumber) {
 }
 
 
-module.exports = {get_collection, register_collection, update_collection};
+module.exports = {get_collection, register_collection, update_collection, get_halloweenQuantityArray};

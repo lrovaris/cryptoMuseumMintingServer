@@ -206,23 +206,23 @@ let halloweenMetadata = [
         files: [
             {
                 mediaType: "video/mp4",
-                name: "The Blackout Ripper s tool",
+                name: "The Blackout Rippers tool",
                 src: "ipfs://QmXFgvP1bnWkbfdvehUocqkwHBCyRVmBZ3zE7gcDQQ2q1m"
             },
             {
                 mediaType: "image/png",
-                name: "The Blackout Ripper s tool Static",
+                name: "The Blackout Rippers tool Static",
                 src: "ipfs://QmauM5aeaC5efCT6iLG9co24ZXYoLGgEhY756zKJyDmpfT"
             },
             {
                 mediaType: "image/png",
-                name: "The Blackout Ripper s tool Frame",
+                name: "The Blackout Rippers tool Frame",
                 src: "ipfs://QmUSWkSPdmNnNmoiYaMn3gDapjAQrZQDThSZeAgrikwQLS"
             }
         ],
         image: "ipfs://QmauM5aeaC5efCT6iLG9co24ZXYoLGgEhY756zKJyDmpfT",
         type: "image/png",
-        name: "The Blackout Ripper s tool",
+        name: "The Blackout Rippers tool",
         author: "Blackout Ripper",
         cardNumber: "8",
         tier: "Ripper",
@@ -235,23 +235,23 @@ let halloweenMetadata = [
         files: [
             {
                 mediaType: "video/mp4",
-                name: "The Yorkshire Ripper s Toolset",
+                name: "The Yorkshire Rippers Toolset",
                 src: "ipfs://QmbiaZomT7rByohZqmfebfjdmDgeiQYPqpNDZDC5PFPBwa"
             },
             {
                 mediaType: "image/png",
-                name: "The Yorkshire Ripper s Toolset Static",
+                name: "The Yorkshire Rippers Toolset Static",
                 src: "ipfs://QmY5WAbmVGe3LNQU93SgbcmGkGB1DBFgcMsJAfbp8Spzxg"
             },
             {
                 mediaType: "image/png",
-                name: "The Yorkshire Ripper s Toolset Frame",
+                name: "The Yorkshire Rippers Toolset Frame",
                 src: "ipfs://QmcfUzkiS8HD5jTH8zrkPz95CNYVrzATACHrK3JypGNDAU"
             }
         ],
         image: "ipfs://QmY5WAbmVGe3LNQU93SgbcmGkGB1DBFgcMsJAfbp8Spzxg",
         type: "image/png",
-        name: "The Yorkshire Ripper s Toolset",
+        name: "The Yorkshire Rippers Toolset",
         author: "Peter Sutcliffe",
         cardNumber: "9",
         tier: "Ripper",
