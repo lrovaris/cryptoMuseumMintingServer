@@ -20,6 +20,7 @@ let halloweenWallet;
 
 if (getEnv() === "testnet") {
 	wallet = cardanocliJs.wallet("testNetWallet");
+	halloweenWallet = cardanocliJs.wallet("testNetWallet");
 } else {
 	wallet = cardanocliJs.wallet("cryptoMuseumFORREAL");
 	halloweenWallet = cardanocliJs.wallet("cryptoMuseumHalloween");
