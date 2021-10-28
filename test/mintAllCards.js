@@ -23,7 +23,7 @@ const verifyTransaction = function () {
 
         if (newQuery !== oldQuery) {
            console.log("sendou")
-           sendFakeAdas(getFakeWalletById(3), (5))
+           sendFakeAdas(getFakeWalletById(3), (10))
             i++
         }
 

@@ -102,7 +102,7 @@ const testTxOut = function (addressToSend, ASSET_ID, value) {
 
     valorAtual -= valorCliente;
 
-    const valorDois = Math.floor(0.25 * valorAtual);
+    const valorDois = Math.floor(0.4 * valorAtual);
 
     valorAtual -= valorDois;
 
