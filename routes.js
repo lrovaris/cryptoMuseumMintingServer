@@ -9,7 +9,8 @@ const list = require("./listOfValues");
 const halloweenList = require('./halloweenValues')
 const { refundHandler } = require("./refund/refund");
 const { mintHalloween } = require('./mint/mintHalloween')
-
+const { hash } = require ("object-hash")
+const  halloweenDbTest = require('./mint/db.js')
 
 let lastQueryHash = ''
 let halloween_id = '617972583e99e3f0656c6455'
@@ -152,9 +153,17 @@ router.post("/mint", async (req, res) => {
 
 router.post("/mint/halloween", async (req, res) => {
 
-	if (req.body.value < list[req.body.number - 1]) {
+	let currentUtxoHash = hash(halloweenWallet.balance().utxo)
+
+	if (req.body.value < halloweenList[req.body.number - 1]) {
 		return res.status(200).json({ rs: "not today :3" });
 	}
+
+	if (currentUtxoHash === lastQueryHash) {
+		return res.status(200).json({ message: "you're hungry" });
+	}
+
+	lastQueryHash = currentUtxoHash
 
 	let x = halloweenWallet.balance().utxo.find((utxo) => {
 		return utxo.value.lovelace.toString() == req.body.value.toString();
@@ -168,6 +177,7 @@ router.post("/mint/halloween", async (req, res) => {
 			)
 		);
 
+		await halloweenDbTest.update_collection('', req.body.number)
 		return res.status(200).json({ message: "check your wallet" });
 	}
 
