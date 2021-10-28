@@ -17,7 +17,18 @@ let lastQueryHash = ''
 let halloween_id = '617972583e99e3f0656c6455'
 
 let halloweenQuantitysArray
-
+let galleryHalloweenQuantitysArray = [
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1,
+	1
+]
 let wallet;
 let halloweenWallet;
 
@@ -182,6 +193,7 @@ router.post("/mint/halloween", async (req, res) => {
 
 		if (currentUtxoHash === lastQueryHash) {
 			return res.status(200).json({ message: "you're hungry" });
+			lastQueryHash = currentUtxoHash
 		}
 
 		lastQueryHash = currentUtxoHash
@@ -205,6 +217,24 @@ router.post("/mint/halloween", async (req, res) => {
 		}
 
 		return res.status(200).json({ message: "didn't receive yet" });
+	},0)
+});
+
+router.post("/halloween/isItAvaibleToMint", async (req, res) => {
+	let galleryHalloweenQuantitysArray = await controller.get_halloweenQuantitys()
+	setTimeout( ()=> {
+		if (galleryHalloweenQuantitysArray[req.body.number] <= 0) {
+			return res.status(200).json({
+				message: "sold out",
+				status: false,
+				left: +galleryHalloweenQuantitysArray[req.body.number],
+			});
+		}
+		return res.status(200).json({
+			left: +galleryHalloweenQuantitysArray[req.body.number],
+			message: "Mint yours now!",
+			status: true,
+		});
 	},0)
 });
 
