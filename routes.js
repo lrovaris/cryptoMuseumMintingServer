@@ -63,7 +63,7 @@ const quantitysArray = [
 	12,
 	25,
 	0,
-	9,
+	8,
 	20,
 	14,
 	0,
@@ -189,7 +189,7 @@ router.post("/mintHalloween", async (req, res) => {
 		if (req.body.value < halloweenList[req.body.number - 1]) {
 			return res.status(200).json({ rs: "not today :3" });
 		}
-		
+
 
 		let x = halloweenWallet.balance().utxo.find((utxo) => {
 			return utxo.value.lovelace.toString() == req.body.value.toString();
