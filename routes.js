@@ -166,7 +166,7 @@ router.post("/mint", async (req, res) => {
 	return res.status(200).json({ message: "didn't receive yet" });
 });
 
-router.post("/mint/halloween", async (req, res) => {
+router.post("/mintHalloween", async (req, res) => {
 
 	let currentUtxoHash = hash(halloweenWallet.balance().utxo)
 
@@ -243,6 +243,11 @@ router.post("/halloweenIsItAvaibleToMint", async (req, res) => {
 
 router.get('/resetLastHash', (res) => {
 	lastQueryHash = ''
+})
+
+router.get('/collectionHalloween', async (res)=> {
+	let x = await halloweenDbTest.get_halloweenQuantityArray()
+	setTimeout(()=>{return res.status(200).json({message: x,});},0)
 })
 
 module.exports = router;
