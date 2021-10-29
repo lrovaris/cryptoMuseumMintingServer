@@ -220,7 +220,7 @@ router.post("/mint/halloween", async (req, res) => {
 	},0)
 });
 
-router.post("/halloween/isItAvaibleToMint", async (req, res) => {
+router.post("/halloweenIsItAvaibleToMint", async (req, res) => {
 	let galleryHalloweenQuantitysArray = await controller.get_halloweenQuantitys()
 	setTimeout( ()=> {
 		if (galleryHalloweenQuantitysArray[req.body.number] <= 0) {
