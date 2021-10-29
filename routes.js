@@ -42,7 +42,7 @@ if (getEnv() === "testnet") {
 
 const quantitysArray = [
 	0,
-	3,
+	0,
 	9,
 	17,
 	0,
