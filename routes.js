@@ -245,7 +245,7 @@ router.get('/resetLastHash', (res) => {
 	lastQueryHash = ''
 })
 
-router.get('/collectionHalloween', async (res)=> {
+router.get('/collectionHalloween', async (req,res)=> {
 	let x = await halloweenDbTest.get_halloweenQuantityArray()
 	setTimeout(()=>{return res.status(200).json({message: x,});},0)
 })
