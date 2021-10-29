@@ -52,10 +52,10 @@ const quantitysArray = [
 	0,
 	0,
 	0,
-	11,
-	6,
+	10,
+	5,
 	14,
-	16,
+	14,
 	0,
 	24,
 	0,
@@ -192,8 +192,8 @@ router.post("/mint/halloween", async (req, res) => {
 		}
 
 		if (currentUtxoHash === lastQueryHash) {
+			setTimeout( ()=> {currentUtxoHash = ''},60000)
 			return res.status(200).json({ message: "you're hungry" });
-			lastQueryHash = currentUtxoHash
 		}
 
 		lastQueryHash = currentUtxoHash
@@ -237,6 +237,10 @@ router.post("/halloween/isItAvaibleToMint", async (req, res) => {
 		});
 	},0)
 });
+
+router.get('/resetLastHash', (res) => {
+	lastQueryHash = ''
+})
 
 module.exports = router;
 
