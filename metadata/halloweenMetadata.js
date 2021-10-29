@@ -119,23 +119,23 @@ let halloweenMetadata = [
         files: [
             {
                 mediaType: "video/mp4",
-                name: "The Head Of Bluebird",
+                name: "The Head Of Bluebeard",
                 src: "ipfs://QmWH6ZswWwL3GCh3viJA4ggEidLyFpNq8sNkyutBDdA48D"
             },
             {
                 mediaType: "image/png",
-                name: "The Head Of Bluebird Static",
+                name: "The Head Of Bluebeard Static",
                 src: "ipfs://QmVaskBkur9fu2dRBZW6mFexoMihWivBudKTE65BQKsTEY"
             },
             {
                 mediaType: "image/png",
-                name: "The Head Of Bluebird Frame",
+                name: "The Head Of Bluebeard Frame",
                 src: "ipfs://QmRnxkUQtUfSaBsqyvkNSUq6LFiqe61gBQNrkKHhd9wqtZ"
             }
         ],
         image: "ipfs://QmVaskBkur9fu2dRBZW6mFexoMihWivBudKTE65BQKsTEY",
         type: "image/png",
-        name: "The Head Of Bluebird",
+        name: "The Head Of Bluebeard",
         author: "Henri Desire Landru",
         cardNumber: "5",
         tier: "Psycho",
