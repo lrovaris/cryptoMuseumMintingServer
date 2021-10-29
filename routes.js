@@ -42,7 +42,7 @@ if (getEnv() === "testnet") {
 
 const quantitysArray = [
 	0,
-	0,
+	3,
 	9,
 	17,
 	0,
@@ -76,7 +76,7 @@ const quantitysArray = [
 	3,
 	30,
 	0,
-	14,
+	13,
 	15,
 	19,
 	5,
@@ -87,7 +87,7 @@ const quantitysArray = [
 	14,
 	19,
 	20,
-	15,
+	14,
 	1,
 	3,
 	6,
@@ -168,7 +168,6 @@ router.post("/mint", async (req, res) => {
 
 router.post("/mintHalloween", async (req, res) => {
 
-	let currentUtxoHash = hash(halloweenWallet.balance().utxo)
 
 	try {
 		halloweenQuantitysArray = await controller.get_halloweenQuantitys()
@@ -190,13 +189,7 @@ router.post("/mintHalloween", async (req, res) => {
 		if (req.body.value < halloweenList[req.body.number - 1]) {
 			return res.status(200).json({ rs: "not today :3" });
 		}
-
-		if (currentUtxoHash === lastQueryHash) {
-			setTimeout( ()=> {currentUtxoHash = ''},60000)
-			return res.status(200).json({ message: "you're hungry" });
-		}
-
-		lastQueryHash = currentUtxoHash
+		
 
 		let x = halloweenWallet.balance().utxo.find((utxo) => {
 			return utxo.value.lovelace.toString() == req.body.value.toString();
@@ -212,7 +205,6 @@ router.post("/mintHalloween", async (req, res) => {
 
 			halloweenQuantitysArray = await controller.get_halloweenQuantitys()
 			await controller.updateHalloweeenQuantity(req.body.number)
-			currentUtxoHash = hash(halloweenWallet.balance().utxo)
 			return res.status(200).json({ message: "check your wallet" });
 		}
 
