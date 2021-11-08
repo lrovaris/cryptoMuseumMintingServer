@@ -42,7 +42,7 @@ if (getEnv() === "testnet") {
 
 const quantitysArray = [
 	0,
-	3,
+	0,
 	9,
 	17,
 	0,
@@ -53,14 +53,14 @@ const quantitysArray = [
 	0,
 	0,
 	10,
-	5,
+	4,
 	14,
-	14,
+	12,
 	0,
 	24,
 	0,
 	15,
-	12,
+	11,
 	25,
 	0,
 	8,
@@ -74,7 +74,7 @@ const quantitysArray = [
 	19,
 	15,
 	3,
-	30,
+	27,
 	0,
 	13,
 	15,
@@ -90,7 +90,7 @@ const quantitysArray = [
 	14,
 	1,
 	3,
-	6,
+	5,
 ];
 
 router.get("/", (req, res) => {
