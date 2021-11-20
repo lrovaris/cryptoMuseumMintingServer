@@ -23,30 +23,7 @@ const mintScript = {
     type: "sig",
 };
 const POLICY_ID = cardanocliJs.transactionPolicyid(mintScript);
-const metadata_1 = {
-    721: {
-        [POLICY_ID]: {
-            [_metadata1.name.replace(/\s/g, "")]: {},
-        },
-    },
-};
 
-metadata_1["721"][`${POLICY_ID}`][_metadata1.name.replace(/\s/g, "")] =
-    _metadata1;
-const ASSET_ID_1 = `${POLICY_ID}.${_metadata1.name.replace(/\s/g, "")}`;
-
-
-const metadata_2 = {
-    721: {
-        [POLICY_ID]: {
-            [_metadata2.name.replace(/\s/g, "")]: {},
-        },
-    },
-};
-
-metadata_2["721"][`${POLICY_ID}`][_metadata2.name.replace(/\s/g, "")] =
-    _metadata2;
-const ASSET_ID_2 = `${POLICY_ID}.${_metadata2.name.replace(/\s/g, "")}`;
 const x = function () {
 
     const receiver = "addr1qy0md3978mwx2z3a8rlywdpknmc655g6tdj2qy3a5veq6qk50ap8s0se070jvgdqzvhsa9nnv3hfyhng7nlf8pdf92tsx4v4af"
